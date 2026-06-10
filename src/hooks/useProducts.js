@@ -23,14 +23,16 @@ export function useProducts() {
       .then(csv => {
         const parsed = parseSheetCSV(csv);
         if (parsed.length > 0) {
-          // Merge sheet data with fallback gradients/images for products that match by SKU.
-          // Sheet "Photo 1" wins; otherwise keep the locally matched Drive image.
+          // Normalise name for fuzzy matching when SKU is absent
+          const norm = s => s?.toLowerCase().replace(/[—–-]/g, ' ').replace(/\s+/g, ' ').trim() || '';
           const enriched = parsed.map(p => {
-            const fallback = FALLBACK_PRODUCTS.find(f => f.sku === p.sku);
+            const fallback = FALLBACK_PRODUCTS.find(f => f.sku && f.sku === p.sku)
+                          || FALLBACK_PRODUCTS.find(f => norm(f.name) === norm(p.name));
             return {
               ...p,
               gradient: fallback?.gradient || null,
               handmade: fallback?.handmade || false,
+              // Sheet image wins only if it's a real image URL; otherwise use Drive thumbnail
               image:    p.image || fallback?.image || null,
               gallery:  fallback?.gallery || null,
             };

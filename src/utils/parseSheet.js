@@ -40,28 +40,43 @@ export function parseSheetCSV(csvText) {
   const iPhoto1      = idx('photo 1') ?? idx('photo1') ?? idx('image 1') ?? idx('image') ?? idx('photo');
   const iWeight      = idx('weight') ?? null;
 
+  // Only treat a URL as a usable image if it points to an actual image file or Google Drive
+  const isImageUrl = url => url && (
+    url.includes('drive.google.com') ||
+    url.includes('googleusercontent.com') ||
+    /\.(jpg|jpeg|png|webp|gif|avif|svg)(\?|$)/i.test(url)
+  );
+
   const products = [];
+  let currentCategory = 'Other';
 
   for (let i = 1; i < lines.length; i++) {
     const row = parseCSVRow(lines[i]);
     const name = row[iTitle]?.trim();
-    if (!name) continue;
+    const groupCell = iSection != null ? row[iSection]?.trim() : '';
+
+    // Section header rows (e.g. "Handmade", "Tubes") have a group but no product name
+    if (!name) {
+      if (groupCell) currentCategory = groupCell;
+      continue;
+    }
 
     const priceRaw = row[iPrice]?.replace(/[^0-9.]/g, '');
     const qtyRaw   = row[iQty]?.replace(/[^0-9]/g, '');
+    const photoRaw = iPhoto1 != null ? row[iPhoto1]?.trim() : null;
 
     products.push({
       id: i,
       name,
       sku:         row[iSku]?.trim()    || '',
-      category:    row[iSection]?.trim() || 'Other',
+      category:    groupCell || currentCategory,
       price:       parseFloat(priceRaw) || 0,
       stock:       parseInt(qtyRaw)     || 0,
       description: row[iDesc]?.trim()   || '',
-      tags:        (row[iTags] || '').split(',').map(t => t.trim()).filter(Boolean),
-      materials:   row[iMaterials]?.trim() || '',
+      tags:        iTags != null ? (row[iTags] || '').split(',').map(t => t.trim()).filter(Boolean) : [],
+      materials:   iMaterials != null ? (row[iMaterials]?.trim() || '') : '',
       weight:      iWeight != null ? row[iWeight]?.trim() : '',
-      image:       iPhoto1 != null ? (row[iPhoto1]?.trim() || null) : null,
+      image:       isImageUrl(photoRaw) ? photoRaw : null,
     });
   }
 
