@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function StockBadge({ stock }) {
   if (stock === 0) return <span className="stock-badge out-stock">Sold Out</span>;
@@ -18,7 +18,9 @@ export default function ProductModal({ product, onClose }) {
   }, [onClose]);
 
   const { name, category, price, stock, image, gradient, handmade,
-          description, tags, materials, size, weight, sku } = product;
+          description, tags, materials, size, weight, sku, gallery } = product;
+
+  const [activeImage, setActiveImage] = useState(image);
 
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
@@ -28,8 +30,8 @@ export default function ProductModal({ product, onClose }) {
         <div className="modal-inner">
           {/* ── Image column ── */}
           <div className="modal-image-col">
-            {image ? (
-              <img src={image} alt={name}
+            {activeImage ? (
+              <img src={activeImage} alt={name} key={activeImage}
                 onError={e => {
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'block';
@@ -38,8 +40,22 @@ export default function ProductModal({ product, onClose }) {
             ) : null}
             <div
               className="card-gradient"
-              style={{ background: gradient || '#1C1308', display: image ? 'none' : 'block', height: '100%' }}
+              style={{ background: gradient || '#1C1308', display: activeImage ? 'none' : 'block', height: '100%' }}
             />
+            {gallery?.length > 1 && (
+              <div className="modal-gallery">
+                {gallery.map(src => (
+                  <button
+                    key={src}
+                    className={`modal-gallery-thumb ${src === activeImage ? 'active' : ''}`}
+                    onClick={() => setActiveImage(src)}
+                    aria-label="View photo"
+                  >
+                    <img src={src} alt="" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* ── Content column ── */}
@@ -52,7 +68,7 @@ export default function ProductModal({ product, onClose }) {
             <h2 className="modal-title">{name}</h2>
 
             <div className="modal-price-row">
-              <span className="modal-price">€{price}</span>
+              <span className="modal-price">{price ? `€${price}` : 'On request'}</span>
               <StockBadge stock={stock} />
             </div>
 

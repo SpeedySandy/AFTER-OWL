@@ -23,12 +23,23 @@ export function useProducts() {
       .then(csv => {
         const parsed = parseSheetCSV(csv);
         if (parsed.length > 0) {
-          // Merge sheet data with fallback gradients for products that match by SKU
+          // Merge sheet data with fallback gradients/images for products that match by SKU.
+          // Sheet "Photo 1" wins; otherwise keep the locally matched Drive image.
           const enriched = parsed.map(p => {
             const fallback = FALLBACK_PRODUCTS.find(f => f.sku === p.sku);
-            return { ...p, gradient: fallback?.gradient || null, handmade: fallback?.handmade || false };
+            return {
+              ...p,
+              gradient: fallback?.gradient || null,
+              handmade: fallback?.handmade || false,
+              image:    p.image || fallback?.image || null,
+              gallery:  fallback?.gallery || null,
+            };
           });
-          setProducts(enriched);
+          // Keep local-only products (e.g. HALO Mirror) that aren't in the sheet yet
+          const sheetSkus = new Set(enriched.map(p => p.sku).filter(Boolean));
+          const localOnly = FALLBACK_PRODUCTS.filter(f => !sheetSkus.has(f.sku))
+            .map(f => ({ ...f, id: `local-${f.id}` }));
+          setProducts([...enriched, ...localOnly]);
           setSource('sheets');
         }
         setError(null);

@@ -1,3 +1,5 @@
+import { driveThumb } from '../config.js';
+
 export const FALLBACK_PRODUCTS = [
   // ── HANDMADE ──────────────────────────────────────────────────────────────
   {
@@ -64,6 +66,30 @@ export const FALLBACK_PRODUCTS = [
     weight: '~500 g',
     gradient: 'linear-gradient(145deg, #0F1520 0%, #4A5568 35%, #A0AEC0 65%, #E2E8F0 100%)',
   },
+  {
+    id: 24,
+    sku: 'HAN-HALO-MIRROR',
+    name: 'HALO Mirror — Blue Stained Glass',
+    category: 'Handmade',
+    price: null,
+    stock: 1,
+    handmade: true,
+    image: driveThumb('1Jl0LCi5Il92ElJGQUMNuRzwjeSE5w2ax'),
+    gallery: [
+      driveThumb('1Jl0LCi5Il92ElJGQUMNuRzwjeSE5w2ax'),
+      driveThumb('1lb12FnZUiofSduC-esIOqLwwdfUa3CqC'),
+      driveThumb('1ZKC7NFRURQwRWrHclKBgeWskE2DkYd0f'),
+      driveThumb('1KqUc8F-JGp8Zd48hfKBybo5n7snHmmNp'),
+      driveThumb('13lc5iznwUfTPBojAMIbNIGxO7RaUx6DS'),
+      driveThumb('1IAKDGTRbH5j8P7ZTBSGe3NQ96bwaBZM0'),
+    ],
+    description: `The HALO Mirror — a one-of-a-kind handmade round mirror framed in blue pearlescent stained-glass-style resin segments, with a detachable mini clip-on lamp.\n\nStep 1. Deploy HALO — lift the lid with confidence. You're entering restricted territory.\nStep 2. Activate Light Module — clip the magnetic lamp on and adjust until the illumination is razor-sharp.\nStep 3. Mission Surface — engineered for visual diagnostics, style calibration, and night-out readiness.\nStep 4. Maintain Stealth — wipe, reset, close. Leave no trace except a suspiciously good mood.\n\nComes with a hand-airbrushed silver figure display stand decorated with holographic shards and disco-mirror tiles — a sculpture in its own right.\n\nDetails:\n• Hand-poured pearlescent resin rim, real glass mirror\n• Detachable clip-on lamp with flower-petal shade\n• Custom airbrushed display stand included\n• Absolutely one-of-a-kind\n\nGear up. Owl Style.`,
+    tags: ['HALO mirror', 'resin art', 'stained glass', 'handmade', 'one of a kind', 'lamp', 'Barcelona'],
+    materials: 'Resin + glass mirror + lamp',
+    size: 'Round, tabletop format',
+    weight: '—',
+    gradient: 'linear-gradient(145deg, #020817 0%, #14337A 35%, #2B5FC4 65%, #6BA3E8 100%)',
+  },
   // ── TUBES ─────────────────────────────────────────────────────────────────
   {
     id: 5,
@@ -90,6 +116,7 @@ export const FALLBACK_PRODUCTS = [
     stock: 1,
     handmade: false,
     image: null,
+    image: driveThumb('13DxwT9GX-yLTXBeVm0lAl28zoqo8F_V_'),
     description: `Vibrant blue aluminium tube — a reusable pocket straw or compact storage tube. Lightweight and built to last.\n\nPerfect for festivals, camping, or daily adventures.\n\nDetails:\n• Material: Aluminium\n• Color: Blue\n• Compact pocket size\n• Reusable & durable\n• Weight: ~8 g | Size: 7.5 × 1.0 cm`,
     tags: ['metal tube', 'blue tube', 'festival gear', 'travel accessory'],
     materials: 'Aluminium',
@@ -122,6 +149,7 @@ export const FALLBACK_PRODUCTS = [
     stock: 1,
     handmade: false,
     image: null,
+    image: driveThumb('1GjIETaZqMK8IchCevOQJDgmt4LR5VVZG'),
     description: `Classic silver aluminium tube — minimalist, durable, and pocket-sized.\n\nA reusable straw or compact storage tube. Clean design that fits any vibe.\n\nDetails:\n• Material: Aluminium\n• Color: Silver\n• Compact & lightweight\n• Reusable\n• Weight: ~8 g | Size: 7.5 × 1.0 cm`,
     tags: ['metal tube', 'silver tube', 'festival gear', 'minimalist'],
     materials: 'Aluminium',
@@ -138,6 +166,12 @@ export const FALLBACK_PRODUCTS = [
     stock: 11,
     handmade: false,
     image: null,
+    image: driveThumb('1TnL9UYYD2mOZUGoCHNrlE-Mg8GLtnhfA'),
+    gallery: [
+      driveThumb('1TnL9UYYD2mOZUGoCHNrlE-Mg8GLtnhfA'),
+      driveThumb('1pQuNLqKAT_oM3VNUDiJLVUIda_yazUVA'),
+      driveThumb('1afHgm8oOwThR1lVgk060DsgrkTscrScl'),
+    ],
     description: `EMBRACE Metal Tube Black — limited edition AFTER OWL × EMBRACE collab.\n\nA festival accessory from the EMBRACE event series. Compact aluminium tube in matte black.`,
     tags: ['EMBRACE', 'collab', 'black tube', 'festival', 'limited'],
     materials: 'Aluminium',
@@ -154,6 +188,7 @@ export const FALLBACK_PRODUCTS = [
     stock: 3,
     handmade: false,
     image: null,
+    image: driveThumb('1bU-vSCA0rIybd_bwaVcQWOtHjcRgKyLK'),
     description: `EMBRACE Metal Tube Silver — limited edition AFTER OWL × EMBRACE collab.\n\nShiny silver edition. Compact aluminium tube for festivals, raves, and everyday carry.`,
     tags: ['EMBRACE', 'collab', 'silver tube', 'festival', 'limited'],
     materials: 'Aluminium',
@@ -170,6 +205,7 @@ export const FALLBACK_PRODUCTS = [
     stock: 1,
     handmade: false,
     image: null,
+    image: driveThumb('1DyrdKFlDBJuTUoB-fUmfsBw-4tqoFt1m'),
     description: `EMBRACE Metal Tube Blue — limited edition AFTER OWL × EMBRACE collab.\n\nVibrant blue edition. Festival-ready aluminium tube.`,
     tags: ['EMBRACE', 'collab', 'blue tube', 'festival', 'limited'],
     materials: 'Aluminium',
@@ -186,6 +222,7 @@ export const FALLBACK_PRODUCTS = [
     stock: 1,
     handmade: false,
     image: null,
+    image: driveThumb('1xmGI0duWJ5pG7I1OFMT6d8jrf1hw6gRz'),
     description: `EMBRACE Metal Tube Green — limited edition AFTER OWL × EMBRACE collab.\n\nForest green edition. Festival-ready aluminium tube.`,
     tags: ['EMBRACE', 'collab', 'green tube', 'festival', 'limited'],
     materials: 'Aluminium',

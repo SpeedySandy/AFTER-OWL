@@ -29,7 +29,7 @@ export default function ProductCard({ product, onClick }) {
         <div className="card-category">{category}</div>
         <h3 className="card-name">{name}</h3>
         <div className="card-footer">
-          <span className="card-price">€{price}</span>
+          <span className="card-price">{price ? `€${price}` : 'On request'}</span>
           <StockBadge stock={stock} />
         </div>
       </div>
