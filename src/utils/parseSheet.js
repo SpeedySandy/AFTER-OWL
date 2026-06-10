@@ -29,15 +29,15 @@ export function parseSheetCSV(csvText) {
     return i >= 0 ? i : null;
   };
 
-  const iTitle       = idx('title') ?? 0;
-  const iDesc        = idx('description') ?? 1;
-  const iSection     = idx('section') ?? idx('category') ?? 11;
-  const iPrice       = idx('price') ?? 12;
-  const iQty         = idx('quantity') ?? 13;
+  const iTitle       = idx('title') ?? idx('product name') ?? idx('name') ?? 0;
+  const iDesc        = idx('description') ?? idx('notes') ?? 1;
+  const iSection     = idx('section') ?? idx('category') ?? idx('product group') ?? idx('group') ?? 11;
+  const iPrice       = idx('selling price') ?? idx('price') ?? 12;
+  const iQty         = idx('stock qty') ?? idx('stock') ?? idx('quantity') ?? 13;
   const iSku         = idx('sku') ?? 14;
-  const iTags        = idx('tags') ?? 8;
-  const iMaterials   = idx('materials') ?? 9;
-  const iPhoto1      = idx('photo 1') ?? idx('photo1') ?? idx('image 1') ?? idx('image');
+  const iTags        = idx('tags') ?? null;
+  const iMaterials   = idx('materials') ?? null;
+  const iPhoto1      = idx('photo 1') ?? idx('photo1') ?? idx('image 1') ?? idx('image') ?? idx('photo');
   const iWeight      = idx('weight') ?? null;
 
   const products = [];
