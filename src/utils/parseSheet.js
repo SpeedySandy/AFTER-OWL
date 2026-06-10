@@ -37,7 +37,7 @@ export function parseSheetCSV(csvText) {
   const iSku         = idx('sku') ?? 14;
   const iTags        = idx('tags') ?? 8;
   const iMaterials   = idx('materials') ?? 9;
-  const iPhoto1      = headers.findIndex(h => h === 'photo 1');
+  const iPhoto1      = idx('photo 1') ?? idx('photo1') ?? idx('image 1') ?? idx('image');
   const iWeight      = idx('weight') ?? null;
 
   const products = [];
@@ -61,7 +61,7 @@ export function parseSheetCSV(csvText) {
       tags:        (row[iTags] || '').split(',').map(t => t.trim()).filter(Boolean),
       materials:   row[iMaterials]?.trim() || '',
       weight:      iWeight != null ? row[iWeight]?.trim() : '',
-      image:       iPhoto1 >= 0 ? (row[iPhoto1]?.trim() || null) : null,
+      image:       iPhoto1 != null ? (row[iPhoto1]?.trim() || null) : null,
     });
   }
 

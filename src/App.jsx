@@ -8,7 +8,7 @@ import ProductModal from './components/ProductModal.jsx';
 import Footer from './components/Footer.jsx';
 
 export default function App() {
-  const { products, loading, source } = useProducts();
+  const { products, loading, source, error } = useProducts();
 
   const [search,   setSearch]   = useState('');
   const [category, setCategory] = useState('All');
@@ -56,7 +56,7 @@ export default function App() {
         <ProductGrid products={filtered} loading={loading} onSelect={setSelected} />
       </main>
 
-      <Footer source={source} productCount={products.length} />
+      <Footer source={source} productCount={products.length} error={error} />
 
       {selected && (
         <ProductModal product={selected} onClose={() => setSelected(null)} />

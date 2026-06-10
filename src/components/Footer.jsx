@@ -1,6 +1,6 @@
 import { SHEET_ID } from '../config.js';
 
-export default function Footer({ source, productCount }) {
+export default function Footer({ source, productCount, error }) {
   const year = new Date().getFullYear();
 
   return (
@@ -14,11 +14,13 @@ export default function Footer({ source, productCount }) {
       <p className="footer-copy">© {year} AFTER OWL · Barcelona · {productCount} products in showroom</p>
       {source === 'local' && SHEET_ID && (
         <p className="footer-sheet-info">
-          📊 To enable live inventory: share your{' '}
+          {error
+            ? `Sheet unavailable (${error}) — showing local data. `
+            : 'To enable live inventory: '}
           <a href={`https://docs.google.com/spreadsheets/d/${SHEET_ID}`} target="_blank" rel="noreferrer">
-            Google Sheet
+            {error ? 'Check sheet sharing settings' : 'Share your Google Sheet'}
           </a>{' '}
-          with "Anyone with the link can view"
+          {!error && 'with "Anyone with the link can view"'}
         </p>
       )}
     </footer>
