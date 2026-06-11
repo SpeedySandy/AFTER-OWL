@@ -871,7 +871,6 @@ export const FALLBACK_PRODUCTS = [
     weight: '—',
     gradient: 'linear-gradient(145deg, #030B1E 0%, #1A3A8A 40%, #4A6AC8 70%, #B8C8E8 100%)',
   },
-];
 
   // ── MORE ACCESSORIES ──────────────────────────────────────────────────────
   {
