@@ -1,14 +1,27 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { useProducts } from './hooks/useProducts.js';
-import { CATEGORIES } from './data/products.js';
 import Header from './components/Header.jsx';
 import CategoryFilter from './components/CategoryFilter.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import ProductModal from './components/ProductModal.jsx';
 import Footer from './components/Footer.jsx';
 
+const Admin = lazy(() => import('./components/Admin.jsx'));
+
+function useAdminRoute() {
+  const [open, setOpen] = useState(() => window.location.hash === '#admin');
+  useEffect(() => {
+    const handle = () => setOpen(window.location.hash === '#admin');
+    window.addEventListener('hashchange', handle);
+    return () => window.removeEventListener('hashchange', handle);
+  }, []);
+  function close() { window.location.hash = ''; setOpen(false); }
+  return [open, close];
+}
+
 export default function App() {
   const { products, loading, source, error } = useProducts();
+  const [adminOpen, closeAdmin] = useAdminRoute();
 
   const [search,   setSearch]   = useState('');
   const [category, setCategory] = useState('All');
@@ -60,6 +73,12 @@ export default function App() {
 
       {selected && (
         <ProductModal product={selected} onClose={() => setSelected(null)} />
+      )}
+
+      {adminOpen && (
+        <Suspense fallback={null}>
+          <Admin onClose={closeAdmin} />
+        </Suspense>
       )}
     </>
   );
