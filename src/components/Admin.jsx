@@ -145,10 +145,16 @@ function ProductForm({ product, onSave, onCancel }) {
 
 // ── Auth views ──────────────────────────────────────────────────────────────
 
-function AuthView({ mode, onDone, onClose }) {
+function AuthView({ mode, onDone, onClose, onReset }) {
   const [pw,  setPw]  = useState('');
   const [pw2, setPw2] = useState('');
   const [err, setErr] = useState('');
+
+  function handleReset() {
+    if (!window.confirm('Reset the admin password? Your product edits are kept — you will just set a new password.')) return;
+    localStorage.removeItem(HASH_KEY);
+    onReset();
+  }
 
   async function submit(e) {
     e.preventDefault();
@@ -186,6 +192,11 @@ function AuthView({ mode, onDone, onClose }) {
             <button type="button" onClick={onClose} className="af-btn">Cancel</button>
           </div>
         </form>
+        {mode === 'login' && (
+          <button type="button" className="af-link" onClick={handleReset}>
+            Forgot password? Reset it
+          </button>
+        )}
       </div>
     </div>
   );
@@ -249,6 +260,7 @@ export default function Admin({ onClose }) {
         mode={view}
         onDone={() => { load(); setView('panel'); }}
         onClose={onClose}
+        onReset={() => setView('setup')}
       />
     );
   }
