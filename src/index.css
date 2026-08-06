@@ -739,6 +739,17 @@ p  { font-size: .95rem; }
   object-fit: cover; border-radius: 6px;
   border: 1px solid #3a2a10; margin-top: 6px;
 }
+.af-img-preview-row {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+}
+.af-img-preview-wrap { position: relative; }
+.af-img-main-badge {
+  position: absolute; bottom: 2px; left: 2px;
+  background: var(--gold); color: #0d0804;
+  font-size: .65rem; font-weight: 700;
+  padding: 1px 6px; border-radius: 4px;
+  text-transform: uppercase;
+}
 .af-gradient-preview {
   height: 28px; border-radius: 6px; margin-top: 4px;
 }
