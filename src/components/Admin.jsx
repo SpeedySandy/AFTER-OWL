@@ -13,10 +13,27 @@ async function sha256(text) {
 
 const BLANK_PRODUCT = {
   sku: '', name: '', category: '', price: '', stock: '',
-  handmade: false, driveId: '', description: '', tags: '',
+  handmade: false, driveIds: '', description: '', tags: '',
   materials: '', size: '', weight: '',
   gradient: 'linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
 };
+
+// Accepts a raw Drive file ID or any Drive share URL and returns the bare ID.
+function extractDriveId(text) {
+  const t = text.trim();
+  if (!t) return null;
+  const urlMatch = t.match(/\/d\/([\w-]{20,})/) || t.match(/[?&]id=([\w-]{20,})/);
+  if (urlMatch) return urlMatch[1];
+  if (/^[\w-]{20,}$/.test(t)) return t;
+  return null;
+}
+
+function parseDriveIds(text) {
+  return text
+    .split(/[\n,]+/)
+    .map(extractDriveId)
+    .filter(Boolean);
+}
 
 function ProductForm({ product, onSave, onCancel }) {
   const [form, setForm] = useState(() => {
@@ -26,7 +43,7 @@ function ProductForm({ product, onSave, onCancel }) {
       price:    String(product.price ?? ''),
       stock:    String(product.stock ?? ''),
       tags:     (product.tags ?? []).join(', '),
-      driveId:  product._driveId ?? '',
+      driveIds: (product._driveIds ?? (product._driveId ? [product._driveId] : [])).join('\n'),
     };
   });
 
@@ -34,18 +51,20 @@ function ProductForm({ product, onSave, onCancel }) {
     setForm(f => ({ ...f, [field]: val }));
   }
 
+  const ids = parseDriveIds(form.driveIds || '');
+
   function handleSubmit(e) {
     e.preventDefault();
-    const driveId = form.driveId.trim();
     onSave({
       ...form,
-      id:       product?.id ?? Date.now(),
-      price:    parseFloat(form.price) || 0,
-      stock:    parseInt(form.stock, 10) || 0,
-      tags:     form.tags.split(',').map(t => t.trim()).filter(Boolean),
-      image:    driveId ? driveThumb(driveId) : (product?.image ?? null),
-      _driveId: driveId || product?._driveId || null,
-      gradient: form.gradient || BLANK_PRODUCT.gradient,
+      id:        product?.id ?? Date.now(),
+      price:     parseFloat(form.price) || 0,
+      stock:     parseInt(form.stock, 10) || 0,
+      tags:      form.tags.split(',').map(t => t.trim()).filter(Boolean),
+      image:     ids.length ? driveThumb(ids[0]) : (form.driveIds.trim() ? null : product?.image ?? null),
+      gallery:   ids.length > 1 ? ids.map(id => driveThumb(id)) : null,
+      _driveIds: ids.length ? ids : null,
+      gradient:  form.gradient || BLANK_PRODUCT.gradient,
     });
   }
 
@@ -85,18 +104,22 @@ function ProductForm({ product, onSave, onCancel }) {
         </div>
 
         <label className="af-label">
-          Google Drive File ID (photo)
-          <input
-            value={form.driveId}
-            onChange={e => set('driveId', e.target.value.trim())}
-            placeholder="Paste the ID from the Drive share URL"
+          Photos — Google Drive IDs or share links (one per line; first = main photo)
+          <textarea
+            value={form.driveIds}
+            onChange={e => set('driveIds', e.target.value)}
+            rows={3}
+            placeholder={'1AbC…xyz\nhttps://drive.google.com/file/d/1DeF…uvw/view\n1GhI…rst'}
           />
-          {(form.driveId || form._driveId) && (
-            <img
-              src={driveThumb(form.driveId || form._driveId)}
-              alt="preview"
-              className="af-img-preview"
-            />
+          {ids.length > 0 && (
+            <div className="af-img-preview-row">
+              {ids.map((id, i) => (
+                <div key={id} className="af-img-preview-wrap">
+                  <img src={driveThumb(id)} alt={`photo ${i + 1}`} className="af-img-preview" />
+                  {i === 0 && <span className="af-img-main-badge">main</span>}
+                </div>
+              ))}
+            </div>
           )}
         </label>
 
