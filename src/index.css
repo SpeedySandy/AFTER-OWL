@@ -626,6 +626,14 @@ p  { font-size: .95rem; }
 
 .af-error { color: #e05050; font-size: .85rem; }
 
+.af-link {
+  background: none; border: none; padding: 0;
+  color: var(--text-dim); font-size: .8rem;
+  text-decoration: underline; cursor: pointer;
+  align-self: flex-start;
+}
+.af-link:hover { color: var(--gold); }
+
 .af-panel {
   position: fixed; inset: 0; z-index: 1000;
   background: #0d0804;
