@@ -2,8 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { useProducts } from './hooks/useProducts.js';
 import { sortCategories } from './lib/products.js';
 import { norm } from './lib/sheet.js';
+import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
+import TrustBar from './components/TrustBar.jsx';
+import CategoryTiles from './components/CategoryTiles.jsx';
 import ShopToolbar from './components/ShopToolbar.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import ProductModal from './components/ProductModal.jsx';
@@ -60,11 +63,20 @@ export default function App() {
     if (category !== 'All' && !categories.some(c => c.name === category)) setCategory('All');
   }, [categories, category]);
 
+  const goToShop = cat => {
+    setCategory(cat || 'All');
+    setSearch('');
+    document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <>
+      <AnnouncementBar />
       <Header />
       <main>
         <Hero productCount={products.length} />
+        <TrustBar />
+        <CategoryTiles products={products} onSelect={goToShop} />
 
         <section id="shop" className="shop" aria-labelledby="shop-title">
           <div className="container">

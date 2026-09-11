@@ -74,7 +74,7 @@ export default function About() {
           <div className="popup-head">
             <p className="eyebrow">Catch us IRL</p>
             <h3>The AFTER OWL pop-up</h3>
-            <p>We set up shop at parties, retreats and festival camps. Come say hi, try the gear and take your favourite piece home.</p>
+            <p>We set up shop at parties, retreats and festival camps, including EMBRACE Collective gatherings. Come say hi, try the gear and take your favourite piece home.</p>
           </div>
           <div className="popup-grid">
             {about.popup.map((id, i) => (
