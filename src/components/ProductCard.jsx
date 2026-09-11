@@ -28,6 +28,9 @@ export default function ProductCard({ product, onClick }) {
           style={{ background: gradient || '#1C1308', display: image ? 'none' : 'block' }}
         />
         {handmade && <span className="card-handmade-badge">Handmade</span>}
+        <div className="card-quickview">
+          <span className="card-quickview-btn">Quick View</span>
+        </div>
       </div>
       <div className="card-body">
         <div className="card-category">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BRAND } from '../config.js';
 
 function StockBadge({ stock }) {
   if (stock === 0) return <span className="stock-badge out-stock">Sold Out</span>;
@@ -150,6 +151,27 @@ export default function ProductModal({ product, onClose }) {
                 </div>
               </>
             )}
+
+            <hr className="modal-divider" />
+
+            <div className="modal-cta-row">
+              <a
+                href={BRAND.etsy}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary modal-cta-btn"
+              >
+                🛍️ View on Etsy
+              </a>
+              <a
+                href={`${BRAND.instagram}`}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline modal-cta-btn"
+              >
+                📩 Ask via Instagram
+              </a>
+            </div>
 
             {sku && <div className="modal-sku">SKU: {sku}</div>}
           </div>
