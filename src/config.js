@@ -53,3 +53,12 @@ export const SHEET_ID = '1VYoB5rz-ICyDNLB8YIqZOPkhZPpUqHq0H9ffJxU_INc';
 export function driveThumb(id, size = 'w800') {
   return `https://drive.google.com/thumbnail?id=${id}&sz=${size}`;
 }
+
+// ─── Brand ───────────────────────────────────────────────────────────────────
+export const BRAND = {
+  name: 'AFTER OWL',
+  tagline: 'Gear Up. Owl Style.',
+  location: 'Barcelona, Spain',
+  instagram: 'https://www.instagram.com/afterowlshop',
+  etsy: 'https://www.etsy.com/shop/AfterOwlShop',
+};

@@ -1,10 +1,16 @@
 import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { useProducts } from './hooks/useProducts.js';
 import { sortCategories } from './data/products.js';
+import { BRAND } from './config.js';
+import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Header from './components/Header.jsx';
+import TrustBar from './components/TrustBar.jsx';
+import CategoryTiles from './components/CategoryTiles.jsx';
 import CategoryFilter from './components/CategoryFilter.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import ProductModal from './components/ProductModal.jsx';
+import StoryBanner from './components/StoryBanner.jsx';
+import ConnectSection from './components/ConnectSection.jsx';
 import Footer from './components/Footer.jsx';
 
 const Admin = lazy(() => import('./components/Admin.jsx'));
@@ -49,28 +55,54 @@ export default function App() {
     });
   }, [products, category, search]);
 
+  function goToShop(cat) {
+    if (cat) setCategory(cat);
+    document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   return (
-    <>
-      <Header search={search} onSearch={setSearch} source={source} />
+    <div id="top">
+      <AnnouncementBar />
+      <Header search={search} onSearch={setSearch} source={source} onNavigate={goToShop} />
 
       <main>
         <section className="hero">
-          <p className="hero-eyebrow">Barcelona · Tested in the Wild</p>
+          <p className="hero-eyebrow">{BRAND.location} · Tested in the Wild</p>
           <h1>
-            Curated gear for the<br />
-            <span>night owl in you</span>
+            Gear up. Get lost.<br />
+            <span>Come back with a story.</span>
           </h1>
           <p className="hero-sub">
-            From underground raves to mountaintop sunrises — handpicked, tested, and packed with love.
+            Handmade art, festival essentials, and a Secret Stash collection your bag won't
+            snitch on — hand-poured, hand-picked, and packed with love in {BRAND.location}.
           </p>
+          <div className="hero-cta-row">
+            <button className="btn btn-primary" onClick={() => goToShop()}>Shop the Collection</button>
+            <a className="btn btn-outline" href={BRAND.etsy} target="_blank" rel="noreferrer">
+              Visit our Etsy
+            </a>
+          </div>
         </section>
 
-        <CategoryFilter categories={categories} selected={category} onChange={setCategory} />
+        <TrustBar />
 
-        <ProductGrid products={filtered} loading={loading} onSelect={setSelected} />
+        <CategoryTiles onSelect={goToShop} />
+
+        <section id="shop" className="shop-section">
+          <div className="section-heading container">
+            <p className="section-eyebrow">The Full Lineup</p>
+            <h2>Shop All Gear</h2>
+          </div>
+          <CategoryFilter categories={categories} selected={category} onChange={setCategory} />
+          <ProductGrid products={filtered} loading={loading} onSelect={setSelected} />
+        </section>
+
+        <StoryBanner />
+
+        <ConnectSection />
       </main>
 
-      <Footer source={source} productCount={products.length} error={error} />
+      <Footer source={source} productCount={products.length} error={error} onNavigate={goToShop} />
 
       {selected && (
         <ProductModal product={selected} onClose={() => setSelected(null)} />
@@ -81,6 +113,6 @@ export default function App() {
           <Admin onClose={closeAdmin} />
         </Suspense>
       )}
-    </>
+    </div>
   );
 }
