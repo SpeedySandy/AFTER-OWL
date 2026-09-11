@@ -1,6 +1,8 @@
+import { SORT_OPTIONS } from '../lib/products.js';
+
 export default function ShopToolbar({
   search, onSearch, categories, category, onCategory,
-  collections, collectionKey, onCollection, resultCount,
+  collections, collectionKey, onCollection, sort, onSort, resultCount,
 }) {
   return (
     <div className="toolbar">
@@ -14,6 +16,12 @@ export default function ShopToolbar({
             onChange={e => onSearch(e.target.value)}
             aria-label="Search products"
           />
+        </label>
+        <label className="sort">
+          <span className="sort-label">Sort</span>
+          <select value={sort} onChange={e => onSort(e.target.value)} aria-label="Sort products">
+            {SORT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
+          </select>
         </label>
         <p className="result-count" aria-live="polite">{resultCount} {resultCount === 1 ? 'item' : 'items'}</p>
       </div>

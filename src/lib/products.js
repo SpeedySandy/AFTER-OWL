@@ -202,6 +202,32 @@ export function buildProducts(rows, catalog, manifest, base = '/') {
   );
 }
 
+export const SORT_OPTIONS = [
+  { key: 'featured', label: 'Featured' },
+  { key: 'best', label: 'Best sellers' },
+  { key: 'price-asc', label: 'Price: low to high' },
+  { key: 'price-desc', label: 'Price: high to low' },
+  { key: 'new', label: 'Newest' },
+];
+
+export function sortProducts(list, sort) {
+  const soldOut = p => (p.stock === 0 ? 1 : 0);
+  const byPrice = p => (p.price == null ? Infinity : p.price);
+  const sorted = [...list];
+  switch (sort) {
+    case 'best':
+      return sorted.sort((a, b) => soldOut(a) - soldOut(b) || b.sold - a.sold || a.order - b.order);
+    case 'price-asc':
+      return sorted.sort((a, b) => soldOut(a) - soldOut(b) || byPrice(a) - byPrice(b) || a.order - b.order);
+    case 'price-desc':
+      return sorted.sort((a, b) => soldOut(a) - soldOut(b) || byPrice(b) - byPrice(a) || a.order - b.order);
+    case 'new':
+      return sorted.sort((a, b) => soldOut(a) - soldOut(b) || b.order - a.order);
+    default:
+      return sorted;
+  }
+}
+
 export function availability(stock) {
   if (stock == null) return { label: 'Ask for availability', tone: 'ask' };
   if (stock === 0) return { label: 'Sold out', tone: 'out' };
