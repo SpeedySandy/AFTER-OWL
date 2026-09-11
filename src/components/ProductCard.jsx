@@ -5,7 +5,11 @@ function StockBadge({ stock }) {
 }
 
 export default function ProductCard({ product, onClick }) {
-  const { name, category, price, stock, image, gradient, handmade } = product;
+  const { name, category, price, stock, image, gradient, handmade, variants, variantLabel } = product;
+
+  const variantNote = variants?.length > 1
+    ? `${variants.length} ${(variantLabel || 'option').toLowerCase()}s`
+    : null;
 
   return (
     <article className="product-card" onClick={onClick} role="button" tabIndex={0}
@@ -26,7 +30,10 @@ export default function ProductCard({ product, onClick }) {
         {handmade && <span className="card-handmade-badge">Handmade</span>}
       </div>
       <div className="card-body">
-        <div className="card-category">{category}</div>
+        <div className="card-category">
+          {category}
+          {variantNote && <span className="card-variants-note"> · {variantNote}</span>}
+        </div>
         <h3 className="card-name">{name}</h3>
         <div className="card-footer">
           <span className="card-price">{price ? `€${price}` : 'On request'}</span>
