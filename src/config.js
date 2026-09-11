@@ -27,6 +27,13 @@ export const INSTAGRAM_HANDLE = 'after.owl.shop';
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const INSTAGRAM_DM_URL = `https://ig.me/m/${INSTAGRAM_HANDLE}`;
 
+// WhatsApp number for the contact form & "Ask on WhatsApp" buttons.
+// International format, digits only (e.g. Spain +34 612 345 678 → '34612345678').
+// Leave empty to hide all WhatsApp buttons.
+export const WHATSAPP_NUMBER = '34625667136';
+export const whatsappUrl = text =>
+  `https://wa.me/${WHATSAPP_NUMBER}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
+
 // How often an open page re-checks the sheet (ms)
 export const REFRESH_INTERVAL = 5 * 60 * 1000;
 

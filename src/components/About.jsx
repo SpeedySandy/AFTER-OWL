@@ -1,6 +1,7 @@
 import about from '../data/about.json';
 import manifest from '../data/image-manifest.json';
-import { driveThumb, ETSY_SHOP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE } from '../config.js';
+import { COLLECTIONS } from '../data/collections.js';
+import { driveThumb, ETSY_SHOP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 
 const BASE = import.meta.env.BASE_URL;
 const local = new Set(manifest.files);
@@ -24,51 +25,9 @@ const PILLARS = [
   },
 ];
 
-const COLLECTIONS = [
-  {
-    icon: '🦉',
-    title: 'OWL ESSENTIALS',
-    text: 'Our best-sellers — the must-have pieces that define the AFTER OWL lifestyle.',
-  },
-  {
-    icon: '🔥',
-    title: 'RAVE READY',
-    text: 'Everything you need for the ultimate night out — compact, smart, and stylish.',
-    tags: ['Sniff Tools', 'Stylish Accessories', 'Dancefloor Gear', 'Festival Kits', 'Secret Wearables'],
-  },
-  {
-    icon: '🌄',
-    title: 'OUTDOOR MODE',
-    text: 'Your van-life & adventure essentials for day trips and road missions.',
-    tags: ['Camping Gear', 'Travel Gadgets', 'Outdoor Tools', 'LED Lights', 'Hammocks'],
-  },
-  {
-    icon: '💡',
-    title: 'UNIQUE GADGETS',
-    text: 'Smart, playful, or practical gadgets & tools that fit your vibe.',
-    tags: ['Party Fun', 'Games', 'Multi-tools', 'Sound & Lights', 'Electronics'],
-  },
-  {
-    icon: '🧭',
-    title: 'HIDE & STASH',
-    text: 'The discreet collection — secret storage, stash tools, and diversion items.',
-    tags: ['Hidden Containers', 'Stash Flasks', 'Magnetic Hideouts', 'Necklace Pouches'],
-  },
-  {
-    icon: '💎',
-    title: 'LIMITED EDITIONS',
-    text: 'Handmade & collab drops — rare, numbered, or artist-made pieces.',
-    tags: ['AFTER OWL Merch', 'Custom Prints', 'Unique Deco Items', 'Custom Works'],
-  },
-  {
-    icon: '🎁',
-    title: 'SETS & GIFTS',
-    text: 'Curated packs made for gifting or gearing up fast.',
-    tags: ['Festival Starter Set', 'Outdoor Adventure Kit', 'Party Princess Bundle', 'Mystery Box'],
-  },
-];
+export default function About({ collections = [], onCollection }) {
+  const counts = Object.fromEntries(collections.map(c => [c.key, c.items.length]));
 
-export default function About() {
   return (
     <section id="about" className="about" aria-labelledby="about-title">
       <div className="container">
@@ -81,6 +40,58 @@ export default function About() {
           <p className="about-lead">From underground raves to mountaintop sunrises — Gear Up, Owl Style.</p>
         </header>
 
+        {/* 1 · Mission */}
+        <blockquote className="mission">
+          <p>“To empower adventurous souls and night owls with reliable, exciting gear for every journey — from underground raves to mountaintop sunrises.”</p>
+          <cite>🎯 Our Mission</cite>
+        </blockquote>
+
+        {/* 2 · What you'll find */}
+        <div className="find">
+          <h3 className="about-h3">⚡ What You’ll Find</h3>
+          <div className="collections">
+            {COLLECTIONS.map(c => (
+              <article key={c.key} className="collection">
+                <span className="collection-icon" aria-hidden="true">{c.icon}</span>
+                <h4 className="collection-title">{c.title}</h4>
+                <p className="collection-text">{c.text}</p>
+                {c.tags && (
+                  <ul className="collection-tags">
+                    {c.tags.map(t => <li key={t}>{t}</li>)}
+                  </ul>
+                )}
+                {counts[c.key] > 0 && (
+                  <button className="collection-link" onClick={() => onCollection?.(c.key)}>
+                    Shop {counts[c.key]} {counts[c.key] === 1 ? 'piece' : 'pieces'} →
+                  </button>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* 3 · Our promise */}
+        <div className="promise">
+          <h3 className="about-h3">✨ Our Promise</h3>
+          <p>
+            Every item is field-tested before it makes the cut — no hype, just honest gear that works.
+          </p>
+          <p>
+            Built for nightlife dreamers, sunrise seekers, and curious explorers, AFTER OWL stands for
+            wisdom, authenticity, and movement — a symbol of freedom that never sleeps.
+          </p>
+        </div>
+        <div className="pillars">
+          {PILLARS.map(p => (
+            <article key={p.title} className="pillar">
+              <span className="pillar-icon" aria-hidden="true">{p.icon}</span>
+              <h4>{p.title}</h4>
+              <p>{p.text}</p>
+            </article>
+          ))}
+        </div>
+
+        {/* 4 · Our story */}
         <div className="about-intro">
           <div className="about-copy">
             <h3 className="about-h3">🌌 Our Story</h3>
@@ -97,13 +108,8 @@ export default function About() {
             <p>
               The name says it all. The <strong>night owl</strong> thrives on underground dancefloors and
               late-night festival fields. The <strong>after</strong> is everything that follows: the
-              afterhours, the sunrise hike, the next adventure.
-            </p>
-            <p>
-              Every piece in our collection is tested in the wild and trusted in the night, ensuring it’s
-              functional, durable, and full of personality. Our mission is simple: to empower adventurous
-              souls and night owls with reliable, exciting gear for every journey — from underground raves
-              to mountaintop sunrises.
+              afterhours, the sunrise hike, the next adventure. That’s why every piece in our collection is
+              tested in the wild and trusted in the night: functional, durable, and full of personality.
             </p>
           </div>
           <figure className="about-hero">
@@ -111,45 +117,7 @@ export default function About() {
           </figure>
         </div>
 
-        <div className="find">
-          <h3 className="about-h3">⚡ What You’ll Find</h3>
-          <div className="collections">
-            {COLLECTIONS.map(c => (
-              <article key={c.title} className="collection">
-                <span className="collection-icon" aria-hidden="true">{c.icon}</span>
-                <h4 className="collection-title">{c.title}</h4>
-                <p className="collection-text">{c.text}</p>
-                {c.tags && (
-                  <ul className="collection-tags">
-                    {c.tags.map(t => <li key={t}>{t}</li>)}
-                  </ul>
-                )}
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div className="promise">
-          <h3 className="about-h3">✨ Our Promise</h3>
-          <p>
-            Every item is field-tested before it makes the cut — no hype, just honest gear that works.
-          </p>
-          <p>
-            Built for nightlife dreamers, sunrise seekers, and curious explorers, AFTER OWL stands for
-            wisdom, authenticity, and movement — a symbol of freedom that never sleeps.
-          </p>
-        </div>
-
-        <div className="pillars">
-          {PILLARS.map(p => (
-            <article key={p.title} className="pillar">
-              <span className="pillar-icon" aria-hidden="true">{p.icon}</span>
-              <h4>{p.title}</h4>
-              <p>{p.text}</p>
-            </article>
-          ))}
-        </div>
-
+        {/* 5 · Catch us */}
         <div className="popup">
           <div className="popup-head">
             <p className="eyebrow">Catch us IRL</p>
@@ -163,25 +131,35 @@ export default function About() {
           </div>
         </div>
 
-        <div className="find-us">
-          <a className="find-card" href={ETSY_SHOP_URL} target="_blank" rel="noreferrer">
-            <span className="find-label">Shop online</span>
-            <span className="find-title">Etsy · AfterOwlShop ↗</span>
-            <span className="find-text">Secure checkout, shipped straight from Barcelona.</span>
-          </a>
-          <a className="find-card" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-            <span className="find-label">Say hi</span>
-            <span className="find-title">Instagram · @{INSTAGRAM_HANDLE} ↗</span>
-            <span className="find-text">New drops, pop-up dates and DMs for anything not listed on Etsy.</span>
-          </a>
-          <div className="find-card">
-            <span className="find-label">Home base</span>
-            <span className="find-title">Barcelona, Spain</span>
-            <span className="find-text">Where the owl sleeps (sometimes).</span>
+        {/* 6 · Where to buy */}
+        <div className="where">
+          <h3 className="about-h3">🛍️ Where to Buy</h3>
+          <div className="find-us">
+            <a className="find-card" href={ETSY_SHOP_URL} target="_blank" rel="noreferrer">
+              <span className="find-label">Shop online</span>
+              <span className="find-title">Etsy · AfterOwlShop ↗</span>
+              <span className="find-text">Secure checkout, shipped straight from Barcelona.</span>
+            </a>
+            <a className="find-card" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+              <span className="find-label">Say hi</span>
+              <span className="find-title">Instagram · @{INSTAGRAM_HANDLE} ↗</span>
+              <span className="find-text">New drops, pop-up dates and DMs for anything not listed on Etsy.</span>
+            </a>
+            {WHATSAPP_NUMBER ? (
+              <a className="find-card" href={whatsappUrl('Hey AFTER OWL 🦉')} target="_blank" rel="noreferrer">
+                <span className="find-label">Order direct</span>
+                <span className="find-title">WhatsApp ↗</span>
+                <span className="find-text">Reserve a piece, ask about stock or pick up in Barcelona.</span>
+              </a>
+            ) : (
+              <div className="find-card">
+                <span className="find-label">Home base</span>
+                <span className="find-title">Barcelona, Spain</span>
+                <span className="find-text">Where the owl sleeps (sometimes).</span>
+              </div>
+            )}
           </div>
         </div>
-
-        <p className="promise-sign grad-text">Gear Up. Owl Style.</p>
       </div>
     </section>
   );

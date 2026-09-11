@@ -1,4 +1,7 @@
-export default function ShopToolbar({ search, onSearch, categories, category, onCategory, resultCount }) {
+export default function ShopToolbar({
+  search, onSearch, categories, category, onCategory,
+  collections, collectionKey, onCollection, resultCount,
+}) {
   return (
     <div className="toolbar">
       <div className="toolbar-row">
@@ -15,14 +18,31 @@ export default function ShopToolbar({ search, onSearch, categories, category, on
         <p className="result-count" aria-live="polite">{resultCount} {resultCount === 1 ? 'item' : 'items'}</p>
       </div>
 
-      <div className="chips" role="tablist" aria-label="Categories">
-        {categories.map(c => (
+      <div className="chips" aria-label="Filter products">
+        <button
+          className={`chip ${!collectionKey && category === 'All' ? 'is-active' : ''}`}
+          aria-pressed={!collectionKey && category === 'All'}
+          onClick={() => onCategory('All')}
+        >
+          All<span className="chip-count">{categories[0]?.count}</span>
+        </button>
+        {collections.map(c => (
+          <button
+            key={c.key}
+            className={`chip chip-collection ${collectionKey === c.key ? 'is-active' : ''}`}
+            aria-pressed={collectionKey === c.key}
+            onClick={() => (collectionKey === c.key ? onCategory('All') : onCollection(c.key))}
+          >
+            <span aria-hidden="true">{c.icon}</span> {c.title}
+          </button>
+        ))}
+        <span className="chip-sep" aria-hidden="true" />
+        {categories.slice(1).map(c => (
           <button
             key={c.name}
-            role="tab"
-            aria-selected={category === c.name}
+            aria-pressed={category === c.name}
             className={`chip ${category === c.name ? 'is-active' : ''}`}
-            onClick={() => onCategory(c.name)}
+            onClick={() => onCategory(category === c.name ? 'All' : c.name)}
           >
             {c.name}<span className="chip-count">{c.count}</span>
           </button>

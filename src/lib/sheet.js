@@ -70,6 +70,7 @@ export function parseInventoryTab(csvText, defaultGroup = '') {
   const iPrice  = col('selling price', 'price');
   const iStock  = col('stock qty', 'stock', 'quantity');
   const iBought = col('bought qty');
+  const iSold   = col('sold qty');
   const iEtsy   = col('etsy');
   const iWeb    = col('website', 'show online');   // optional column: FALSE / hide
   if (iName < 0) return [];
@@ -101,6 +102,7 @@ export function parseInventoryTab(csvText, defaultGroup = '') {
       notes: iNotes >= 0 ? (r[iNotes] || '').trim() : '',
       price: iPrice >= 0 ? num(r[iPrice]) : null,
       stock,
+      sold: iSold >= 0 ? int(r[iSold]) || 0 : 0,
       etsy: iEtsy >= 0 && /^(true|yes|1)$/i.test((r[iEtsy] || '').trim()),
       hidden,
     });

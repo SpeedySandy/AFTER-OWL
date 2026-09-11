@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import ProductVisual from './ProductVisual.jsx';
 import { availability, formatPrice, etsySearchUrl } from '../lib/products.js';
-import { INSTAGRAM_DM_URL } from '../config.js';
+import { INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 
 export default function ProductModal({ product, onClose }) {
   const {
@@ -37,7 +37,10 @@ export default function ProductModal({ product, onClose }) {
   const status = availability(shownStock);
   const buyOnEtsy = variant ? variant.etsy || onEtsy : onEtsy;
   const soldOut = shownStock === 0;
-  const dmText = encodeURIComponent(`Hey AFTER OWL 🦉 I'm interested in: ${name}${variant ? ` (${variant.name})` : ''}`);
+  const interest = `Hey AFTER OWL 🦉 I'm interested in: ${name}${variant ? ` (${variant.name})` : ''}`;
+  const dmText = encodeURIComponent(interest);
+  const askUrl = WHATSAPP_NUMBER ? whatsappUrl(interest) : `${INSTAGRAM_DM_URL}?text=${dmText}`;
+  const askLabel = WHATSAPP_NUMBER ? 'WhatsApp' : 'Instagram';
 
   return (
     <div className="modal-backdrop" onMouseDown={e => e.target === e.currentTarget && onClose()}>
@@ -97,16 +100,16 @@ export default function ProductModal({ product, onClose }) {
             {buyOnEtsy && !soldOut ? (
               <>
                 <a className="btn btn-primary" href={etsySearchUrl(name)} target="_blank" rel="noreferrer">Buy on Etsy ↗</a>
-                <a className="btn btn-ghost" href={`${INSTAGRAM_DM_URL}?text=${dmText}`} target="_blank" rel="noreferrer">Ask on Instagram</a>
+                <a className="btn btn-ghost" href={askUrl} target="_blank" rel="noreferrer">Ask on {askLabel}</a>
               </>
             ) : (
-              <a className="btn btn-primary" href={`${INSTAGRAM_DM_URL}?text=${dmText}`} target="_blank" rel="noreferrer">
-                {soldOut ? 'DM us about a restock' : 'Order via Instagram DM'}
+              <a className="btn btn-primary" href={askUrl} target="_blank" rel="noreferrer">
+                {soldOut ? `Ask about a restock on ${askLabel}` : `Order via ${askLabel}`}
               </a>
             )}
           </div>
           {!buyOnEtsy && !soldOut && (
-            <p className="modal-hint">Not on Etsy yet. Send us a DM or grab it at one of our pop-ups.</p>
+            <p className="modal-hint">Not on Etsy yet. Message us or grab it at one of our pop-ups.</p>
           )}
 
           {description && <div className="modal-desc">{description}</div>}

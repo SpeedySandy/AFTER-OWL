@@ -19,6 +19,7 @@ export default function Footer({ source, updatedAt, error }) {
         <nav className="footer-links" aria-label="Footer">
           <a href="#shop">Shop</a>
           <a href="#about">About</a>
+          <a href="#contact">Contact</a>
           <a href={ETSY_SHOP_URL} target="_blank" rel="noreferrer">Etsy</a>
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
         </nav>

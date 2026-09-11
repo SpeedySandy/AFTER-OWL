@@ -6,11 +6,13 @@ import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import TrustBar from './components/TrustBar.jsx';
-import CategoryTiles from './components/CategoryTiles.jsx';
+import CollectionTiles from './components/CollectionTiles.jsx';
+import { COLLECTIONS, findCollection, collectionProducts } from './data/collections.js';
 import ShopToolbar from './components/ShopToolbar.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import ProductModal from './components/ProductModal.jsx';
 import About from './components/About.jsx';
+import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 
 // ?p=<product-key> opens a product directly (shareable links)
@@ -40,6 +42,7 @@ export default function App() {
   const { products, source, updatedAt, error } = useProducts();
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
+  const [collectionKey, setCollectionKey] = useState(null);
   const [selected, select] = useSelectedProduct(products);
 
   const categories = useMemo(() => {
@@ -51,20 +54,30 @@ export default function App() {
     ];
   }, [products]);
 
+  const collections = useMemo(
+    () => COLLECTIONS.map(c => ({ ...c, items: collectionProducts(products, c) })).filter(c => c.items.length),
+    [products]
+  );
+
   const filtered = useMemo(() => {
     const q = norm(search);
-    return products.filter(p =>
+    const collection = findCollection(collectionKey);
+    const base = collection ? collectionProducts(products, collection) : products;
+    return base.filter(p =>
       (category === 'All' || p.category === category) &&
       (!q || q.split(' ').every(word => p.searchText.includes(word)))
     );
-  }, [products, category, search]);
+  }, [products, category, collectionKey, search]);
 
   useEffect(() => {
     if (category !== 'All' && !categories.some(c => c.name === category)) setCategory('All');
   }, [categories, category]);
 
-  const goToShop = cat => {
-    setCategory(cat || 'All');
+  const pickCategory = cat => { setCategory(cat); setCollectionKey(null); };
+  const pickCollection = key => { setCollectionKey(key); setCategory('All'); };
+
+  const goToCollection = key => {
+    pickCollection(key);
     setSearch('');
     document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -76,7 +89,7 @@ export default function App() {
       <main>
         <Hero productCount={products.length} />
         <TrustBar />
-        <CategoryTiles products={products} onSelect={goToShop} />
+        <CollectionTiles collections={collections} onSelect={goToCollection} />
 
         <section id="shop" className="shop" aria-labelledby="shop-title">
           <div className="container">
@@ -93,19 +106,23 @@ export default function App() {
               onSearch={setSearch}
               categories={categories}
               category={category}
-              onCategory={setCategory}
+              onCategory={pickCategory}
+              collections={collections}
+              collectionKey={collectionKey}
+              onCollection={pickCollection}
               resultCount={filtered.length}
             />
 
             <ProductGrid
               products={filtered}
               onSelect={p => select(p.key)}
-              onReset={() => { setSearch(''); setCategory('All'); }}
+              onReset={() => { setSearch(''); pickCategory('All'); }}
             />
           </div>
         </section>
 
-        <About />
+        <About collections={collections} onCollection={goToCollection} />
+        <Contact />
       </main>
 
       <Footer source={source} updatedAt={updatedAt} error={error} />

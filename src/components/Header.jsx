@@ -27,6 +27,7 @@ export default function Header() {
         <nav className="nav" aria-label="Main">
           <a href="#shop" className="nav-hide-xs">Shop</a>
           <a href="#about">About</a>
+          <a href="#contact" className="nav-hide-sm">Contact</a>
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="nav-hide-sm">Instagram</a>
           <a href={ETSY_SHOP_URL} target="_blank" rel="noreferrer" className="nav-cta">
             Etsy shop <span aria-hidden="true">↗</span>
