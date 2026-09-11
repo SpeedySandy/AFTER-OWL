@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { useProducts } from './hooks/useProducts.js';
+import { sortCategories } from './data/products.js';
 import Header from './components/Header.jsx';
 import CategoryFilter from './components/CategoryFilter.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
@@ -27,10 +28,10 @@ export default function App() {
   const [category, setCategory] = useState('All');
   const [selected, setSelected] = useState(null);
 
-  // Derive categories dynamically from live data too
+  // Derive categories from live data, in the fixed display order
   const categories = useMemo(() => {
-    const cats = ['All', ...new Set(products.map(p => p.category).filter(Boolean))];
-    return cats;
+    const cats = sortCategories(new Set(products.map(p => p.category).filter(Boolean)));
+    return ['All', ...cats];
   }, [products]);
 
   const filtered = useMemo(() => {
