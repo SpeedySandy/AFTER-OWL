@@ -597,6 +597,48 @@ p  { font-size: .95rem; }
   .card-name { font-size: .95rem; }
 }
 
+/* ── Product Variants ──────────────────────────────────────────────────────── */
+
+.card-variants-note { color: var(--gold); }
+
+.modal-variants {
+  margin-top: 14px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.modal-variants-label {
+  font-size: .8rem; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.modal-variants-chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.variant-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid #3a2a10; border-radius: 20px;
+  color: var(--text); font-size: .85rem;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.variant-chip:hover  { border-color: var(--gold); }
+.variant-chip.active {
+  border-color: var(--gold);
+  background: rgba(212, 168, 67, .12);
+  color: var(--gold);
+}
+.variant-chip.soldout { opacity: .5; }
+.variant-swatch {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  flex-shrink: 0;
+}
+.variant-soldout-tag {
+  font-size: .65rem; color: var(--text-dim);
+  text-transform: uppercase;
+}
+
 /* ── Admin Panel ───────────────────────────────────────────────────────────── */
 
 .af-overlay {

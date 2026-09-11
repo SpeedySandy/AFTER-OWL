@@ -18,9 +18,24 @@ export default function ProductModal({ product, onClose }) {
   }, [onClose]);
 
   const { name, category, price, stock, image, gradient, handmade,
-          description, tags, materials, size, weight, sku, gallery } = product;
+          description, tags, materials, size, weight, sku, gallery,
+          variants, variantLabel } = product;
 
-  const [activeImage, setActiveImage] = useState(image);
+  // Pre-select the first in-stock variant (or the first one if all are sold out)
+  const [variant, setVariant] = useState(() =>
+    variants?.length ? (variants.find(v => v.stock > 0) || variants[0]) : null
+  );
+
+  const [activeImage, setActiveImage] = useState(variant?.image || image);
+
+  function selectVariant(v) {
+    setVariant(v);
+    if (v.image) setActiveImage(v.image);
+  }
+
+  const shownPrice    = variant?.price ?? price;
+  const shownStock    = variant ? variant.stock : stock;
+  const shownGradient = variant?.gradient || gradient;
 
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
@@ -40,7 +55,7 @@ export default function ProductModal({ product, onClose }) {
             ) : null}
             <div
               className="card-gradient"
-              style={{ background: gradient || '#1C1308', display: activeImage ? 'none' : 'block', height: '100%' }}
+              style={{ background: shownGradient || '#1C1308', display: activeImage ? 'none' : 'block', height: '100%' }}
             />
             {gallery?.length > 1 && (
               <div className="modal-gallery">
@@ -68,9 +83,32 @@ export default function ProductModal({ product, onClose }) {
             <h2 className="modal-title">{name}</h2>
 
             <div className="modal-price-row">
-              <span className="modal-price">{price ? `€${price}` : 'On request'}</span>
-              <StockBadge stock={stock} />
+              <span className="modal-price">{shownPrice ? `€${shownPrice}` : 'On request'}</span>
+              <StockBadge stock={shownStock} />
             </div>
+
+            {variants?.length > 0 && (
+              <div className="modal-variants">
+                <span className="modal-variants-label">{variantLabel || 'Option'}:</span>
+                <div className="modal-variants-chips">
+                  {variants.map(v => (
+                    <button
+                      key={v.name}
+                      className={
+                        'variant-chip' +
+                        (v === variant ? ' active' : '') +
+                        (v.stock === 0 ? ' soldout' : '')
+                      }
+                      onClick={() => selectVariant(v)}
+                    >
+                      {v.gradient && <span className="variant-swatch" style={{ background: v.gradient }} />}
+                      {v.name}
+                      {v.stock === 0 && <span className="variant-soldout-tag">sold out</span>}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <hr className="modal-divider" />
 
