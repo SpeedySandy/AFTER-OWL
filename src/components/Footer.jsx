@@ -1,28 +1,37 @@
-import { SHEET_ID } from '../config.js';
+import { ETSY_SHOP_URL, INSTAGRAM_URL } from '../config.js';
 
-export default function Footer({ source, productCount, error }) {
+const BASE = import.meta.env.BASE_URL;
+
+export default function Footer({ source, updatedAt, error }) {
   const year = new Date().getFullYear();
+  const time = updatedAt?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
     <footer className="footer">
-      <div className="footer-logo-name">AFTER OWL</div>
-      <div className="footer-tagline">Gear Up. Owl Style.</div>
-      <nav className="footer-links">
-        <a className="footer-link" href="https://www.etsy.com/shop/afterowl" target="_blank" rel="noreferrer">Etsy Shop</a>
-        <a className="footer-link" href="https://www.instagram.com/afterowlshop" target="_blank" rel="noreferrer">Instagram</a>
-      </nav>
-      <p className="footer-copy">© {year} AFTER OWL · Barcelona · {productCount} products in showroom</p>
-      {source === 'local' && SHEET_ID && (
-        <p className="footer-sheet-info">
-          {error
-            ? `Sheet unavailable (${error}) — showing local data. `
-            : 'To enable live inventory: '}
-          <a href={`https://docs.google.com/spreadsheets/d/${SHEET_ID}`} target="_blank" rel="noreferrer">
-            {error ? 'Check sheet sharing settings' : 'Share your Google Sheet'}
-          </a>{' '}
-          {!error && 'with "Anyone with the link can view"'}
+      <div className="container footer-inner">
+        <div className="footer-brand">
+          <img src={`${BASE}logo-mark.webp`} alt="" width="56" height="56" />
+          <div>
+            <p className="footer-name">AFTER OWL</p>
+            <p className="footer-tag">Tested in the wild, trusted in the night.</p>
+          </div>
+        </div>
+        <nav className="footer-links" aria-label="Footer">
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href={ETSY_SHOP_URL} target="_blank" rel="noreferrer">Etsy</a>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
+        </nav>
+      </div>
+      <div className="container footer-bottom">
+        <p>© {year} AFTER OWL · Barcelona</p>
+        <p className="live-status">
+          <span className={`live-dot ${source === 'live' ? 'is-live' : ''}`} aria-hidden="true" />
+          {source === 'live'
+            ? `Live stock · updated ${time}`
+            : error ? 'Showing last saved stock' : 'Loading live stock…'}
         </p>
-      )}
+      </div>
     </footer>
   );
 }

@@ -1,158 +1,123 @@
-import { useEffect, useState } from 'react';
-
-function StockBadge({ stock }) {
-  if (stock === 0) return <span className="stock-badge out-stock">Sold Out</span>;
-  if (stock <= 2)  return <span className="stock-badge low-stock">Only {stock} left</span>;
-  return <span className="stock-badge in-stock">In Stock · {stock} available</span>;
-}
+import { useEffect, useRef, useState } from 'react';
+import ProductVisual from './ProductVisual.jsx';
+import { availability, formatPrice, etsySearchUrl } from '../lib/products.js';
+import { INSTAGRAM_DM_URL } from '../config.js';
 
 export default function ProductModal({ product, onClose }) {
+  const {
+    name, category, price, priceMax, stock, images, gradient, handmade,
+    description, materials, size, weight, variants, variantLabel, onEtsy,
+  } = product;
+
+  const [variant, setVariant] = useState(() =>
+    variants.length ? variants.find(v => v.stock !== 0) || variants[0] : null
+  );
+  const gallery = [...new Set([variant?.image, ...images].filter(Boolean))];
+  const [active, setActive] = useState(gallery[0] || null);
+  const closeRef = useRef(null);
+
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose();
+    const onKey = e => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('no-scroll');
+    closeRef.current?.focus();
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
+      document.body.classList.remove('no-scroll');
     };
   }, [onClose]);
 
-  const { name, category, price, stock, image, gradient, handmade,
-          description, tags, materials, size, weight, sku, gallery,
-          variants, variantLabel } = product;
-
-  // Pre-select the first in-stock variant (or the first one if all are sold out)
-  const [variant, setVariant] = useState(() =>
-    variants?.length ? (variants.find(v => v.stock > 0) || variants[0]) : null
-  );
-
-  const [activeImage, setActiveImage] = useState(variant?.image || image);
-
-  function selectVariant(v) {
+  const pickVariant = v => {
     setVariant(v);
-    if (v.image) setActiveImage(v.image);
-  }
+    if (v.image) setActive(v.image);
+  };
 
-  const shownPrice    = variant?.price ?? price;
-  const shownStock    = variant ? variant.stock : stock;
-  const shownGradient = variant?.gradient || gradient;
+  const shownPrice = variant ? formatPrice(variant.price) : formatPrice(price, priceMax);
+  const shownStock = variant ? variant.stock : stock;
+  const status = availability(shownStock);
+  const buyOnEtsy = variant ? variant.etsy || onEtsy : onEtsy;
+  const soldOut = shownStock === 0;
+  const dmText = encodeURIComponent(`Hey AFTER OWL 🦉 I'm interested in: ${name}${variant ? ` (${variant.name})` : ''}`);
 
   return (
-    <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
-      <div className="modal" role="dialog" aria-modal="true" aria-label={name}>
-        <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+    <div className="modal-backdrop" onMouseDown={e => e.target === e.currentTarget && onClose()}>
+      <div className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button ref={closeRef} className="modal-close" onClick={onClose} aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
 
-        <div className="modal-inner">
-          {/* ── Image column ── */}
-          <div className="modal-image-col">
-            {activeImage ? (
-              <img src={activeImage} alt={name} key={activeImage}
-                onError={e => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
-              />
-            ) : null}
-            <div
-              className="card-gradient"
-              style={{ background: shownGradient || '#1C1308', display: activeImage ? 'none' : 'block', height: '100%' }}
-            />
-            {gallery?.length > 1 && (
-              <div className="modal-gallery">
-                {gallery.map(src => (
+        <div className="modal-media">
+          <div className="modal-main">
+            <ProductVisual key={active || 'none'} src={active} alt={name} gradient={variant?.gradient || gradient} eager />
+          </div>
+          {gallery.length > 1 && (
+            <div className="thumbs">
+              {gallery.map(src => (
+                <button key={src} className={`thumb ${src === active ? 'is-active' : ''}`} onClick={() => setActive(src)} aria-label="Show photo">
+                  <img src={src} alt="" loading="lazy" />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="modal-body">
+          <p className="modal-eyebrow">
+            {category}
+            {handmade && !/handmade/i.test(category) && <span className="badge badge-handmade">Handmade</span>}
+          </p>
+          <h2 id="modal-title" className="modal-title">{name}</h2>
+
+          <div className="modal-price">
+            <span className="price price-lg">{shownPrice}</span>
+            <span className={`stock stock-${status.tone}`}>{status.label}</span>
+          </div>
+
+          {variants.length > 0 && (
+            <div className="variants">
+              <p className="variants-label">{variantLabel || 'Option'}: <strong>{variant?.name}</strong></p>
+              <div className="variants-list">
+                {variants.map(v => (
                   <button
-                    key={src}
-                    className={`modal-gallery-thumb ${src === activeImage ? 'active' : ''}`}
-                    onClick={() => setActiveImage(src)}
-                    aria-label="View photo"
+                    key={v.name}
+                    className={`variant ${v === variant ? 'is-active' : ''} ${v.stock === 0 ? 'is-soldout' : ''}`}
+                    onClick={() => pickVariant(v)}
+                    aria-pressed={v === variant}
                   >
-                    <img src={src} alt="" loading="lazy" />
+                    {v.gradient && <span className="swatch" style={{ background: v.gradient }} />}
+                    {v.name}
+                    {v.stock === 0 && <span className="variant-note">sold out</span>}
                   </button>
                 ))}
               </div>
+            </div>
+          )}
+
+          <div className="modal-actions">
+            {buyOnEtsy && !soldOut ? (
+              <>
+                <a className="btn btn-primary" href={etsySearchUrl(name)} target="_blank" rel="noreferrer">Buy on Etsy ↗</a>
+                <a className="btn btn-ghost" href={`${INSTAGRAM_DM_URL}?text=${dmText}`} target="_blank" rel="noreferrer">Ask on Instagram</a>
+              </>
+            ) : (
+              <a className="btn btn-primary" href={`${INSTAGRAM_DM_URL}?text=${dmText}`} target="_blank" rel="noreferrer">
+                {soldOut ? 'DM us about a restock' : 'Order via Instagram DM'}
+              </a>
             )}
           </div>
+          {!buyOnEtsy && !soldOut && (
+            <p className="modal-hint">Not on Etsy yet. Send us a DM or grab it at one of our pop-ups.</p>
+          )}
 
-          {/* ── Content column ── */}
-          <div className="modal-content">
-            <div className="modal-eyebrow">
-              <span className="modal-category">{category}</span>
-              {handmade && <span className="modal-handmade">✦ Handmade</span>}
-            </div>
+          {description && <div className="modal-desc">{description}</div>}
 
-            <h2 className="modal-title">{name}</h2>
-
-            <div className="modal-price-row">
-              <span className="modal-price">{shownPrice ? `€${shownPrice}` : 'On request'}</span>
-              <StockBadge stock={shownStock} />
-            </div>
-
-            {variants?.length > 0 && (
-              <div className="modal-variants">
-                <span className="modal-variants-label">{variantLabel || 'Option'}:</span>
-                <div className="modal-variants-chips">
-                  {variants.map(v => (
-                    <button
-                      key={v.name}
-                      className={
-                        'variant-chip' +
-                        (v === variant ? ' active' : '') +
-                        (v.stock === 0 ? ' soldout' : '')
-                      }
-                      onClick={() => selectVariant(v)}
-                    >
-                      {v.gradient && <span className="variant-swatch" style={{ background: v.gradient }} />}
-                      {v.name}
-                      {v.stock === 0 && <span className="variant-soldout-tag">sold out</span>}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <hr className="modal-divider" />
-
-            {description && (
-              <p className="modal-description">{description}</p>
-            )}
-
-            {(materials || size || weight) && (
-              <>
-                <hr className="modal-divider" />
-                <div className="modal-details">
-                  {materials && (
-                    <div className="modal-detail">
-                      <span className="modal-detail-label">Materials</span>
-                      <span className="modal-detail-value">{materials}</span>
-                    </div>
-                  )}
-                  {size && (
-                    <div className="modal-detail">
-                      <span className="modal-detail-label">Size</span>
-                      <span className="modal-detail-value">{size}</span>
-                    </div>
-                  )}
-                  {weight && (
-                    <div className="modal-detail">
-                      <span className="modal-detail-label">Weight</span>
-                      <span className="modal-detail-value">{weight}</span>
-                    </div>
-                  )}
-                </div>
-              </>
-            )}
-
-            {tags?.length > 0 && (
-              <>
-                <hr className="modal-divider" />
-                <div className="modal-tags">
-                  {tags.map(t => <span key={t} className="modal-tag">#{t}</span>)}
-                </div>
-              </>
-            )}
-
-            {sku && <div className="modal-sku">SKU: {sku}</div>}
-          </div>
+          {(materials || size || weight) && (
+            <dl className="specs">
+              {materials && <><dt>Materials</dt><dd>{materials}</dd></>}
+              {size && <><dt>Size</dt><dd>{size}</dd></>}
+              {weight && <><dt>Weight</dt><dd>{weight}</dd></>}
+            </dl>
+          )}
         </div>
       </div>
     </div>

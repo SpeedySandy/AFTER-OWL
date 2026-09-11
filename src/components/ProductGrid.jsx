@@ -1,36 +1,20 @@
 import ProductCard from './ProductCard.jsx';
 
-export default function ProductGrid({ products, loading, onSelect }) {
-  if (loading) {
-    return (
-      <div className="product-grid">
-        <div className="loading-overlay">
-          <div className="spinner" />
-          <p>Loading products…</p>
-        </div>
-      </div>
-    );
-  }
-
+export default function ProductGrid({ products, onSelect, onReset }) {
   if (!products.length) {
     return (
-      <div className="product-grid">
-        <div className="empty-state">
-          <h3>No products found</h3>
-          <p>Try adjusting your search or filter.</p>
-        </div>
+      <div className="empty">
+        <p className="empty-title">Nothing here… yet 🦉</p>
+        <p>Try another search or category.</p>
+        <button className="btn btn-ghost" onClick={onReset}>Show everything</button>
       </div>
     );
   }
 
   return (
-    <div className="product-grid">
-      {products.map(product => (
-        <ProductCard
-          key={product.id ?? product.sku ?? product.name}
-          product={product}
-          onClick={() => onSelect(product)}
-        />
+    <div className="grid">
+      {products.map(p => (
+        <ProductCard key={p.key} product={p} onClick={() => onSelect(p)} />
       ))}
     </div>
   );

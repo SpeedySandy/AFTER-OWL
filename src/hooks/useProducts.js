@@ -1,66 +1,61 @@
-import { useState, useEffect } from 'react';
-import { FALLBACK_PRODUCTS } from '../data/products.js';
-import { parseSheetCSV } from '../utils/parseSheet.js';
-import { SHEET_ID } from '../config.js';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import catalog from '../data/catalog.json';
+import snapshot from '../data/sheet-snapshot.json';
+import manifest from '../data/image-manifest.json';
+import { SHEET_TABS, REFRESH_INTERVAL, sheetCsvUrl } from '../config.js';
+import { parseInventoryTab } from '../lib/sheet.js';
+import { buildProducts } from '../lib/products.js';
 
-const ADMIN_PRODUCTS_KEY = 'ao_admin_products';
+const BASE = import.meta.env.BASE_URL;
+const build = rows => buildProducts(rows, catalog, manifest, BASE);
 
-function getBaseProducts() {
-  try {
-    const stored = localStorage.getItem(ADMIN_PRODUCTS_KEY);
-    if (stored) return JSON.parse(stored);
-  } catch {}
-  return FALLBACK_PRODUCTS;
+async function fetchLiveRows() {
+  const tabs = await Promise.all(
+    SHEET_TABS.map(async tab => {
+      const res = await fetch(sheetCsvUrl(tab.name), { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Sheet HTTP ${res.status}`);
+      return parseInventoryTab(await res.text(), tab.defaultGroup);
+    })
+  );
+  const rows = tabs.flat();
+  if (rows.length < 10) throw new Error('Sheet looks empty');
+  return rows;
 }
 
+/**
+ * Products come from the bundled snapshot instantly, then get replaced by the
+ * live Google Sheet data. Open pages re-check the sheet every few minutes.
+ */
 export function useProducts() {
-  const [products, setProducts] = useState(getBaseProducts);
-  const [loading, setLoading]   = useState(!!SHEET_ID);
-  const [source,  setSource]    = useState('local');
-  const [error,   setError]     = useState(null);
+  const [products, setProducts] = useState(() => build(snapshot));
+  const [status, setStatus] = useState({ source: 'snapshot', updatedAt: null, error: null });
+  const lastFetch = useRef(0);
 
-  useEffect(() => {
-    // Admin edits take full precedence — skip the sheet fetch
-    if (localStorage.getItem(ADMIN_PRODUCTS_KEY)) return;
-    if (!SHEET_ID) return;
-
-    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv`;
-
-    setLoading(true);
-    fetch(url)
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.text();
-      })
-      .then(csv => {
-        const parsed = parseSheetCSV(csv);
-        if (parsed.length > 0) {
-          const norm = s => s?.toLowerCase().replace(/[—–-]/g, ' ').replace(/\s+/g, ' ').trim() || '';
-          const enriched = parsed.map(p => {
-            const fallback = FALLBACK_PRODUCTS.find(f => f.sku && f.sku === p.sku)
-                          || FALLBACK_PRODUCTS.find(f => norm(f.name) === norm(p.name));
-            return {
-              ...p,
-              gradient: fallback?.gradient || null,
-              handmade: fallback?.handmade || false,
-              image:    p.image || fallback?.image || null,
-              gallery:  fallback?.gallery || null,
-            };
-          });
-          const sheetSkus = new Set(enriched.map(p => p.sku).filter(Boolean));
-          const localOnly = FALLBACK_PRODUCTS.filter(f => !sheetSkus.has(f.sku))
-            .map(f => ({ ...f, id: `local-${f.id}` }));
-          setProducts([...enriched, ...localOnly]);
-          setSource('sheets');
-        }
-        setError(null);
-      })
-      .catch(err => {
-        setError(err.message);
-        setSource('local');
-      })
-      .finally(() => setLoading(false));
+  const refresh = useCallback(async () => {
+    lastFetch.current = Date.now();
+    try {
+      const rows = await fetchLiveRows();
+      setProducts(build(rows));
+      setStatus({ source: 'live', updatedAt: new Date(), error: null });
+    } catch (err) {
+      setStatus(s => ({ ...s, error: err.message }));
+    }
   }, []);
 
-  return { products, loading, source, error };
+  useEffect(() => {
+    refresh();
+    const timer = setInterval(() => {
+      if (document.visibilityState === 'visible') refresh();
+    }, REFRESH_INTERVAL);
+    const onVisible = () => {
+      if (document.visibilityState === 'visible' && Date.now() - lastFetch.current > 60_000) refresh();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      clearInterval(timer);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
+  }, [refresh]);
+
+  return { products, ...status };
 }

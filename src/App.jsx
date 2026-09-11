@@ -1,86 +1,104 @@
-import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useProducts } from './hooks/useProducts.js';
-import { sortCategories } from './data/products.js';
+import { sortCategories } from './lib/products.js';
+import { norm } from './lib/sheet.js';
 import Header from './components/Header.jsx';
-import CategoryFilter from './components/CategoryFilter.jsx';
+import Hero from './components/Hero.jsx';
+import ShopToolbar from './components/ShopToolbar.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import ProductModal from './components/ProductModal.jsx';
+import About from './components/About.jsx';
 import Footer from './components/Footer.jsx';
 
-const Admin = lazy(() => import('./components/Admin.jsx'));
+// ?p=<product-key> opens a product directly (shareable links)
+function useSelectedProduct(products) {
+  const [key, setKey] = useState(() => new URLSearchParams(window.location.search).get('p'));
 
-function useAdminRoute() {
-  const [open, setOpen] = useState(() => window.location.hash === '#admin');
   useEffect(() => {
-    const handle = () => setOpen(window.location.hash === '#admin');
-    window.addEventListener('hashchange', handle);
-    return () => window.removeEventListener('hashchange', handle);
+    const onPop = () => setKey(new URLSearchParams(window.location.search).get('p'));
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
   }, []);
-  function close() { window.location.hash = ''; setOpen(false); }
-  return [open, close];
+
+  const select = next => {
+    const url = new URL(window.location.href);
+    if (next) url.searchParams.set('p', next);
+    else url.searchParams.delete('p');
+    if (next && !key) window.history.pushState({}, '', url);
+    else window.history.replaceState({}, '', url);
+    setKey(next);
+  };
+
+  const product = key ? products.find(p => p.key === key) : null;
+  return [product, select];
 }
 
 export default function App() {
-  const { products, loading, source, error } = useProducts();
-  const [adminOpen, closeAdmin] = useAdminRoute();
-
-  const [search,   setSearch]   = useState('');
+  const { products, source, updatedAt, error } = useProducts();
+  const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
-  const [selected, setSelected] = useState(null);
+  const [selected, select] = useSelectedProduct(products);
 
-  // Derive categories from live data, in the fixed display order
   const categories = useMemo(() => {
-    const cats = sortCategories(new Set(products.map(p => p.category).filter(Boolean)));
-    return ['All', ...cats];
+    const counts = new Map();
+    products.forEach(p => counts.set(p.category, (counts.get(p.category) || 0) + 1));
+    return [
+      { name: 'All', count: products.length },
+      ...sortCategories(counts.keys()).map(name => ({ name, count: counts.get(name) })),
+    ];
   }, [products]);
 
   const filtered = useMemo(() => {
-    const q = search.toLowerCase().trim();
-    return products.filter(p => {
-      const inCategory = category === 'All' || p.category === category;
-      if (!inCategory) return false;
-      if (!q) return true;
-      return (
-        p.name?.toLowerCase().includes(q) ||
-        p.description?.toLowerCase().includes(q) ||
-        p.tags?.some(t => t.toLowerCase().includes(q)) ||
-        p.sku?.toLowerCase().includes(q)
-      );
-    });
+    const q = norm(search);
+    return products.filter(p =>
+      (category === 'All' || p.category === category) &&
+      (!q || q.split(' ').every(word => p.searchText.includes(word)))
+    );
   }, [products, category, search]);
+
+  useEffect(() => {
+    if (category !== 'All' && !categories.some(c => c.name === category)) setCategory('All');
+  }, [categories, category]);
 
   return (
     <>
-      <Header search={search} onSearch={setSearch} source={source} />
-
+      <Header />
       <main>
-        <section className="hero">
-          <p className="hero-eyebrow">Barcelona · Tested in the Wild</p>
-          <h1>
-            Curated gear for the<br />
-            <span>night owl in you</span>
-          </h1>
-          <p className="hero-sub">
-            From underground raves to mountaintop sunrises — handpicked, tested, and packed with love.
-          </p>
+        <Hero productCount={products.length} />
+
+        <section id="shop" className="shop" aria-labelledby="shop-title">
+          <div className="container">
+            <div className="section-head">
+              <p className="eyebrow">The collection</p>
+              <h2 id="shop-title">Gear for the night owl in you</h2>
+              <p className="section-sub">
+                Handmade pieces, festival essentials and secret-stash classics, all picked and tested by the OG AFTER OWL.
+              </p>
+            </div>
+
+            <ShopToolbar
+              search={search}
+              onSearch={setSearch}
+              categories={categories}
+              category={category}
+              onCategory={setCategory}
+              resultCount={filtered.length}
+            />
+
+            <ProductGrid
+              products={filtered}
+              onSelect={p => select(p.key)}
+              onReset={() => { setSearch(''); setCategory('All'); }}
+            />
+          </div>
         </section>
 
-        <CategoryFilter categories={categories} selected={category} onChange={setCategory} />
-
-        <ProductGrid products={filtered} loading={loading} onSelect={setSelected} />
+        <About />
       </main>
 
-      <Footer source={source} productCount={products.length} error={error} />
+      <Footer source={source} updatedAt={updatedAt} error={error} />
 
-      {selected && (
-        <ProductModal product={selected} onClose={() => setSelected(null)} />
-      )}
-
-      {adminOpen && (
-        <Suspense fallback={null}>
-          <Admin onClose={closeAdmin} />
-        </Suspense>
-      )}
+      {selected && <ProductModal key={selected.key} product={selected} onClose={() => select(null)} />}
     </>
   );
 }

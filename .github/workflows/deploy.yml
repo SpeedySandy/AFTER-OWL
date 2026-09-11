@@ -1,24 +1,52 @@
-name: Deploy to GitHub Pages
+name: Sync & deploy
 
+# Runs on every push to main, every night (to pick up new photos from Google Drive),
+# and on demand: GitHub → Actions → "Sync & deploy" → Run workflow.
+# Stock & prices don't need this: the website reads the Google Sheet live.
 on:
   push:
-    branches: [main, claude/after-owl-showroom-app-jlzz7g]
+    branches: [main]
+  schedule:
+    - cron: '17 3 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
+
       - run: npm ci
+
+      - name: Sync inventory snapshot & product photos from Google Drive
+        run: npm run sync
+
+      - name: Commit synced data
+        run: |
+          if [ -n "$(git status --porcelain src/data public/img)" ]; then
+            git config user.name  "after-owl-bot"
+            git config user.email "after-owl-bot@users.noreply.github.com"
+            git add src/data public/img
+            git commit -m "chore: sync inventory snapshot & photos"
+            git pull --rebase --autostash origin main && git push origin HEAD:main
+          else
+            echo "Nothing changed."
+          fi
+
       - run: npm run build
+
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

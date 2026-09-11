@@ -1,45 +1,31 @@
-function StockBadge({ stock }) {
-  if (stock === 0) return <span className="stock-badge out-stock">Sold Out</span>;
-  if (stock <= 2)  return <span className="stock-badge low-stock">Only {stock} left</span>;
-  return <span className="stock-badge in-stock">In Stock</span>;
-}
+import ProductVisual from './ProductVisual.jsx';
+import { availability, formatPrice } from '../lib/products.js';
 
 export default function ProductCard({ product, onClick }) {
-  const { name, category, price, stock, image, gradient, handmade, variants, variantLabel } = product;
-
-  const variantNote = variants?.length > 1
-    ? `${variants.length} ${(variantLabel || 'option').toLowerCase()}s`
-    : null;
+  const { name, category, price, priceMax, stock, image, gradient, handmade, variants, variantLabel, images } = product;
+  const status = availability(stock);
 
   return (
-    <article className="product-card" onClick={onClick} role="button" tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && onClick()}>
-      <div className="card-image">
-        {image ? (
-          <img src={image} alt={name} loading="lazy"
-            onError={e => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'block';
-            }}
-          />
-        ) : null}
-        <div
-          className="card-gradient"
-          style={{ background: gradient || '#1C1308', display: image ? 'none' : 'block' }}
-        />
-        {handmade && <span className="card-handmade-badge">Handmade</span>}
+    <button className={`card ${stock === 0 ? 'is-soldout' : ''}`} onClick={onClick} aria-label={`${name}, ${formatPrice(price, priceMax)}, ${status.label}`}>
+      <div className="card-media">
+        <ProductVisual src={image} alt={name} gradient={gradient} />
+        <div className="card-badges">
+          {handmade && <span className="badge badge-handmade">Handmade</span>}
+          {stock === 0 && <span className="badge badge-out">Sold out</span>}
+        </div>
+        {images?.length > 1 && <span className="card-photos" aria-hidden="true">{images.length} photos</span>}
       </div>
       <div className="card-body">
-        <div className="card-category">
+        <p className="card-category">
           {category}
-          {variantNote && <span className="card-variants-note"> · {variantNote}</span>}
-        </div>
+          {variants.length > 1 && <> · {variants.length} {(variantLabel || 'option').toLowerCase()}s</>}
+        </p>
         <h3 className="card-name">{name}</h3>
-        <div className="card-footer">
-          <span className="card-price">{price ? `€${price}` : 'On request'}</span>
-          <StockBadge stock={stock} />
+        <div className="card-foot">
+          <span className="price">{formatPrice(price, priceMax)}</span>
+          {stock !== 0 && <span className={`stock stock-${status.tone}`}>{status.label}</span>}
         </div>
       </div>
-    </article>
+    </button>
   );
 }

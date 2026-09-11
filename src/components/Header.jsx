@@ -1,38 +1,37 @@
-const LOGO_URL = 'https://drive.google.com/thumbnail?id=17FFya-sKK81YcaRqLw2_1WMwoV8S3gpx&sz=w200';
+import { useEffect, useState } from 'react';
+import { ETSY_SHOP_URL, INSTAGRAM_URL } from '../config.js';
 
-export default function Header({ search, onSearch, source }) {
+const BASE = import.meta.env.BASE_URL;
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="header">
-      <div className="header-inner">
-        <a href="/" className="header-brand">
-          <img
-            src={LOGO_URL}
-            alt="AFTER OWL"
-            className="header-logo"
-            onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
-          />
-          <div className="header-logo-fallback" style={{ display: 'none' }}>🦉</div>
-          <div>
-            <div className="header-name">AFTER OWL</div>
-            <div className="header-tagline">Gear Up. Owl Style.</div>
-          </div>
+    <header className={`header ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="container header-inner">
+        <a href={BASE} className="brand" aria-label="AFTER OWL home">
+          <img src={`${BASE}logo-mark.webp`} alt="" className="brand-mark" width="44" height="44" />
+          <span className="brand-text">
+            <span className="brand-name">AFTER OWL</span>
+            <span className="brand-tag">Gear up. Owl style.</span>
+          </span>
         </a>
 
-        <div className="header-search">
-          <span className="search-icon">🔍</span>
-          <input
-            type="text"
-            placeholder="Search products…"
-            value={search}
-            onChange={e => onSearch(e.target.value)}
-            aria-label="Search products"
-          />
-        </div>
-
-        <div className="header-source">
-          <div className={`source-dot ${source === 'local' ? 'local' : ''}`} />
-          {source === 'sheets' ? 'Live from Google Sheets' : 'Local data'}
-        </div>
+        <nav className="nav" aria-label="Main">
+          <a href="#shop" className="nav-hide-xs">Shop</a>
+          <a href="#about">About</a>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="nav-hide-sm">Instagram</a>
+          <a href={ETSY_SHOP_URL} target="_blank" rel="noreferrer" className="nav-cta">
+            Etsy shop <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
       </div>
     </header>
   );
