@@ -13,8 +13,8 @@ export const SHEET_ID = '1VYoB5rz-ICyDNLB8YIqZOPkhZPpUqHq0H9ffJxU_INc';
 
 // Tab names inside the sheet (must match exactly)
 export const SHEET_TABS = [
-  { name: 'Inventory List 2025 - Gadget Sh', defaultGroup: 'Handmade' },
-  { name: 'Inventory List 2025 - Art Work',  defaultGroup: 'Art Work' },
+  { name: 'Inventory List_Products',      defaultGroup: 'Handmade' },
+  { name: 'Inventory List_Homemade Art',  defaultGroup: 'Art Work' },
 ];
 
 // Google Drive folder with product photos (shared publicly).
