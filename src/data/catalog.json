@@ -212,7 +212,7 @@
  },
  {
   "key": "fcb-art-plate",
-  "name": "FC Ballern München Art Plate",
+  "name": "FC Ballern München Glass Plate",
   "category": "Handmade Limited Edition",
   "handmade": true,
   "description": "Squared glass plate 20×20cm with FC Ballern München artwork — sticker and paint.\n\nHandmade by the AFTER OWL crew. Represent the club with functional art.\n\nDetails:\n• 20 × 20 cm squared glass\n• Hand-applied FC Ballern München design\n• Sticker + paint finish",
@@ -773,7 +773,7 @@
  },
  {
   "key": "mini-lab-spoon",
-  "name": "Mini Laboratory Spoon",
+  "name": "Laboratory Spoon",
   "category": "Spoons",
   "handmade": false,
   "description": "Tiny spoon. Lab-grade look.\n\nStainless-steel mini spoon with a classic chemistry-lab silhouette — for crafts, jewelry-making, aquarium keeping and precision dosing in the kitchen.\n\nDetails:\n- Stainless steel construction; smooth finish\n- ~8cm total length, slim bowl\n- Lightweight, easy to store in a pencil case\n- Hand-wash safe\n\nTested by the OG AFTER OWL.",
@@ -835,6 +835,9 @@
    "unisex jar"
   ],
   "gradient": "linear-gradient(145deg, #0E0E12 0%, #3A4250 45%, #7A8898 75%, #B0BCC8 100%)",
+  "images": [
+   "1j41VAecH7N3d2n0Wa4nIWNbrk1D190sn"
+  ],
   "rows": [
    {
     "match": "Small Silver Glass Dispenser with Spoon"
