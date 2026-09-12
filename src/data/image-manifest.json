@@ -135,6 +135,7 @@
   "1iN8gmvLT0PqUPQkck_VLxOJnL1wUvvFa",
   "1iRQx8BgyxWwgCtZ-naECEV8ImId34YmG",
   "1iiYJBrMHuHUngMZKSFG5uH41k-vU2NSr",
+  "1j41VAecH7N3d2n0Wa4nIWNbrk1D190sn",
   "1jxaBfH6lv90uy_onRT1RtPGRdhUkAea7",
   "1ksK26PzM7_0jgaU6PoqdyXmYe4XGqLCB",
   "1l4pp3MHyp-2TPeh7i-ZBIO1pUEeYvY2g",
@@ -184,6 +185,9 @@
   "grinder-etsy"
  ],
  "auto": {
+  "silver-glass-dispenser": [
+   "1j41VAecH7N3d2n0Wa4nIWNbrk1D190sn"
+  ],
   "water-bottle-lanyard": [
    "1JNPGcY_IgCGUWiQBzYUdRMeGTjpJ9hIE"
   ]
