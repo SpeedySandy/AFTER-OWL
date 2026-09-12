@@ -92,21 +92,32 @@ async function downloadImage(id) {
     await fs.access(file);
     return true; // already there
   } catch {}
-  try {
-    const res = await fetch(driveThumb(id, 'w1400'), { redirect: 'follow' });
-    const type = res.headers.get('content-type') || '';
-    if (!res.ok || !type.startsWith('image/')) throw new Error(`${res.status} ${type}`);
-    const buf = Buffer.from(await res.arrayBuffer());
-    await sharp(buf)
-      .rotate()
-      .resize({ width: 1000, height: 1000, fit: 'inside', withoutEnlargement: true })
-      .webp({ quality: 80 })
-      .toFile(file);
-    return true;
-  } catch (e) {
-    console.warn(`photo ${id}: ${e.message}`);
-    return false;
+  // The thumbnail endpoint occasionally 404s for otherwise-valid files (rate limits,
+  // freshly uploaded files, etc). Fall back to the direct download endpoint.
+  const sources = [
+    { url: driveThumb(id, 'w1400'), requireImageType: true },
+    { url: `https://drive.google.com/uc?export=download&id=${id}`, requireImageType: false },
+  ];
+  let lastErr;
+  for (const { url, requireImageType } of sources) {
+    try {
+      const res = await fetch(url, { redirect: 'follow' });
+      const type = res.headers.get('content-type') || '';
+      if (!res.ok) throw new Error(`${res.status} ${type}`);
+      if (requireImageType && !type.startsWith('image/')) throw new Error(`${res.status} ${type}`);
+      const buf = Buffer.from(await res.arrayBuffer());
+      await sharp(buf)
+        .rotate()
+        .resize({ width: 1000, height: 1000, fit: 'inside', withoutEnlargement: true })
+        .webp({ quality: 80 })
+        .toFile(file);
+      return true;
+    } catch (e) {
+      lastErr = e;
+    }
   }
+  console.warn(`photo ${id}: ${lastErr.message}`);
+  return false;
 }
 
 async function pool(items, size, fn) {

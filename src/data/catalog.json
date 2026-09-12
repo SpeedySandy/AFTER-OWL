@@ -1149,6 +1149,7 @@
    "travel grinder"
   ],
   "gradient": "linear-gradient(145deg, #0A0C0E 0%, #1E2228 50%, #3A4048 100%)",
+  "images": ["grinder-etsy"],
   "rows": [
    {
     "match": "Storage Container Grinder"
@@ -1644,6 +1645,7 @@
    "travel fan"
   ],
   "gradient": "linear-gradient(145deg, #141414 0%, #5A6270 40%, #A0AEC0 70%, #D0D8E0 100%)",
+  "images": ["fan-silver-etsy"],
   "rows": [
    {
     "match": "Fan - Shining Silver"

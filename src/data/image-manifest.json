@@ -53,6 +53,7 @@
   "1INrptnWOUm7XudoItxS-Z7DRFNH1yB5S",
   "1ITg6iZ84WorKtUD_vgPyfefGErstGI_G",
   "1IgvzcRtW3RxYCEi8zDLo43NlHGoR4KoP",
+  "1JNPGcY_IgCGUWiQBzYUdRMeGTjpJ9hIE",
   "1JNYOHOLo_Rl6JAmiokQpAiO6NporpY0o",
   "1JSFxmJIelZ7lVIYityLsvGZ8JnB2I4Nl",
   "1JvaB82gShHyCiPiMsJ6RWgvKU_VxMBVV",
@@ -178,7 +179,13 @@
   "1yT1Ui3NuaG6ugvn0dpL12_MamBAafzW0",
   "1zVgLKAU_WCg56dN469dstw4uYxjefgeD",
   "1zbGpOo8cE-FmjkkKTdypkwYJa6NX9dv3",
-  "1zrYYw1gsHwILuK26Ov1m3AYxVrgto8su"
+  "1zrYYw1gsHwILuK26Ov1m3AYxVrgto8su",
+  "fan-silver-etsy",
+  "grinder-etsy"
  ],
- "auto": {}
+ "auto": {
+  "water-bottle-lanyard": [
+   "1JNPGcY_IgCGUWiQBzYUdRMeGTjpJ9hIE"
+  ]
+ }
 }
