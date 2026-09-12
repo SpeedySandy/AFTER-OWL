@@ -2,7 +2,8 @@ import { SORT_OPTIONS } from '../lib/products.js';
 
 export default function ShopToolbar({
   search, onSearch, categories, category, onCategory,
-  collections, collectionKey, onCollection, sort, onSort, resultCount,
+  collections, collectionKey, onCollection, sort, onSort,
+  savedOnly, onToggleSavedOnly, savedCount = 0, resultCount,
 }) {
   return (
     <div className="toolbar">
@@ -23,6 +24,16 @@ export default function ShopToolbar({
             {SORT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
           </select>
         </label>
+        {savedCount > 0 && (
+          <button
+            className={`chip chip-saved ${savedOnly ? 'is-active' : ''}`}
+            aria-pressed={savedOnly}
+            onClick={onToggleSavedOnly}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-10-9.2C.6 8 2 4.5 5.4 4c2-.3 3.8.6 5 2.2A5.6 5.6 0 0 1 15.6 4c3.4.5 4.8 4 3.4 7.3-2.5 4.6-10 9.2-10 9.2Z" /></svg>
+            Saved <span className="chip-count">{savedCount}</span>
+          </button>
+        )}
         <p className="result-count" aria-live="polite">{resultCount} {resultCount === 1 ? 'item' : 'items'}</p>
       </div>
 

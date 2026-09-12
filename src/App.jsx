@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useProducts } from './hooks/useProducts.js';
 import { sortCategories, sortProducts } from './lib/products.js';
 import { norm } from './lib/sheet.js';
+import { useSavedList } from './hooks/useSaved.js';
 import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
@@ -45,6 +46,8 @@ export default function App() {
   const [category, setCategory] = useState('All');
   const [collectionKey, setCollectionKey] = useState(null);
   const [sort, setSort] = useState('featured');
+  const [savedOnly, setSavedOnly] = useState(false);
+  const saved = useSavedList();
   const [selected, select] = useSelectedProduct(products);
 
   const categories = useMemo(() => {
@@ -67,10 +70,11 @@ export default function App() {
     const base = collection ? collectionProducts(products, collection) : products;
     const list = base.filter(p =>
       (category === 'All' || p.category === category) &&
+      (!savedOnly || saved.includes(p.key)) &&
       (!q || q.split(' ').every(word => p.searchText.includes(word)))
     );
     return sortProducts(list, sort);
-  }, [products, category, collectionKey, search, sort]);
+  }, [products, category, collectionKey, search, sort, savedOnly, saved]);
 
   useEffect(() => {
     if (category !== 'All' && !categories.some(c => c.name === category)) setCategory('All');
@@ -115,13 +119,16 @@ export default function App() {
               onCollection={pickCollection}
               sort={sort}
               onSort={setSort}
+              savedOnly={savedOnly}
+              onToggleSavedOnly={() => setSavedOnly(v => !v)}
+              savedCount={saved.length}
               resultCount={filtered.length}
             />
 
             <ProductGrid
               products={filtered}
               onSelect={p => select(p.key)}
-              onReset={() => { setSearch(''); pickCategory('All'); }}
+              onReset={() => { setSearch(''); pickCategory('All'); setSavedOnly(false); }}
             />
           </div>
         </section>

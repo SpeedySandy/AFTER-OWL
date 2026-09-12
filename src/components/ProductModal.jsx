@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import ProductVisual from './ProductVisual.jsx';
 import { availability, formatPrice, etsySearchUrl } from '../lib/products.js';
 import { INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
+import { useIsSaved } from '../hooks/useSaved.js';
 
 export default function ProductModal({ product, products = [], onSelect, onClose }) {
   const {
@@ -26,6 +27,7 @@ export default function ProductModal({ product, products = [], onSelect, onClose
   const [variant, setVariant] = useState(() =>
     variants.length ? variants.find(v => v.stock !== 0) || variants[0] : null
   );
+  const [saved, toggleSaved] = useIsSaved(key);
   const gallery = [...new Set([variant?.image, ...images].filter(Boolean))];
   const [active, setActive] = useState(gallery[0] || null);
   const closeRef = useRef(null);
@@ -83,7 +85,18 @@ export default function ProductModal({ product, products = [], onSelect, onClose
             {category}
             {handmade && !/handmade/i.test(category) && <span className="badge badge-handmade">Handmade</span>}
           </p>
-          <h2 id="modal-title" className="modal-title">{name}</h2>
+          <div className="modal-title-row">
+            <h2 id="modal-title" className="modal-title">{name}</h2>
+            <button
+              className={`save-btn ${saved ? 'is-saved' : ''}`}
+              onClick={toggleSaved}
+              aria-pressed={saved}
+              aria-label={saved ? `Remove ${name} from saved` : `Save ${name} for later`}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-10-9.2C.6 8 2 4.5 5.4 4c2-.3 3.8.6 5 2.2A5.6 5.6 0 0 1 15.6 4c3.4.5 4.8 4 3.4 7.3-2.5 4.6-10 9.2-10 9.2Z" /></svg>
+              {saved ? 'Saved' : 'Save'}
+            </button>
+          </div>
 
           <div className="modal-price">
             <span className="price price-lg">{shownPrice}</span>
