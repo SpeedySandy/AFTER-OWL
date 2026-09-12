@@ -3,11 +3,25 @@ import ProductVisual from './ProductVisual.jsx';
 import { availability, formatPrice, etsySearchUrl } from '../lib/products.js';
 import { INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 
-export default function ProductModal({ product, onClose }) {
+export default function ProductModal({ product, products = [], onSelect, onClose }) {
   const {
-    name, category, price, priceMax, stock, images, gradient, handmade,
+    key, name, category, price, priceMax, stock, images, gradient, handmade,
     description, materials, size, weight, variants, variantLabel, onEtsy,
   } = product;
+
+  const related = (() => {
+    const others = products.filter(p => p.key !== key);
+    const sameCategory = others.filter(p => p.category === category);
+    const inStockFirst = [...sameCategory].sort((a, b) => (a.stock === 0 ? 1 : 0) - (b.stock === 0 ? 1 : 0));
+    const picks = inStockFirst.slice(0, 4);
+    if (picks.length < 4) {
+      for (const p of others) {
+        if (picks.length >= 4) break;
+        if (!picks.includes(p)) picks.push(p);
+      }
+    }
+    return picks;
+  })();
 
   const [variant, setVariant] = useState(() =>
     variants.length ? variants.find(v => v.stock !== 0) || variants[0] : null
@@ -120,6 +134,23 @@ export default function ProductModal({ product, onClose }) {
               {size && <><dt>Size</dt><dd>{size}</dd></>}
               {weight && <><dt>Weight</dt><dd>{weight}</dd></>}
             </dl>
+          )}
+
+          {related.length > 0 && (
+            <div className="related">
+              <h3 className="related-title">You might also like</h3>
+              <div className="related-list">
+                {related.map(p => (
+                  <button key={p.key} className="related-item" onClick={() => onSelect?.(p)}>
+                    <span className="related-visual">
+                      <ProductVisual src={p.image} alt="" gradient={p.gradient} />
+                    </span>
+                    <span className="related-name">{p.name}</span>
+                    <span className="related-price">{formatPrice(p.price, p.priceMax)}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </div>

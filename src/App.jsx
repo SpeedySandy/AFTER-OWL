@@ -133,7 +133,15 @@ export default function App() {
 
       <Footer source={source} updatedAt={updatedAt} error={error} />
 
-      {selected && <ProductModal key={selected.key} product={selected} onClose={() => select(null)} />}
+      {selected && (
+        <ProductModal
+          key={selected.key}
+          product={selected}
+          products={products}
+          onSelect={p => select(p.key)}
+          onClose={() => select(null)}
+        />
+      )}
     </>
   );
 }
