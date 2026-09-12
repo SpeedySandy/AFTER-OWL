@@ -41,7 +41,13 @@ function useSelectedProduct(products) {
 }
 
 export default function App() {
-  const { products, source, updatedAt, error } = useProducts();
+  const { products: rawProducts, source, updatedAt, error } = useProducts();
+  const products = useMemo(() => {
+    const limited = findCollection('limited-editions');
+    if (!limited) return rawProducts;
+    const keys = new Set(collectionProducts(rawProducts, limited).map(p => p.key));
+    return rawProducts.map(p => (keys.has(p.key) ? { ...p, limited: true } : p));
+  }, [rawProducts]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
   const [collectionKey, setCollectionKey] = useState(null);

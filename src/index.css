@@ -269,6 +269,8 @@ h3 { font-size: 1.15rem; font-weight: 600; }
 }
 .badge-handmade { background: var(--grad); color: #0a0a0a; }
 .badge-out { background: rgba(10, 10, 10, 0.8); color: var(--out); border: 1px solid rgba(255, 107, 138, 0.4); }
+.badge-limited { background: rgba(255, 93, 186, 0.14); color: var(--pink); border: 1px solid rgba(255, 93, 186, 0.4); }
+.modal-limited-note { margin: -6px 0 4px; font-size: 0.82rem; color: var(--pink); }
 
 .empty { text-align: center; padding: 80px 20px; color: var(--text-2); display: grid; gap: 12px; justify-items: center; }
 .empty-title { font: 600 1.3rem var(--font-display); color: var(--text); }

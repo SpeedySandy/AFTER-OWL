@@ -3,7 +3,7 @@ import { availability, formatPrice } from '../lib/products.js';
 import { useIsSaved } from '../hooks/useSaved.js';
 
 export default function ProductCard({ product, onClick }) {
-  const { key, name, category, price, priceMax, stock, image, gradient, handmade, variants, variantLabel, images } = product;
+  const { key, name, category, price, priceMax, stock, image, gradient, handmade, limited, variants, variantLabel, images } = product;
   const status = availability(stock);
   const [saved, toggleSaved] = useIsSaved(key);
 
@@ -12,7 +12,11 @@ export default function ProductCard({ product, onClick }) {
       <div className="card-media">
         <ProductVisual src={image} alt={name} gradient={gradient} />
         <div className="card-badges">
-          {handmade && <span className="badge badge-handmade">Handmade</span>}
+          {limited ? (
+            <span className="badge badge-limited">💎 Limited drop</span>
+          ) : (
+            handmade && <span className="badge badge-handmade">Handmade</span>
+          )}
           {stock === 0 && <span className="badge badge-out">Sold out</span>}
         </div>
         <span

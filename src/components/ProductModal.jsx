@@ -6,7 +6,7 @@ import { useIsSaved } from '../hooks/useSaved.js';
 
 export default function ProductModal({ product, products = [], onSelect, onClose }) {
   const {
-    key, name, category, price, priceMax, stock, images, gradient, handmade,
+    key, name, category, price, priceMax, stock, images, gradient, handmade, limited,
     description, materials, size, weight, variants, variantLabel, onEtsy,
   } = product;
 
@@ -83,8 +83,13 @@ export default function ProductModal({ product, products = [], onSelect, onClose
         <div className="modal-body">
           <p className="modal-eyebrow">
             {category}
-            {handmade && !/handmade/i.test(category) && <span className="badge badge-handmade">Handmade</span>}
+            {limited ? (
+              <span className="badge badge-limited">💎 Limited drop</span>
+            ) : (
+              handmade && !/handmade/i.test(category) && <span className="badge badge-handmade">Handmade</span>
+            )}
           </p>
+          {limited && <p className="modal-limited-note">Handmade in small batches — once it's sold, it's gone for good.</p>}
           <div className="modal-title-row">
             <h2 id="modal-title" className="modal-title">{name}</h2>
             <button
