@@ -76,6 +76,73 @@
   ]
  },
  {
+  "key": "green-square-box",
+  "name": "Green Square Box",
+  "category": "Handmade Limited Edition",
+  "handmade": true,
+  "description": "Solid green. Small footprint. One-of-one.\n\nHandmade square resin box in a solid pop of green — a compact home accent for rings, charms, dice and small keepsakes.\n\nDetails:\n- Cast resin\n- Compact square format\n- Handmade; small variations make each piece unique\n\nTested by the OG AFTER OWL.",
+  "materials": "Resin",
+  "tags": [
+   "after owl",
+   "decor box",
+   "desk accessory",
+   "gift box",
+   "green box",
+   "handmade",
+   "handmade box",
+   "jewelry box",
+   "keepsake box",
+   "resin box",
+   "square box",
+   "trinket box",
+   "unique box"
+  ],
+  "gradient": "linear-gradient(145deg, #061209 0%, #1E4228 35%, #3A7D55 65%, #5AAB78 100%)",
+  "images": [
+   "1U1L2J3zXRmbeTvKsV-LhSB3X5-IluDWK"
+  ],
+  "rows": [
+   {
+    "match": "Green Square Box"
+   }
+  ]
+ },
+ {
+  "key": "shiny-kangaroo-hip-bag",
+  "name": "Shiny Kangaroo Hip Bag",
+  "category": "Bags",
+  "handmade": false,
+  "description": "Holographic shine. Kangaroo pouch energy.\n\nShiny silver hip bag with an adjustable strap and a roomy front pouch — built to carry your festival essentials and catch the light on the dancefloor.\n\nDetails:\n- Holographic silver exterior\n- Adjustable waist/crossbody strap\n- Zippered main compartment + front pocket\n\nTested by the OG AFTER OWL.",
+  "materials": "Holographic fabric",
+  "tags": [
+   "after owl",
+   "bum bag",
+   "bumbag",
+   "crossbody bag",
+   "fanny pack",
+   "festival",
+   "festival bag",
+   "hip bag",
+   "holographic bag",
+   "iridescent",
+   "kangaroo bag",
+   "party bag",
+   "rave bag",
+   "silver bag",
+   "unisex bag"
+  ],
+  "gradient": "linear-gradient(145deg, #0E0E12 0%, #3A4250 45%, #7A8898 75%, #B0BCC8 100%)",
+  "images": [
+   "1TYfw5CCsS7ejjBieeIS7Kv_QXg2beZrN",
+   "190ij6Q6tKehvwCCZC03mkFinKEd4tH7c"
+  ],
+  "rows": [
+   {
+    "match": "Shiny Kangaroo Hip Bag"
+   }
+  ]
+ },
+ {
   "key": "fire-asher",
   "name": "Fire Rocks Resin Ashtray",
   "category": "Handmade Limited Edition",
@@ -1326,9 +1393,9 @@
   "name": "Heavy Glass Plate",
   "category": "Tools",
   "handmade": false,
-  "description": "Weighty glass. Clean lines. Surprisingly useful.\n\nA thick square of smoked glass that lives on your desk as a coaster, a rolling tray for herbs, a jewelry catch-all or a décor accent.\n\nDetails:\n- ~10x10cm; thick tempered-style glass\n- Smooth edges; smoky translucent tint\n- Doubles as desk coaster, tray, jewelry dish\n- Wipe-clean with a soft cloth\n\nTested by the OG AFTER OWL.",
+  "description": "Weighty glass. Clean lines. Surprisingly useful.\n\nA round, clear glass plate with a hammered, faceted rim that lives on your desk as a coaster, a rolling tray for herbs, a jewelry catch-all or a décor accent.\n\nDetails:\n- Round clear glass; hammered/faceted edge\n- Solid, heavy feel\n- Doubles as desk coaster, tray, jewelry dish\n- Wipe-clean with a soft cloth\n\nTested by the OG AFTER OWL.",
   "materials": "Glass",
-  "size": "Square plate",
+  "size": "Round plate",
   "tags": [
    "after owl",
    "catch all",
@@ -1339,13 +1406,13 @@
    "gift glass",
    "glass plate",
    "glass tray",
+   "hammered glass",
    "heavy",
    "herb tray",
    "jewelry tray",
    "medical",
    "rolling tray",
-   "smoked glass",
-   "square glass plate",
+   "round glass plate",
    "tools",
    "work surface"
   ],

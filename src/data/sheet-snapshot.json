@@ -10,9 +10,19 @@
   "hidden": false
  },
  {
-  "name": "Greeny Square Box",
+  "name": "Green Square Box",
   "group": "Handmade",
   "notes": "Green square box resin and ceramic floor",
+  "price": 10,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Golden Pyramide",
+  "group": "Handmade",
+  "notes": "Golden pyramide tube stand resin",
   "price": 10,
   "stock": 1,
   "sold": 0,
@@ -35,6 +45,66 @@
   "notes": "Silver Pillow Mirror",
   "price": 30,
   "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Space Out",
+  "group": "Handmade",
+  "notes": "Space Out Mirror Tray",
+  "price": 60,
+  "stock": 0,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Floating Diamond",
+  "group": "Handmade",
+  "notes": "Floating Diamond Side Table Hidden Mirror Tray",
+  "price": 100,
+  "stock": 0,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Broken Mirror",
+  "group": "Handmade",
+  "notes": "\"NOT\" Broken Mirror Tray",
+  "price": 30,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Hidden Smiley",
+  "group": "Handmade",
+  "notes": "Hidden smiley resin tray with mirror",
+  "price": 30,
+  "stock": 0,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Spinning Lines",
+  "group": "Handmade",
+  "notes": "Rotating tray with mirror and black & white art work filled with resin. Spin to play who takes the next line.",
+  "price": 40,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "FC Ballern München Plate",
+  "group": "Handmade",
+  "notes": "Squared glass plate 20x20cm with FC Ballern München art work. (with sticker and paint)",
+  "price": 15,
+  "stock": 0,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -517,6 +587,16 @@
   "stock": 1,
   "sold": 0,
   "etsy": true,
+  "hidden": false
+ },
+ {
+  "name": "Shiny Kangaroo Hip Bag",
+  "group": "Accessories",
+  "notes": "Shiny silver kangaroo hig bag",
+  "price": 20,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
   "hidden": false
  },
  {
@@ -1244,46 +1324,6 @@
   "group": "Other",
   "notes": "Keyring \"DON'T FOLLOW ME, I'M LOST TOO\"",
   "price": 3,
-  "stock": 1,
-  "sold": 0,
-  "etsy": false,
-  "hidden": false
- },
- {
-  "name": "Spinning Lines",
-  "group": "Art Work",
-  "notes": "Rotating tray with mirror and black & white art work filled with resin. Spin to play who takes the next line.",
-  "price": 35,
-  "stock": 1,
-  "sold": 0,
-  "etsy": false,
-  "hidden": false
- },
- {
-  "name": "Hidden Smiley",
-  "group": "Art Work",
-  "notes": "Hidden smiley resin tray with mirror",
-  "price": 30,
-  "stock": 0,
-  "sold": 1,
-  "etsy": false,
-  "hidden": false
- },
- {
-  "name": "FC Ballern München Plate",
-  "group": "Art Work",
-  "notes": "Squared glass plate 20x20cm with FC Ballern München art work. (with sticker and paint)",
-  "price": 15,
-  "stock": 0,
-  "sold": 3,
-  "etsy": false,
-  "hidden": false
- },
- {
-  "name": "Golden Pyramide",
-  "group": "Art Work",
-  "notes": "Golden pyramide tube stand resin",
-  "price": 10,
   "stock": 1,
   "sold": 0,
   "etsy": false,

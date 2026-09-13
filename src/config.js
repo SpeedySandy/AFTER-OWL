@@ -11,10 +11,12 @@
 
 export const SHEET_ID = '1VYoB5rz-ICyDNLB8YIqZOPkhZPpUqHq0H9ffJxU_INc';
 
-// Tab names inside the sheet (must match exactly)
+// Tab names inside the sheet (must match exactly).
+// The former "Inventory List_Homemade Art" tab was merged into this one —
+// its rows (Golden Pyramide, Hidden Smiley, Spinning Lines, FC Ballern
+// München Plate, ...) now live here with their own Product Group cell.
 export const SHEET_TABS = [
-  { name: 'Inventory List_Products',      defaultGroup: 'Handmade' },
-  { name: 'Inventory List_Homemade Art',  defaultGroup: 'Art Work' },
+  { name: 'Inventory List_Products', defaultGroup: 'Handmade' },
 ];
 
 // Google Drive folder with product photos (shared publicly).
