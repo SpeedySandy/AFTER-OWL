@@ -102,7 +102,7 @@ export default function About({ collections = [], onCollection }) {
             </p>
             <p>
               It all started with festival gear that gave up on day two and the wrong tools on the wrong
-              hikes. So Sandro, the OG AFTER OWL, started hunting down (and making) gear that actually
+              hikes. So the OG AFTER OWL started hunting down (and making) gear that actually
               survives the night and still works at sunrise.
             </p>
             <p>
