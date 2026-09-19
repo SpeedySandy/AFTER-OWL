@@ -111,6 +111,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://afterowl.shop/p/og-after-owl</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/og-after-owl"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/og-after-owl?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/p/og-after-owl?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/p/og-after-owl"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/p/mushroom-greenfield</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/mushroom-greenfield"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/mushroom-greenfield?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/p/mushroom-greenfield?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/p/mushroom-greenfield"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://afterowl.shop/p/silver-square-box</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/silver-square-box"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/silver-square-box?lang=es"/>
@@ -1001,6 +1021,16 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://afterowl.shop/p/halo-mirror-table</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/halo-mirror-table"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/halo-mirror-table?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/p/halo-mirror-table?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/p/halo-mirror-table"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://afterowl.shop/p/auto-gentlemen-grinder</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/auto-gentlemen-grinder"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/auto-gentlemen-grinder?lang=es"/>
@@ -1066,6 +1096,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/auto-j-tube?lang=es"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/p/auto-j-tube?lang=de"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/p/auto-j-tube"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/p/fcb-jersey</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/fcb-jersey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/fcb-jersey?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/p/fcb-jersey?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/p/fcb-jersey"/>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
