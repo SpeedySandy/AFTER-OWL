@@ -110,6 +110,36 @@
   "hidden": false
  },
  {
+  "name": "HALO Mirror Side Table",
+  "group": "Handmade",
+  "notes": "",
+  "price": 90,
+  "stock": 0,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "OG AFTER OWL",
+  "group": "Handmade",
+  "notes": "Neon Disco Owl sculpture",
+  "price": 240,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Mushroom Greenfield",
+  "group": "Handmade",
+  "notes": "Mushroom Rolling Tray",
+  "price": 60,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
   "name": "Black Tube",
   "group": "Tubes",
   "notes": "Aluminium Metal Tube Black",
@@ -915,6 +945,16 @@
   "notes": "Alien socks with print, green black",
   "price": 10,
   "stock": 2,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "FC Ballern München Club Jersey",
+  "group": "Clothing",
+  "notes": "",
+  "price": 30,
+  "stock": 0,
   "sold": 0,
   "etsy": false,
   "hidden": false
