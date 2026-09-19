@@ -105,7 +105,9 @@
    {
     "match": "Green Square Box"
    }
-  ]
+  ],
+  "size": "8 × 8 × 4 cm",
+  "weight": "~120 g"
  },
  {
   "key": "shiny-kangaroo-hip-bag",
@@ -646,7 +648,8 @@
     "match": "FC BALLERN MÜNCHEN Card - Personalized",
     "variant": "Personalised"
    }
-  ]
+  ],
+  "weight": "~30 g"
  },
  {
   "key": "powder-rangers-card",
@@ -686,7 +689,8 @@
    {
     "match": "The POWDER RANGERS Card"
    }
-  ]
+  ],
+  "weight": "~30 g"
  },
  {
   "key": "monkey-spoon",
@@ -723,7 +727,8 @@
    {
     "match": "Monkey Spoon"
    }
-  ]
+  ],
+  "weight": "~5 g"
  },
  {
   "key": "kings-silver-spoon",
@@ -836,7 +841,8 @@
    {
     "match": "OK-Hole Shovel"
    }
-  ]
+  ],
+  "weight": "~5 g"
  },
  {
   "key": "mini-lab-spoon",
@@ -870,7 +876,8 @@
    {
     "match": "Mini Laboratory Spoon"
    }
-  ]
+  ],
+  "weight": "~5 g"
  },
  {
   "key": "silver-glass-dispenser",
@@ -909,7 +916,8 @@
    {
     "match": "Small Silver Glass Dispenser with Spoon"
    }
-  ]
+  ],
+  "weight": "~15 g"
  },
  {
   "key": "g1-dispenser",
@@ -1101,7 +1109,8 @@
     "variant": "Gold",
     "gradient": "linear-gradient(145deg, #1a1000 0%, #8B6000 40%, #C49A1A 70%, #E8C84A 100%)"
    }
-  ]
+  ],
+  "weight": "~15 g"
  },
  {
   "key": "silver-square-box",
@@ -1143,7 +1152,8 @@
    {
     "match": "Silver Square Box"
    }
-  ]
+  ],
+  "weight": "~80 g"
  },
  {
   "key": "glass-tubes-set",
@@ -1188,7 +1198,8 @@
     "match": "Glass Tubes Set 10.1cm",
     "variant": "10.1 cm"
    }
-  ]
+  ],
+  "weight": "~80 g"
  },
  {
   "key": "storage-grinder",
@@ -1219,7 +1230,9 @@
    "travel grinder"
   ],
   "gradient": "linear-gradient(145deg, #0A0C0E 0%, #1E2228 50%, #3A4048 100%)",
-  "images": ["grinder-etsy"],
+  "images": [
+   "grinder-etsy"
+  ],
   "rows": [
    {
     "match": "Storage Container Grinder"
@@ -1715,7 +1728,9 @@
    "travel fan"
   ],
   "gradient": "linear-gradient(145deg, #141414 0%, #5A6270 40%, #A0AEC0 70%, #D0D8E0 100%)",
-  "images": ["fan-silver-etsy"],
+  "images": [
+   "fan-silver-etsy"
+  ],
   "rows": [
    {
     "match": "Fan - Shining Silver"
@@ -2022,7 +2037,8 @@
    {
     "match": "OH SHIT KIT Bag"
    }
-  ]
+  ],
+  "weight": "~60 g"
  },
  {
   "key": "illegal-stuff-pouch",
@@ -2718,7 +2734,9 @@
    {
     "match": "Secret Stash Belt"
    }
-  ]
+  ],
+  "size": "110 × 3.5 × 1 cm",
+  "weight": "~200 g"
  },
  {
   "key": "stash-bolt",
@@ -2842,7 +2860,9 @@
     "variant": "Leopard",
     "gradient": "linear-gradient(145deg, #1a0a00 0%, #5A3000 40%, #9A6020 70%, #C88040 100%)"
    }
-  ]
+  ],
+  "size": "10 × 10 × 2 cm",
+  "weight": "~15 g"
  },
  {
   "key": "stash-lighter",
@@ -2930,7 +2950,9 @@
    {
     "match": "Secret Stash Car Key"
    }
-  ]
+  ],
+  "size": "7 × 3 × 1.5 cm",
+  "weight": "~25 g"
  },
  {
   "key": "cross-necklace",
