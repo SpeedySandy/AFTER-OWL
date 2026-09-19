@@ -609,8 +609,8 @@
   "name": "FC Ballern München Card",
   "category": "Cards",
   "handmade": false,
-  "description": "Limited edition collector card.\n\nMetal wallet card with FC Ballern München artwork, packed in a gift tin. Go classic or get it personalised.\n\nDetails:\n- Aluminium wallet card\n- Fits any card slot\n- Gift tin included\n- Personalised edition on request\n\nTested by the OG AFTER OWL.",
-  "materials": "Aluminium",
+  "description": "Limited edition collector card.\n\nStainless-steel wallet card with the FC Ballern München artwork laser-etched into brushed metal, packed in a matte black gift box. Go classic or get it personalised.\n\nDetails:\n- Brushed stainless steel; laser-engraved\n- Credit-card format; fits any card slot\n- Matte black gift box included\n- Personalised edition on request\n\nTested by the OG AFTER OWL.",
+  "materials": "Stainless steel",
   "size": "8.5 × 5.5 × 0.2 cm",
   "tags": [
    "EMBRACE",
@@ -656,7 +656,7 @@
   "name": "Powder Rangers Card",
   "category": "Cards",
   "handmade": false,
-  "description": "Save the rangers. Save the wallet.\n\nLimited-edition aluminium wallet card with Powder Rangers-themed art — a collector piece for the AFTER OWL fan wallet.\n\nDetails:\n- Lightweight aluminium; credit-card footprint\n- Printed Powder Rangers themed art\n- Slides into standard wallet slots\n- Limited run; collector-focused\n\nTested by the OG AFTER OWL.",
+  "description": "Save the rangers. Save the wallet.\n\nLimited-edition aluminium wallet card with the Powder Rangers artwork laser-etched into brushed metal — a collector piece for the AFTER OWL fan wallet.\n\nDetails:\n- Brushed aluminium; laser-engraved\n- Credit-card format; slides into standard wallet slots\n- Matte black gift box included\n- Limited run; collector-focused\n\nTested by the OG AFTER OWL.",
   "materials": "Aluminium",
   "size": "8.5 × 5.5 × 0.2 cm",
   "tags": [
@@ -1449,7 +1449,10 @@
    {
     "match": "The Line King Square Glass Plate"
    }
-  ]
+  ],
+  "materials": "Glass",
+  "size": "Square plate",
+  "description": "Flat, heavy, beautifully weird.\n\nA small square glass tray carrying the The Line King artwork — sits on your desk as a coaster, jewelry dish or herb rolling tray.\n\nDetails:\n- Square glass plate\n- The Line King artwork\n- Desk coaster / catch-all / herb tray\n- Wipe-clean with a soft cloth\n\nTested by the OG AFTER OWL."
  },
  {
   "key": "keta-pan-plate",
@@ -1464,7 +1467,10 @@
    {
     "match": "KETA Pan Square Glass Plate"
    }
-  ]
+  ],
+  "materials": "Glass",
+  "size": "Square plate",
+  "description": "Flat, heavy, beautifully weird.\n\nA small square glass tray carrying the KETA Pan artwork — sits on your desk as a coaster, jewelry dish or herb rolling tray.\n\nDetails:\n- Square glass plate\n- KETA Pan artwork\n- Desk coaster / catch-all / herb tray\n- Wipe-clean with a soft cloth\n\nTested by the OG AFTER OWL."
  },
  {
   "key": "keta-horse-plate",
