@@ -3556,5 +3556,79 @@
     "match": "SIM Card Small Travel Storage Box"
    }
   ]
+ },
+ {
+  "key": "halo-mirror-table",
+  "name": "HALO Mirror Side Table",
+  "category": "Handmade Limited Edition",
+  "handmade": true,
+  "description": "Lift the lid. Nobody needs to know.\n\nA handmade pedestal side table in blue and chrome with a lift-off domed lid, and a mirror surface waiting underneath. A magnetic clip lamp angles light exactly where you want it, then comes off again. Closed, it is furniture.\n\nDetails:\n- Handmade one-off; domed lid on a pedestal base\n- Mirror surface under the lid\n- Magnetic clip-on lamp included\n- Wipe, close, leave no trace\n\nTested by the OG AFTER OWL.",
+  "gradient": "linear-gradient(145deg, #05070F 0%, #12275E 40%, #3163CE 70%, #A8C6F7 100%)",
+  "images": [
+   "1WZqqqMqFcFqr8av-Dw_ktVoKPbz9R_AW",
+   "1Wdc65WJCPYzwDjiQSb8uuKaqghdiI3rA",
+   "1f0a9AYSSfmKDwtMylS_b-a_JEl7Zqhd6"
+  ],
+  "rows": [
+   {
+    "match": "HALO Mirror Side Table"
+   }
+  ]
+ },
+ {
+  "key": "og-after-owl",
+  "name": "OG AFTER OWL",
+  "category": "Handmade Limited Edition",
+  "handmade": true,
+  "description": "The owl that runs the room.\n\nA large owl sculpture tiled in mirror mosaic, lit from within. Switched on in the dark it throws the whole room full of moving light; switched off it just sits there, a mirrored bird watching the decks. The one that gave the shop its name.\n\nDetails:\n- Handmade, one of a kind; mirror mosaic over a sculpted owl\n- Lights up and projects across walls and ceiling\n- Tested in living rooms, studios and on club stages\n\nTested by the OG AFTER OWL.",
+  "gradient": "linear-gradient(145deg, #04060A 0%, #10303A 35%, #1E7F6E 65%, #6FE3B8 100%)",
+  "images": [
+   "1UIxe9UWttr70kSVcOyWYaT-xNqTqjwJD",
+   "1Ydxj0vG_0HDgMRu0Jan75kZMsLXG4D-u",
+   "1euxYRFU7-UEkZAF8Cwcl0aj65GSLkQv7",
+   "1GyyZOKYWiExyBpc660mveTZoKlDQnxHq"
+  ],
+  "rows": [
+   {
+    "match": "OG AFTER OWL"
+   }
+  ]
+ },
+ {
+  "key": "mushroom-greenfield",
+  "name": "Mushroom Greenfield",
+  "category": "Handmade Limited Edition",
+  "handmade": true,
+  "materials": "Resin",
+  "description": "A little field to lose things on.\n\nA handmade green resin rolling tray, poured to look like a patch of moss, with mushroom-cap containers that sit on it — red and white, spotted, screw-top. Tray and caps together, one set.\n\nDetails:\n- Hand-poured resin tray; every pour is different\n- Mushroom-cap containers with screw lids\n- Rolling tray, desk catch-all or shelf piece\n- Wipe-clean with a soft cloth\n\nTested by the OG AFTER OWL.",
+  "gradient": "linear-gradient(145deg, #04100A 0%, #12502E 40%, #3FA86A 70%, #C6402F 100%)",
+  "images": [
+   "11yk-iLHbBsevixQR8ToT3Bjz6wJ0hxc3",
+   "1XEHCaVvhcN-R8DhBx-urzP49CVbdLeto",
+   "1YVLy2T1vYbMivR-pBeGvViJrJ-ifjjps",
+   "1bkP5KYcRLi-c0uthVrx34-Lus8f_nyqP"
+  ],
+  "rows": [
+   {
+    "match": "Mushroom Greenfield"
+   }
+  ]
+ },
+ {
+  "key": "fcb-jersey",
+  "name": "FC Ballern München Club Jersey",
+  "category": "Clothing",
+  "handmade": false,
+  "description": "For the club that does not exist.\n\nWhite and black football jersey with the FC Ballern München crest, the SNIFA badge and EMBRACE Collective across the chest in red. Short sleeve, V-neck, club stripes down the sides.\n\nDetails:\n- FC Ballern München crest and SNIFA badge\n- EMBRACE Collective chest print\n- Short sleeve, V-neck\n- If you know, you know\n\nTested by the OG AFTER OWL.",
+  "gradient": "linear-gradient(145deg, #0A0A0A 0%, #2A2A2A 35%, #E8E8E8 70%, #D5302A 100%)",
+  "images": [
+   "1aIV5p9Wa9imbM6iWFqd0LqUmBeUwuq8Y",
+   "12b6b532wiZqUr2JdQEsKRWdhxcTtvMaI"
+  ],
+  "rows": [
+   {
+    "match": "FC Ballern München Club Jersey"
+   }
+  ]
  }
 ]
