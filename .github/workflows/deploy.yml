@@ -35,11 +35,11 @@ jobs:
 
       - name: Commit synced data
         run: |
-          if [ -n "$(git status --porcelain src/data public/img)" ]; then
+          if [ -n "$(git status --porcelain src/data public/img public/sitemap.xml)" ]; then
             git config user.name  "after-owl-bot"
             git config user.email "after-owl-bot@users.noreply.github.com"
-            git add src/data public/img
-            git commit -m "chore: sync inventory snapshot & photos"
+            git add src/data public/img public/sitemap.xml
+            git commit -m "chore: sync inventory snapshot, photos & sitemap"
             git pull --rebase --autostash origin main && git push origin HEAD:main
           else
             echo "Nothing changed."

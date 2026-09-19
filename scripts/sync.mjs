@@ -17,6 +17,7 @@ import sharp from 'sharp';
 import { SHEET_TABS, DRIVE_IMAGES_FOLDER, sheetCsvUrl, driveThumb } from '../src/config.js';
 import { parseInventoryTab, norm } from '../src/lib/sheet.js';
 import { buildProducts } from '../src/lib/products.js';
+import { writeSitemap } from './sitemap.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dataDir = path.join(root, 'src/data');
@@ -177,3 +178,6 @@ const shown = buildProducts(rows, catalog, { files, auto });
 const noPhoto = shown.filter(p => !p.images.length).map(p => p.name);
 console.log(`\n${shown.length} products · ${files.length} photos · ${noPhoto.length} products without photo`);
 if (noPhoto.length) console.log('without photo:', noPhoto.join(', '));
+
+// ── 4. Sitemap ──────────────────────────────────────────────────────────────
+await writeSitemap(shown);

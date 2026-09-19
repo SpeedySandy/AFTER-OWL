@@ -3,58 +3,77 @@ import { useProducts } from './hooks/useProducts.js';
 import { sortCategories, sortProducts } from './lib/products.js';
 import { norm } from './lib/sheet.js';
 import { useSavedList } from './hooks/useSaved.js';
+import { useBag, useRecent } from './hooks/useStore.js';
+import { bagCount } from './lib/bag.js';
+import { pushRecent } from './lib/recent.js';
+import { navigate, onRouteChange, parseLocation } from './lib/router.js';
+import { applySeo } from './lib/seo.js';
+import { useI18n } from './i18n/index.jsx';
+
 import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import TrustBar from './components/TrustBar.jsx';
 import CollectionTiles from './components/CollectionTiles.jsx';
-import { COLLECTIONS, findCollection, collectionProducts } from './data/collections.js';
 import ShopToolbar from './components/ShopToolbar.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import ProductModal from './components/ProductModal.jsx';
+import RecentlyViewed from './components/RecentlyViewed.jsx';
+import Reviews from './components/Reviews.jsx';
+import SocialStrip from './components/SocialStrip.jsx';
 import About from './components/About.jsx';
+import Events from './components/Events.jsx';
+import Newsletter from './components/Newsletter.jsx';
 import FAQ from './components/FAQ.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import BagDrawer from './components/BagDrawer.jsx';
 
-// ?p=<product-key> opens a product directly (shareable links)
-function useSelectedProduct(products) {
-  const [key, setKey] = useState(() => new URLSearchParams(window.location.search).get('p'));
+import { COLLECTIONS, findCollection, collectionProducts } from './data/collections.js';
 
-  useEffect(() => {
-    const onPop = () => setKey(new URLSearchParams(window.location.search).get('p'));
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
-  }, []);
+/** The open product comes from the URL (/p/<key>), so every piece is linkable. */
+function useRoutedProduct(products) {
+  const [route, setRoute] = useState(parseLocation);
+  useEffect(() => onRouteChange(setRoute), []);
 
-  const select = next => {
-    const url = new URL(window.location.href);
-    if (next) url.searchParams.set('p', next);
-    else url.searchParams.delete('p');
-    if (next && !key) window.history.pushState({}, '', url);
-    else window.history.replaceState({}, '', url);
-    setKey(next);
-  };
+  const product = route.name === 'product' ? products.find(p => p.key === route.key) || null : null;
+  const select = next => navigate(next ? { name: 'product', key: next.key } : { name: 'home' });
 
-  const product = key ? products.find(p => p.key === key) : null;
   return [product, select];
 }
 
 export default function App() {
+  const { t, lang, meta } = useI18n();
   const { products: rawProducts, source, updatedAt, error } = useProducts();
+
   const products = useMemo(() => {
     const limited = findCollection('limited-editions');
     if (!limited) return rawProducts;
     const keys = new Set(collectionProducts(rawProducts, limited).map(p => p.key));
     return rawProducts.map(p => (keys.has(p.key) ? { ...p, limited: true } : p));
   }, [rawProducts]);
+
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
   const [collectionKey, setCollectionKey] = useState(null);
   const [sort, setSort] = useState('featured');
   const [savedOnly, setSavedOnly] = useState(false);
+  const [inStockOnly, setInStockOnly] = useState(false);
+  const [bagOpen, setBagOpen] = useState(false);
+
   const saved = useSavedList();
-  const [selected, select] = useSelectedProduct(products);
+  const bagItems = useBag();
+  const recentKeys = useRecent();
+  const [selected, select] = useRoutedProduct(products);
+
+  // Remember what was looked at, and keep the head in sync with the route.
+  useEffect(() => {
+    if (selected) pushRecent(selected.key);
+  }, [selected?.key]);
+
+  useEffect(() => {
+    applySeo({ product: selected, lang, dictMeta: meta, products });
+  }, [selected, lang, meta, products]);
 
   const categories = useMemo(() => {
     const counts = new Map();
@@ -77,14 +96,24 @@ export default function App() {
     const list = base.filter(p =>
       (category === 'All' || p.category === category) &&
       (!savedOnly || saved.includes(p.key)) &&
+      (!inStockOnly || p.stock !== 0) &&
       (!q || q.split(' ').every(word => p.searchText.includes(word)))
     );
     return sortProducts(list, sort);
-  }, [products, category, collectionKey, search, sort, savedOnly, saved]);
+  }, [products, category, collectionKey, search, sort, savedOnly, inStockOnly, saved]);
 
   useEffect(() => {
     if (category !== 'All' && !categories.some(c => c.name === category)) setCategory('All');
   }, [categories, category]);
+
+  const isFiltered = Boolean(search || collectionKey || savedOnly || inStockOnly || category !== 'All');
+  const clearFilters = () => {
+    setSearch('');
+    setCategory('All');
+    setCollectionKey(null);
+    setSavedOnly(false);
+    setInStockOnly(false);
+  };
 
   const pickCategory = cat => { setCategory(cat); setCollectionKey(null); };
   const pickCollection = key => { setCollectionKey(key); setCategory('All'); };
@@ -97,8 +126,14 @@ export default function App() {
 
   return (
     <>
+      <a className="skip-link" href="#shop">{t('hero.shopCta')}</a>
       <AnnouncementBar />
-      <Header />
+      <Header
+        bagCount={bagCount(bagItems)}
+        onOpenBag={() => setBagOpen(true)}
+        onHome={() => select(null)}
+      />
+
       <main>
         <Hero productCount={products.length} />
         <TrustBar />
@@ -107,11 +142,9 @@ export default function App() {
         <section id="shop" className="shop" aria-labelledby="shop-title">
           <div className="container">
             <div className="section-head">
-              <p className="eyebrow">The collection</p>
-              <h2 id="shop-title">Gear for the night owl in you</h2>
-              <p className="section-sub">
-                Handmade pieces, festival essentials and secret-stash classics, all picked and tested by the OG AFTER OWL.
-              </p>
+              <p className="eyebrow">{t('shop.eyebrow')}</p>
+              <h2 id="shop-title">{t('shop.title')}</h2>
+              <p className="section-sub">{t('shop.sub')}</p>
             </div>
 
             <ShopToolbar
@@ -128,30 +161,50 @@ export default function App() {
               savedOnly={savedOnly}
               onToggleSavedOnly={() => setSavedOnly(v => !v)}
               savedCount={saved.length}
+              inStockOnly={inStockOnly}
+              onToggleInStock={() => setInStockOnly(v => !v)}
               resultCount={filtered.length}
+              filtered={isFiltered}
+              onClear={clearFilters}
             />
 
             <ProductGrid
               products={filtered}
-              onSelect={p => select(p.key)}
-              onReset={() => { setSearch(''); pickCategory('All'); setSavedOnly(false); }}
+              bagItems={bagItems}
+              onSelect={select}
+              onReset={clearFilters}
             />
           </div>
         </section>
 
+        <RecentlyViewed keys={recentKeys} products={products} onSelect={select} />
+        <Reviews />
+        <SocialStrip />
         <About collections={collections} onCollection={goToCollection} />
+        <Events />
+        <Newsletter />
         <FAQ />
         <Contact />
       </main>
 
       <Footer source={source} updatedAt={updatedAt} error={error} />
 
+      <BagDrawer
+        open={bagOpen}
+        items={bagItems}
+        products={products}
+        onClose={() => setBagOpen(false)}
+        onSelect={p => { setBagOpen(false); select(p); }}
+      />
+
       {selected && (
         <ProductModal
           key={selected.key}
           product={selected}
           products={products}
-          onSelect={p => select(p.key)}
+          bagItems={bagItems}
+          onSelect={select}
+          onOpenBag={() => setBagOpen(true)}
           onClose={() => select(null)}
         />
       )}

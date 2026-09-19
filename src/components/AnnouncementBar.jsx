@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react';
-
-const MESSAGES = [
-  '🦉 Handmade in Barcelona. Most pieces are one of a kind',
-  '🎪 Festival-tested. Owl-approved.',
-  '🛍️ Shop online on Etsy: AfterOwlShop',
-  '🤫 Psst… have you seen the Secret Stash collection?',
-];
+import { useI18n } from '../i18n/index.jsx';
 
 const KEY = 'ao_announce_dismissed';
 
 export default function AnnouncementBar() {
+  const { t, tl } = useI18n();
+  const messages = tl('announce');
   const [index, setIndex] = useState(0);
   const [dismissed, setDismissed] = useState(() => {
     try { return sessionStorage.getItem(KEY) === '1'; } catch { return false; }
@@ -17,9 +13,9 @@ export default function AnnouncementBar() {
 
   useEffect(() => {
     if (dismissed) return;
-    const id = setInterval(() => setIndex(i => (i + 1) % MESSAGES.length), 4500);
+    const id = setInterval(() => setIndex(i => (i + 1) % messages.length), 4500);
     return () => clearInterval(id);
-  }, [dismissed]);
+  }, [dismissed, messages.length]);
 
   if (dismissed) return null;
 
@@ -30,8 +26,8 @@ export default function AnnouncementBar() {
 
   return (
     <div className="announce" role="status">
-      <p className="announce-text" key={index}>{MESSAGES[index]}</p>
-      <button className="announce-close" onClick={dismiss} aria-label="Dismiss announcement">✕</button>
+      <p className="announce-text" key={`${index}-${messages[0]}`}>{messages[index % messages.length]}</p>
+      <button className="announce-close" onClick={dismiss} aria-label={t('announceDismiss')}>✕</button>
     </div>
   );
 }

@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "sync": "node scripts/sync.mjs"
+    "sync": "node scripts/sync.mjs",
+    "prerender": "node scripts/prerender.mjs",
+    "sitemap": "node scripts/sitemap.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

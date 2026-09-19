@@ -1,0 +1,11 @@
+{
+  "_readme": "Pop-ups, parties and markets. Edit this file to change what the site shows — the soonest upcoming date also appears in the hero. Dates are ISO (YYYY-MM-DD); anything in the past drops to 'Past stops' automatically. `url` is optional (ticket link, IG post, maps link).",
+  "events": [
+    {
+      "date": "2026-10-11",
+      "title": "EMBRACE Collective autumn gathering",
+      "place": "Secret location, Catalonia",
+      "url": "https://www.instagram.com/after.owl.shop/"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "_readme": "Curated Instagram shots for the 'Out in the wild' strip. `img` is a Drive file ID already synced into public/img (same IDs as image-manifest.json) or a full URL. `url` is the post link. Keep 4–8. An empty list hides the whole section.",
+  "posts": []
+}

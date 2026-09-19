@@ -46,3 +46,28 @@ export function sheetCsvUrl(tabName) {
 export function driveThumb(id, size = 'w1000') {
   return `https://drive.google.com/thumbnail?id=${id}&sz=${size}`;
 }
+
+// ─── Email capture ──────────────────────────────────────────────────────────
+// The site has no backend, so both forms post to Formspree (free tier: 50
+// submissions a month, no card needed). Set it up once:
+//
+//   1. formspree.io → sign up with the AFTER OWL address
+//   2. New Form → name it "AFTER OWL crew" → copy the form ID (looks like "xayzqwer")
+//   3. Paste it below, commit, push. Done.
+//
+// Leave it empty and every signup form simply doesn't render — nothing breaks,
+// nothing half-working ships. One form handles both the newsletter and the
+// back-in-stock alerts; the payload carries a `list` field telling them apart.
+export const FORMSPREE_FORM_ID = '';
+export const formspreeUrl = () =>
+  FORMSPREE_FORM_ID ? `https://formspree.io/f/${FORMSPREE_FORM_ID}` : null;
+
+// ─── Merchandising ──────────────────────────────────────────────────────────
+// At or below this many in stock, the product shows "Only N left".
+// Real scarcity only: this reads the live sheet, it never invents a number.
+export const LOW_STOCK_THRESHOLD = 3;
+
+// Product keys to flag as "New in" on the cards and in the "Newest first" sort.
+// Keys are the ones in src/data/catalog.json (auto rows use "auto-<slugified-name>").
+// Clear this list when a drop stops being new — nothing expires on its own.
+export const NEW_PRODUCT_KEYS = [];

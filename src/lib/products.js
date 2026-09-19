@@ -10,7 +10,7 @@
 //   or both price and stock are empty.
 
 import { norm } from './sheet.js';
-import { driveThumb, ETSY_SHOP_URL } from '../config.js';
+import { driveThumb, ETSY_SHOP_URL, LOW_STOCK_THRESHOLD, NEW_PRODUCT_KEYS } from '../config.js';
 
 export const CATEGORY_ORDER = [
   'Handmade Limited Edition',
@@ -177,6 +177,7 @@ export function buildProducts(rows, catalog, manifest, base = '/') {
       stock: stocks.length ? stocks.reduce((a, b) => a + b, 0) : null,
       sold: variants.reduce((a, v) => a + (v.sold || 0), 0),
       onEtsy: variants.some(v => v.etsy),
+      isNew: NEW_PRODUCT_KEYS.includes(p.key),
       etsyUrl: etsySearchUrl(p.name),
       variants: hasVariants ? variants : [],
     };
@@ -202,13 +203,8 @@ export function buildProducts(rows, catalog, manifest, base = '/') {
   );
 }
 
-export const SORT_OPTIONS = [
-  { key: 'featured', label: 'Featured' },
-  { key: 'best', label: 'Best sellers' },
-  { key: 'price-asc', label: 'Price: low to high' },
-  { key: 'price-desc', label: 'Price: high to low' },
-  { key: 'new', label: 'Newest' },
-];
+// Labels live in src/i18n/*.js under `sort.<key>`.
+export const SORT_OPTIONS = ['featured', 'best', 'availability', 'price-asc', 'price-desc', 'newest', 'name'];
 
 export function sortProducts(list, sort) {
   const soldOut = p => (p.stock === 0 ? 1 : 0);
@@ -221,18 +217,33 @@ export function sortProducts(list, sort) {
       return sorted.sort((a, b) => soldOut(a) - soldOut(b) || byPrice(a) - byPrice(b) || a.order - b.order);
     case 'price-desc':
       return sorted.sort((a, b) => soldOut(a) - soldOut(b) || byPrice(b) - byPrice(a) || a.order - b.order);
-    case 'new':
-      return sorted.sort((a, b) => soldOut(a) - soldOut(b) || b.order - a.order);
+    case 'newest':
+      return sorted.sort((a, b) => soldOut(a) - soldOut(b) || (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0) || b.order - a.order);
+    case 'availability':
+      return sorted.sort((a, b) => soldOut(a) - soldOut(b) || (b.stock ?? 0) - (a.stock ?? 0) || a.order - b.order);
+    case 'name':
+      return sorted.sort((a, b) => a.name.localeCompare(b.name));
     default:
       return sorted;
   }
 }
 
+/**
+ * Availability as a translatable descriptor rather than a baked-in English string.
+ * `key` maps onto the i18n `stock.*` block; components call t(key, { count }).
+ * The numbers come straight from the sheet — the site never invents scarcity.
+ */
 export function availability(stock) {
-  if (stock == null) return { label: 'Ask for availability', tone: 'ask' };
-  if (stock === 0) return { label: 'Sold out', tone: 'out' };
-  if (stock <= 2) return { label: `Only ${stock} left`, tone: 'low' };
-  return { label: 'In stock', tone: 'in' };
+  if (stock == null) return { tone: 'ask', key: 'stock.ask' };
+  if (stock === 0) return { tone: 'out', key: 'stock.out' };
+  if (stock === 1) return { tone: 'low', key: 'stock.last', count: 1 };
+  if (stock <= LOW_STOCK_THRESHOLD) return { tone: 'low', key: 'stock.low', count: stock };
+  return { tone: 'in', key: 'stock.in' };
+}
+
+/** True when stock is real, low and worth pointing out on the card. */
+export function isLowStock(stock) {
+  return stock != null && stock > 0 && stock <= LOW_STOCK_THRESHOLD;
 }
 
 export function formatPrice(price, priceMax) {
