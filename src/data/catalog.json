@@ -3630,5 +3630,34 @@
     "match": "FC Ballern München Club Jersey"
    }
   ]
+ },
+ {
+  "key": "breathing-necklace",
+  "name": "Breathing Necklace",
+  "category": "Accessories",
+  "handmade": false,
+  "materials": "Titanium steel",
+  "size": "Pendant 5.6 / 8.2 / 8.8 cm · 70 cm chain",
+  "weight": "~36–39 g",
+  "variantLabel": "Size",
+  "description": "Slow it down.\n\nA titanium steel pendant you breathe out through. The channel inside is narrow, so the exhale comes out long and even whether you meant it to or not — that is the whole trick. The usual pattern is in for four, hold, out for eight, and the pendant sets the pace for you.\n\nIt opens, too: a spring insert holds a drop of oil or perfume, so it carries a scent as well as a rhythm.\n\nDetails:\n- Titanium steel, hypoallergenic\n- 70 cm chain\n- Unscrews for a scented insert\n- Three lengths; quiet enough for a train, a queue or the smoking area\n\nTested by the OG AFTER OWL.",
+  "gradient": "linear-gradient(145deg, #05080C 0%, #1B2A38 40%, #4E6E86 70%, #9FC3D6 100%)",
+  "rows": [
+   {
+    "match": "Breathing Necklace - 88mm",
+    "variant": "88 mm",
+    "gradient": "linear-gradient(145deg, #060606 0%, #1C1C1C 50%, #343434 100%)"
+   },
+   {
+    "match": "Breathing Necklace - 82mm",
+    "variant": "82 mm",
+    "gradient": "linear-gradient(145deg, #141414 0%, #6A7382 50%, #C2CBD4 100%)"
+   },
+   {
+    "match": "Breathing Necklace - 2in1",
+    "variant": "2-in-1 · 5.6 cm",
+    "gradient": "linear-gradient(145deg, #1a1000 0%, #8B6000 40%, #C49A1A 70%, #E8C84A 100%)"
+   }
+  ]
  }
 ]
