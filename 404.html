@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AFTER OWL</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // GitHub Pages serves this file for any unknown path. The site is a single
+      // page app with real product URLs (/p/<key>), so instead of showing a 404 we
+      // hand the path to index.html as "?/p/<key>" and let the app restore it.
+      // See src/lib/router.js → restoreDeepLink().
+      (function () {
+        var l = window.location;
+        var segments = 0; // custom domain → site lives at the root
+        var path = l.pathname.split('/').slice(1 + segments).join('/');
+        l.replace(
+          l.protocol + '//' + l.host + '/' +
+          '?/' + path.replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Taking you to <a href="/">afterowl.shop</a>…</p>
+  </body>
+</html>
