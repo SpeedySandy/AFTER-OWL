@@ -1,4 +1,26 @@
 {
   "_readme": "Real buyer reviews only — copy them verbatim from the Etsy shop reviews page, with the reviewer's Etsy display name. Never write these yourself: they are shown as genuine customer words and the site also declares them to Google. An empty list hides the whole section, which is the safe default.",
-  "reviews": []
+  "reviews": [
+    {
+      "author": "Anni",
+      "rating": 5,
+      "date": "2026-04-01",
+      "product": "\"Illegal Stuff\" Statement Pouch",
+      "text": "The bag has a nice print and the zipper works smoothly. The size is practical for small gifts or a travel first-aid kit. I'm very satisfied."
+    },
+    {
+      "author": "Anni",
+      "rating": 5,
+      "date": "2026-04-01",
+      "product": "OH SHIT KIT Bag",
+      "text": "I'm very happy with my purchase. It's a practical size for small items and the print quality is good. There was a minor shipping issue, but the seller took care of it immediately."
+    },
+    {
+      "author": "Merel",
+      "rating": 5,
+      "date": "2026-01-31",
+      "product": "Secret Stash Car Key",
+      "text": "Very happy with the item, exactly like being shown. Delivery was quick and smooth. The seller is super friendly and really helpful!"
+    }
+  ]
 }
