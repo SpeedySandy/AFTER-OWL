@@ -9,6 +9,7 @@ import { productUrl } from '../lib/router.js';
 import { emailEnabled } from '../lib/subscribe.js';
 import { lockScroll } from '../lib/scrollLock.js';
 import { useI18n } from '../i18n/index.jsx';
+import { careNote } from '../data/content.js';
 
 export default function ProductModal({ product, products = [], bagItems = [], onSelect, onClose, onOpenBag }) {
   const { t, lang } = useI18n();
@@ -123,7 +124,7 @@ export default function ProductModal({ product, products = [], bagItems = [], on
             aria-label={active ? t('product.zoom') : undefined}
             onKeyDown={e => { if (active && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); setZoomed(z => !z); } }}
           >
-            <ProductVisual key={active || 'none'} src={active} alt={name} gradient={variant?.gradient || gradient} eager />
+            <ProductVisual key={active || 'none'} src={active} alt={product.alt || name} gradient={variant?.gradient || gradient} eager />
             {gallery.length > 1 && (
               <>
                 <button className="gal-nav gal-prev" onClick={e => { e.stopPropagation(); step(-1); }} aria-label={t('product.prevPhoto')}>
@@ -244,6 +245,13 @@ export default function ProductModal({ product, products = [], bagItems = [], on
               {size && <><dt>{t('product.size')}</dt><dd>{size}</dd></>}
               {weight && <><dt>{t('product.weight')}</dt><dd>{weight}</dd></>}
             </dl>
+          )}
+
+          {careNote(category, lang) && (
+            <div className="care">
+              <p className="care-title">{t('care.title')}</p>
+              <p className="care-text">{careNote(category, lang)}</p>
+            </div>
           )}
 
           <ul className="reassure">

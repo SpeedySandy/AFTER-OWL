@@ -900,3 +900,98 @@ a.find-card:hover { border-color: var(--pink); transform: translateY(-3px); }
   -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 44px), transparent 100%);
   mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 44px), transparent 100%);
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Content layer — category intros, guides, care notes, gift finder
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Category / collection intro above the grid ──────────────────────────── */
+.cat-intro {
+  margin: 4px 0 26px; padding: 20px 24px;
+  border-left: 2px solid var(--purple); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: linear-gradient(90deg, rgba(165, 105, 241, 0.08), transparent 70%);
+  max-width: 72ch;
+}
+.cat-intro-title { font: 700 1.05rem/1.2 var(--font-display); letter-spacing: 0.06em; margin-bottom: 8px; }
+.cat-intro-lead { color: var(--text); font-size: 0.95rem; margin-bottom: 6px; }
+.cat-intro-text { color: var(--text-2); font-size: 0.93rem; line-height: 1.6; }
+
+/* ── Guide cards ─────────────────────────────────────────────────────────── */
+.guides { padding: clamp(48px, 7vw, 84px) 0; }
+.guide-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); }
+.guide-card {
+  display: flex; flex-direction: column; width: 100%; height: 100%; text-align: left;
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  background: var(--surface); transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
+}
+.guide-card:hover { transform: translateY(-4px); border-color: rgba(0, 229, 255, 0.45); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5); }
+.guide-card-media { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); }
+.guide-card:hover .guide-card-media .visual:not(.visual-empty) { transform: scale(1.05); }
+.guide-card-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 5, 8, 0.15), rgba(5, 5, 8, 0.75)); }
+.guide-card-icon { position: absolute; left: 16px; bottom: 12px; font-size: 1.7rem; }
+.guide-card-body { display: flex; flex-direction: column; gap: 8px; padding: 18px 20px 20px; flex: 1; }
+.guide-card-title { font: 700 1.1rem/1.25 var(--font-display); }
+.guide-card-intro { color: var(--text-2); font-size: 0.9rem; line-height: 1.55; flex: 1; }
+.guide-card-meta { font: 600 0.82rem var(--font-display); color: var(--cyan); }
+
+/* ── One guide, as a page ────────────────────────────────────────────────── */
+.guide-view { padding: clamp(28px, 5vw, 56px) 0 clamp(56px, 8vw, 96px); }
+.guide-back { font: 600 0.88rem var(--font-display); color: var(--text-2); margin-bottom: 26px; }
+.guide-back:hover { color: var(--cyan); }
+.guide-head { max-width: 68ch; margin-bottom: clamp(32px, 5vw, 56px); }
+.guide-head h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
+.guide-lead { color: var(--text-2); font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.65; }
+.guide-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px; }
+.guide-total { font: 600 0.9rem var(--font-display); color: var(--muted); }
+.guide-section { margin-bottom: clamp(36px, 5vw, 60px); }
+.guide-section-title { font-size: clamp(1.3rem, 2.6vw, 1.8rem); font-weight: 700; margin-bottom: 8px; }
+.guide-section-note { color: var(--text-2); max-width: 64ch; margin-bottom: 22px; line-height: 1.6; }
+.guide-empty { color: var(--muted); }
+
+/* ── Care note in the product view ───────────────────────────────────────── */
+.care {
+  margin-top: 22px; padding: 16px 18px; border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line);
+}
+.care-title { font: 600 0.72rem/1 var(--font-display); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.care-text { font-size: 0.88rem; color: var(--text-2); line-height: 1.6; }
+
+/* ── Gift finder ─────────────────────────────────────────────────────────── */
+.gift { padding: clamp(48px, 7vw, 84px) 0; }
+.gift-box {
+  max-width: 720px; padding: clamp(24px, 4vw, 38px);
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  background: radial-gradient(120% 120% at 0% 0%, rgba(0, 229, 255, 0.09), transparent 55%), var(--surface);
+}
+.gift-progress { margin-bottom: 20px; }
+.gift-step { font: 600 0.72rem/1 var(--font-display); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.gift-bar { display: block; height: 3px; border-radius: 999px; background: var(--line-strong); overflow: hidden; }
+.gift-bar i { display: block; height: 100%; background: var(--grad); transition: width 0.3s var(--ease); }
+.gift-q { font: 700 clamp(1.2rem, 2.6vw, 1.6rem)/1.25 var(--font-display); margin-bottom: 20px; }
+.gift-opts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.gift-opts button {
+  width: 100%; text-align: left; padding: 15px 18px; border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong); background: rgba(255, 255, 255, 0.02);
+  font-size: 0.97rem; transition: border-color 0.2s, background 0.2s, transform 0.15s var(--ease);
+}
+.gift-opts button:hover { border-color: var(--cyan); background: rgba(0, 229, 255, 0.07); transform: translateX(3px); }
+.gift-back { margin-top: 18px; font-size: 0.85rem; color: var(--muted); }
+.gift-back:hover { color: var(--text); }
+.gift-results-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.gift-again { font-size: 0.85rem; color: var(--muted); text-decoration: underline; margin-bottom: 20px; }
+.gift-again:hover { color: var(--text); }
+.gift-results { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.gift-results li { display: flex; align-items: center; gap: 10px; }
+.gift-result {
+  flex: 1; display: flex; align-items: center; gap: 14px; min-width: 0; padding: 8px;
+  border-radius: var(--radius-sm); transition: background 0.2s;
+}
+.gift-result:hover { background: rgba(255, 255, 255, 0.04); }
+.gift-result-visual { flex: none; width: 52px; height: 52px; border-radius: 10px; overflow: hidden; background: var(--surface-2); }
+.gift-result-name { flex: 1; font-size: 0.95rem; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gift-result-price { font: 600 0.9rem var(--font-display); color: var(--cyan); }
+.gift-add {
+  flex: none; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--line-strong); color: var(--cyan); font-size: 1.05rem; line-height: 1;
+}
+.gift-add:hover { border-color: var(--cyan); background: rgba(0, 229, 255, 0.1); }

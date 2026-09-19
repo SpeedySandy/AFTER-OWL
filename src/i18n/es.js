@@ -353,6 +353,40 @@ export default {
     ],
   },
 
+  guides: {
+    eyebrow: 'Guías',
+    title: 'Ordenado por situación, no por categoría',
+    sub: 'Cuatro listas montadas con lo que hay ahora mismo en la tienda.',
+    open: 'Abrir la guía',
+    items: '{count} piezas',
+    back: 'Todas las guías',
+    addAll: 'Añadir a la bolsa lo disponible',
+    added: 'Añadido a la bolsa ✓',
+    empty: 'Ahora mismo no hay stock de nada de esta lista.',
+  },
+
+  gift: {
+    eyebrow: 'No sabes qué regalar',
+    title: 'Tres preguntas, una lista corta',
+    sub: 'Las respuestas filtran la tienda en directo: todo lo que aparece está disponible hoy.',
+    start: 'Buscar un regalo',
+    q1: '¿Para quién es?',
+    q1opts: ['Para mí, claro', 'Para un amigo o amiga', 'Para mi pareja', 'Para quien ya lo tiene todo'],
+    q2: '¿Qué le va?',
+    q2opts: ['Raves y festivales', 'Furgo y aire libre', 'Piezas únicas hechas a mano', 'Gadgets con ingenio', 'Llevarlo todo discreto'],
+    q3: '¿Cuánto te quieres gastar?',
+    q3opts: ['Menos de 5 €', '5–15 €', '15–30 €', 'Sin límite'],
+    back: 'Atrás',
+    results: 'Elegido para eso',
+    none: 'No hay stock que encaje con esa combinación. Prueba con más presupuesto.',
+    again: 'Empezar de nuevo',
+    step: 'Pregunta {n} de 3',
+  },
+
+  care: {
+    title: 'Cómo cuidarlo',
+  },
+
   footer: {
     tag: 'Probado en la naturaleza, de confianza en la noche.',
     nav: 'Pie de página',

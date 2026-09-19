@@ -1,3 +1,7 @@
 node_modules/
 dist/
 .env
+
+# content report output
+content-report.txt
+content-gaps.json

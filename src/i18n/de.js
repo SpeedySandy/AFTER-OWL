@@ -353,6 +353,40 @@ export default {
     ],
   },
 
+  guides: {
+    eyebrow: 'Guides',
+    title: 'Sortiert nach Situation, nicht nach Kategorie',
+    sub: 'Vier Listen, zusammengestellt aus dem, was gerade im Shop ist.',
+    open: 'Guide öffnen',
+    items: '{count} Stücke',
+    back: 'Alle Guides',
+    addAll: 'Verfügbare in die Tasche legen',
+    added: 'In der Tasche ✓',
+    empty: 'Aus dieser Liste ist gerade nichts auf Lager.',
+  },
+
+  gift: {
+    eyebrow: 'Keine Ahnung, was',
+    title: 'Drei Fragen, eine kurze Liste',
+    sub: 'Die Antworten filtern den Live-Shop — alles Vorgeschlagene ist heute auf Lager.',
+    start: 'Geschenk finden',
+    q1: 'Für wen ist es?',
+    q1opts: ['Für mich, klar', 'Für eine Freundin oder einen Freund', 'Für meine Partnerin oder meinen Partner', 'Für jemanden, der schon alles hat'],
+    q2: 'Worauf steht die Person?',
+    q2opts: ['Raves und Festivals', 'Van und draußen', 'Handgemachte Unikate', 'Clevere kleine Gadgets', 'Alles diskret halten'],
+    q3: 'Was willst du ausgeben?',
+    q3opts: ['Unter 5 €', '5–15 €', '15–30 €', 'Egal'],
+    back: 'Zurück',
+    results: 'Dafür ausgesucht',
+    none: 'Nichts auf Lager passt zu dieser Kombination. Versuch ein größeres Budget.',
+    again: 'Von vorn',
+    step: 'Frage {n} von 3',
+  },
+
+  care: {
+    title: 'Pflege',
+  },
+
   footer: {
     tag: 'Draußen getestet, nachts vertraut.',
     nav: 'Fußzeile',

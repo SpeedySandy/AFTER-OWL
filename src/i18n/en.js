@@ -354,6 +354,40 @@ export default {
     ],
   },
 
+  guides: {
+    eyebrow: 'Guides',
+    title: 'Packed by situation, not by category',
+    sub: 'Four lists put together from what is actually in the shop right now.',
+    open: 'Open the guide',
+    items: '{count} pieces',
+    back: 'All guides',
+    addAll: 'Add the in-stock ones to the bag',
+    added: 'Added to the bag ✓',
+    empty: 'Nothing from this list is in stock right now.',
+  },
+
+  gift: {
+    eyebrow: 'Not sure what to get',
+    title: 'Three questions, one shortlist',
+    sub: 'Answers filter the live shop — everything suggested is in stock today.',
+    start: 'Find a present',
+    q1: 'Who is it for?',
+    q1opts: ['Myself, obviously', 'A friend', 'A partner', 'Someone who has everything'],
+    q2: 'What are they into?',
+    q2opts: ['Raves and festivals', 'Vans and the outdoors', 'One-of-a-kind handmade things', 'Clever little gadgets', 'Keeping things discreet'],
+    q3: 'What are you spending?',
+    q3opts: ['Under €5', '€5–15', '€15–30', 'No limit'],
+    back: 'Back',
+    results: 'Picked for that',
+    none: 'Nothing in stock matches that combination. Try a wider budget.',
+    again: 'Start over',
+    step: 'Question {n} of 3',
+  },
+
+  care: {
+    title: 'Looking after it',
+  },
+
   footer: {
     tag: 'Tested in the wild, trusted in the night.',
     nav: 'Footer',

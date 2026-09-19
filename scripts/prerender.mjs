@@ -18,6 +18,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildProducts } from '../src/lib/products.js';
 import { clamp } from '../src/lib/text.js';
+import { GUIDES, guideItems } from '../src/data/guides.js';
+import { pick } from '../src/data/content.js';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dist = path.join(root, 'dist');
@@ -142,4 +144,70 @@ for (const p of products) {
   written += 1;
 }
 
-console.log(`prerender: ${written} product pages written to dist/p/`);
+// ── Guides ──────────────────────────────────────────────────────────────────
+// Same treatment: a guide is a page worth sharing, and an unfurler needs to see
+// its title and a photo without running the app.
+let guidesWritten = 0;
+for (const guide of GUIDES) {
+  const items = guideItems(guide, products);
+  if (!items.length) continue;
+
+  const title = `${pick(guide.title, 'en')} · AFTER OWL`;
+  const description = clamp(pick(guide.intro, 'en'), 155);
+  const url = `${SITE}/guide/${guide.key}`;
+  const image = absolute(items.find(p => p.image)?.image);
+
+  const head = [
+    `<title>${esc(title)}</title>`,
+    `<meta name="description" content="${esc(description)}" />`,
+    `<link rel="canonical" href="${url}" />`,
+    ...LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${url}${l === 'en' ? '' : `?lang=${l}`}" />`),
+    `<meta property="og:type" content="article" />`,
+    `<meta property="og:url" content="${url}" />`,
+    `<meta property="og:title" content="${esc(title)}" />`,
+    `<meta property="og:description" content="${esc(description)}" />`,
+    `<meta property="og:image" content="${image}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:title" content="${esc(title)}" />`,
+    `<meta name="twitter:description" content="${esc(description)}" />`,
+    `<meta name="twitter:image" content="${image}" />`,
+    `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: pick(guide.title, 'en'),
+      description: pick(guide.intro, 'en'),
+      itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/p/${p.key}`, name: p.name })),
+    })}</script>`,
+  ].join('\n    ');
+
+  const body = [
+    '<article>',
+    `<h1>${esc(pick(guide.title, 'en'))}</h1>`,
+    `<p>${esc(pick(guide.intro, 'en'))}</p>`,
+    ...guide.sections.map(section => {
+      const list = section.keys.map(k => products.find(p => p.key === k)).filter(Boolean);
+      if (!list.length) return '';
+      return [
+        `<h2>${esc(pick(section.title, 'en'))}</h2>`,
+        `<p>${esc(pick(section.note, 'en'))}</p>`,
+        '<ul>',
+        ...list.map(p => `<li><a href="/p/${p.key}">${esc(p.name)}</a>${p.price != null ? ` — €${p.price}` : ''}</li>`),
+        '</ul>',
+      ].join('');
+    }),
+    '<p><a href="/">AFTER OWL — the full collection</a></p>',
+    '</article>',
+  ].filter(Boolean).join('');
+
+  const html = shell
+    .replace(STRIP, '')
+    .replace('</head>', `  ${head}\n  </head>`)
+    .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+
+  const dir = path.join(dist, 'guide', guide.key);
+  await fs.mkdir(dir, { recursive: true });
+  await fs.writeFile(path.join(dir, 'index.html'), html);
+  guidesWritten += 1;
+}
+
+console.log(`prerender: ${written} product pages and ${guidesWritten} guides written to dist/`);

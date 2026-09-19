@@ -10,6 +10,7 @@ npm run dev        # local dev server
 npm run build      # production build + static product pages
 npm run sync       # pull inventory + Drive photos, refresh the sitemap
 npm run sitemap    # sitemap only, from the committed snapshot (no network)
+npm run report     # what's missing: photos, descriptions, materials, sizes, weights
 ```
 
 ## How the data flows
@@ -36,7 +37,10 @@ the sheet directly.
 | `src/config.js` → `NEW_PRODUCT_KEYS` | which products show a "New in" badge. Nothing expires on its own. |
 | `src/config.js` → `LOW_STOCK_THRESHOLD` | when "Only N left" appears. Reads real stock; never invents a number. |
 | `src/config.js` → `FORMSPREE_FORM_ID` | turns on the newsletter and back-in-stock forms. Empty = both hidden. |
-| `src/i18n/en.js` / `es.js` / `de.js` | every word on the site. Missing keys fall back to English. |
+| `src/i18n/en.js` / `es.js` / `de.js` | interface words — buttons, labels, errors. Missing keys fall back to English. |
+| `src/data/content.js` | editorial copy: the intro under each category and collection, and the care notes. EN/ES/DE in one place. |
+| `src/data/guides.js` | the guide pages. A guide is a title, an intro and sections of product keys — anything that leaves the sheet vanishes from the guide on its own. |
+| `src/data/synonyms.js` | multilingual search terms, so "espejo" and "Spiegel" find the mirrors. |
 
 ### Turning on email capture
 
@@ -45,6 +49,17 @@ Create a form, copy its ID into `FORMSPREE_FORM_ID` in `src/config.js`, push.
 Until then, nothing renders — no form on the site quietly drops addresses. One
 form handles both lists; the payload's `list` field says which (`newsletter` or
 `restock`) and, for restock, which product.
+
+## Filling the gaps
+
+`npm run report` prints every product missing a photo, description, materials,
+size or weight, in-stock ones first, and writes `content-gaps.json` — stubs you
+fill in and merge into `catalog.json`.
+
+Nothing generates those values automatically, on purpose. Dimensions and
+materials are facts a buyer decides on, and they go into the Product structured
+data search engines read; a plausible guess there is a wrong number in front of a
+customer. Marketing copy is generated; measurements are measured.
 
 ## Ordering
 

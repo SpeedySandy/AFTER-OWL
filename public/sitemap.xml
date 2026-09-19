@@ -11,6 +11,46 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://afterowl.shop/guide/festival-weekend</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/guide/festival-weekend"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/guide/festival-weekend?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/guide/festival-weekend?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/guide/festival-weekend"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/guide/van-life</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/guide/van-life"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/guide/van-life?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/guide/van-life?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/guide/van-life"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/guide/gifts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/guide/gifts"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/guide/gifts?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/guide/gifts?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/guide/gifts"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/guide/stash-starter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/guide/stash-starter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/guide/stash-starter?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/guide/stash-starter?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/guide/stash-starter"/>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://afterowl.shop/p/gold-leaf-box</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/gold-leaf-box"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/gold-leaf-box?lang=es"/>

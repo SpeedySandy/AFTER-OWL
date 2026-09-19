@@ -19,6 +19,10 @@ import ShopToolbar from './components/ShopToolbar.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import ProductModal from './components/ProductModal.jsx';
 import RecentlyViewed from './components/RecentlyViewed.jsx';
+import CategoryIntro from './components/CategoryIntro.jsx';
+import Guides from './components/Guides.jsx';
+import GuideView from './components/GuideView.jsx';
+import GiftFinder from './components/GiftFinder.jsx';
 import Reviews from './components/Reviews.jsx';
 import SocialStrip from './components/SocialStrip.jsx';
 import About from './components/About.jsx';
@@ -30,16 +34,24 @@ import Footer from './components/Footer.jsx';
 import BagDrawer from './components/BagDrawer.jsx';
 
 import { COLLECTIONS, findCollection, collectionProducts } from './data/collections.js';
+import { findGuide } from './data/guides.js';
 
-/** The open product comes from the URL (/p/<key>), so every piece is linkable. */
-function useRoutedProduct(products) {
+/** Products and guides both come from the URL, so every piece and every list is
+ *  linkable and crawlable: /p/<key> and /guide/<key>. */
+function useRoute(products) {
   const [route, setRoute] = useState(parseLocation);
   useEffect(() => onRouteChange(setRoute), []);
 
   const product = route.name === 'product' ? products.find(p => p.key === route.key) || null : null;
-  const select = next => navigate(next ? { name: 'product', key: next.key } : { name: 'home' });
+  const guide = route.name === 'guide' ? findGuide(route.key) : null;
 
-  return [product, select];
+  const select = next => navigate(next ? { name: 'product', key: next.key } : { name: 'home' });
+  const openGuide = key => {
+    navigate(key ? { name: 'guide', key } : { name: 'home' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return { product, guide, select, openGuide };
 }
 
 export default function App() {
@@ -64,7 +76,7 @@ export default function App() {
   const saved = useSavedList();
   const bagItems = useBag();
   const recentKeys = useRecent();
-  const [selected, select] = useRoutedProduct(products);
+  const { product: selected, guide, select, openGuide } = useRoute(products);
 
   // Remember what was looked at, and keep the head in sync with the route.
   useEffect(() => {
@@ -72,8 +84,8 @@ export default function App() {
   }, [selected?.key]);
 
   useEffect(() => {
-    applySeo({ product: selected, lang, dictMeta: meta, products });
-  }, [selected, lang, meta, products]);
+    applySeo({ product: selected, guide, lang, dictMeta: meta, products });
+  }, [selected, guide, lang, meta, products]);
 
   const categories = useMemo(() => {
     const counts = new Map();
@@ -135,6 +147,16 @@ export default function App() {
       />
 
       <main>
+        {guide ? (
+          <GuideView
+            guide={guide}
+            products={products}
+            bagItems={bagItems}
+            onSelect={select}
+            onBack={() => openGuide(null)}
+          />
+        ) : (
+        <>
         <Hero productCount={products.length} />
         <TrustBar />
         <CollectionTiles collections={collections} onSelect={goToCollection} />
@@ -168,6 +190,11 @@ export default function App() {
               onClear={clearFilters}
             />
 
+            <CategoryIntro
+              category={category === 'All' ? null : category}
+              collectionKey={collectionKey}
+            />
+
             <ProductGrid
               products={filtered}
               bagItems={bagItems}
@@ -177,6 +204,8 @@ export default function App() {
           </div>
         </section>
 
+        <Guides products={products} onOpen={openGuide} />
+        <GiftFinder products={products} bagItems={bagItems} onSelect={select} />
         <RecentlyViewed keys={recentKeys} products={products} onSelect={select} />
         <Reviews />
         <SocialStrip />
@@ -185,6 +214,8 @@ export default function App() {
         <Newsletter />
         <FAQ />
         <Contact />
+        </>
+        )}
       </main>
 
       <Footer source={source} updatedAt={updatedAt} error={error} />

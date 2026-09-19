@@ -10,6 +10,7 @@
 //   or both price and stock are empty.
 
 import { norm } from './sheet.js';
+import { synonymsFor } from '../data/synonyms.js';
 import { driveThumb, ETSY_SHOP_URL, LOW_STOCK_THRESHOLD, NEW_PRODUCT_KEYS } from '../config.js';
 
 export const CATEGORY_ORDER = [
@@ -185,7 +186,18 @@ export function buildProducts(rows, catalog, manifest, base = '/') {
       product.images = variants.map(v => v.image).filter(Boolean);
     }
     product.image = product.images[0] || null;
-    product.searchText = norm([product.name, product.category, product.description, ...(product.tags || []), ...variants.map(v => v.name)].join(' '));
+    // Searchable text: the product's own words, plus multilingual synonyms so a
+    // Spanish or German visitor can find "mirror" by typing "espejo" or "Spiegel".
+    // Synonyms key off the NAME and CATEGORY only — see synonymsFor() for why.
+    // Tags are Etsy keyword soup ("light card", "wrist pouch") and turn a metal
+    // card into a torch, so they feed ordinary search but never the synonyms.
+    const label = norm([product.name, product.category, ...variants.map(v => v.name)].join(' '));
+    const own = norm([label, product.description, ...(product.tags || [])].join(' '));
+    product.searchText = [own, ...synonymsFor(label)].join(' ');
+
+    // Alt text that says what the picture is of, rather than repeating the name
+    // alone. Screen readers and image search both read this.
+    product.alt = `${product.name} — ${product.category}${product.handmade ? ', handmade in Barcelona' : ''} | AFTER OWL`;
     return product;
   });
 

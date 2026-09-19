@@ -15,7 +15,7 @@ export default function ProductCard({ product, onClick, bagItems = [] }) {
   const { t } = useI18n();
   const {
     key, name, category, price, priceMax, stock, image, gradient,
-    handmade, limited, isNew, variants, variantLabel, images,
+    handmade, limited, isNew, variants, variantLabel, images, alt,
   } = product;
 
   const status = availability(stock);
@@ -26,7 +26,7 @@ export default function ProductCard({ product, onClick, bagItems = [] }) {
   return (
     <article className={`card ${stock === 0 ? 'is-soldout' : ''}`}>
       <div className="card-media">
-        <ProductVisual src={image} alt={name} gradient={gradient} />
+        <ProductVisual src={image} alt={alt || name} gradient={gradient} />
 
         <div className="card-badges">
           {isNew && <span className="badge badge-new">✦ {t('card.new')}</span>}

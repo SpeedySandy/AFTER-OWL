@@ -8,9 +8,14 @@
 const BASE = import.meta.env.BASE_URL || '/';
 
 export const PRODUCT_PREFIX = 'p';
+export const GUIDE_PREFIX = 'guide';
 
 export function productPath(key) {
   return `${BASE}${PRODUCT_PREFIX}/${key}`;
+}
+
+export function guidePath(key) {
+  return `${BASE}${GUIDE_PREFIX}/${key}`;
 }
 
 export function productUrl(key, origin = window.location.origin) {
@@ -24,8 +29,12 @@ export function parseLocation(loc = window.location) {
 
   let path = loc.pathname;
   if (BASE !== '/' && path.startsWith(BASE)) path = path.slice(BASE.length - 1);
-  const match = path.match(new RegExp(`^/${PRODUCT_PREFIX}/([^/?#]+)/?$`));
-  if (match) return { name: 'product', key: decodeURIComponent(match[1]) };
+  const product = path.match(new RegExp(`^/${PRODUCT_PREFIX}/([^/?#]+)/?$`));
+  if (product) return { name: 'product', key: decodeURIComponent(product[1]) };
+
+  const guide = path.match(new RegExp(`^/${GUIDE_PREFIX}/([^/?#]+)/?$`));
+  if (guide) return { name: 'guide', key: decodeURIComponent(guide[1]) };
+
   return { name: 'home' };
 }
 
@@ -36,7 +45,10 @@ function withLang(path) {
 }
 
 export function navigate(route, { replace = false } = {}) {
-  const path = route?.name === 'product' ? productPath(route.key) : BASE;
+  const path =
+    route?.name === 'product' ? productPath(route.key)
+    : route?.name === 'guide' ? guidePath(route.key)
+    : BASE;
   const url = withLang(path);
   if (url === window.location.pathname + window.location.search) return;
   window.history[replace ? 'replaceState' : 'pushState']({}, '', url);

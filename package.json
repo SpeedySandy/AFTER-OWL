@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "sync": "node scripts/sync.mjs",
     "prerender": "node scripts/prerender.mjs",
-    "sitemap": "node scripts/sitemap.mjs"
+    "sitemap": "node scripts/sitemap.mjs",
+    "report": "node scripts/content-report.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

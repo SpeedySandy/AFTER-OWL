@@ -12,6 +12,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildProducts } from '../src/lib/products.js';
+import { GUIDES, guideItems } from '../src/data/guides.js';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const SITE = 'https://afterowl.shop';
@@ -42,6 +43,9 @@ export async function writeSitemap(products) {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     urlEntry(`${SITE}/`, { priority: '1.0', changefreq: 'weekly', lastmod }),
+    ...GUIDES.filter(g => guideItems(g, products).length).map(g =>
+      urlEntry(`${SITE}/guide/${g.key}`, { priority: '0.7', changefreq: 'monthly', lastmod })
+    ),
     ...inStock.map(p => urlEntry(`${SITE}/p/${p.key}`, { priority: '0.8', changefreq: 'weekly', lastmod })),
     ...soldOut.map(p => urlEntry(`${SITE}/p/${p.key}`, { priority: '0.4', changefreq: 'monthly', lastmod })),
     '</urlset>',
@@ -49,7 +53,8 @@ export async function writeSitemap(products) {
   ].join('\n');
 
   await fs.writeFile(path.join(root, 'public/sitemap.xml'), xml);
-  console.log(`sitemap: ${products.length + 1} urls`);
+  const guides = GUIDES.filter(g => guideItems(g, products).length).length;
+  console.log(`sitemap: ${products.length + guides + 1} urls (${products.length} products, ${guides} guides)`);
   return xml;
 }
 

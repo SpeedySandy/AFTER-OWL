@@ -4,6 +4,8 @@
 
 import { LANGS, DEFAULT_LANG } from '../i18n/index.jsx';
 import { clamp } from './text.js';
+import { pick } from '../data/content.js';
+import { guideItems } from '../data/guides.js';
 
 export const SITE_URL = 'https://afterowl.shop';
 
@@ -119,18 +121,25 @@ function breadcrumbs(product) {
 /**
  * @param {object}  opts
  * @param {object?} opts.product  open product, if any
+ * @param {object?} opts.guide    open guide, if any
  * @param {string}  opts.lang
  * @param {object}  opts.dictMeta locale meta block (title / description / productTitle)
  * @param {object[]} opts.products full list, for the homepage ItemList
  */
-export function applySeo({ product, lang, dictMeta, products = [] }) {
+export function applySeo({ product, guide, lang, dictMeta, products = [] }) {
+  const guideTitle = guide ? pick(guide.title, lang) : null;
+
   const title = product
     ? (dictMeta.productTitle || '{name} · AFTER OWL').replace('{name}', product.name)
-    : dictMeta.title;
+    : guide
+      ? `${guideTitle} · AFTER OWL`
+      : dictMeta.title;
 
   const description = product
     ? (clamp(product.description, 155) || dictMeta.description)
-    : dictMeta.description;
+    : guide
+      ? clamp(pick(guide.intro, lang), 155)
+      : dictMeta.description;
 
   document.title = title;
   meta('description', description);
@@ -143,14 +152,28 @@ export function applySeo({ product, lang, dictMeta, products = [] }) {
   meta('twitter:description', description);
   meta('twitter:image', absolute(product?.image));
 
-  setUrls(product ? `/p/${product.key}` : '/', lang);
+  setUrls(product ? `/p/${product.key}` : guide ? `/guide/${guide.key}` : '/', lang);
 
   setJsonLd('ld-product', product ? productSchema(product, lang) : null);
   setJsonLd('ld-breadcrumb', breadcrumbs(product));
+  // A guide is an ItemList of real products; so is the homepage.
   setJsonLd(
     'ld-itemlist',
     product || !products.length
       ? null
+      : guide
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: guideTitle,
+          description: pick(guide.intro, lang),
+          itemListElement: guideItems(guide, products).map((p, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: `${SITE_URL}/p/${p.key}`,
+            name: p.name,
+          })),
+        }
       : {
           '@context': 'https://schema.org',
           '@type': 'ItemList',
