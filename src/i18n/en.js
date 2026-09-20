@@ -289,6 +289,13 @@ export default {
     },
   },
 
+  legal: {
+    eyebrow: 'The boring but necessary part',
+    back: 'Back to the shop',
+    updated: 'Last updated {date}',
+    nav: 'Legal',
+  },
+
   faq: {
     eyebrow: 'Good to know',
     title: 'Frequently asked questions',

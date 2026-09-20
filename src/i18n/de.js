@@ -288,6 +288,13 @@ export default {
     },
   },
 
+  legal: {
+    eyebrow: 'Der langweilige, aber nötige Teil',
+    back: 'Zurück zum Shop',
+    updated: 'Zuletzt aktualisiert: {date}',
+    nav: 'Rechtliches',
+  },
+
   faq: {
     eyebrow: 'Gut zu wissen',
     title: 'Häufige Fragen',

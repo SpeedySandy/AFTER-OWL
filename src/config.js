@@ -47,6 +47,18 @@ export function driveThumb(id, size = 'w1000') {
   return `https://drive.google.com/thumbnail?id=${id}&sz=${size}`;
 }
 
+// ─── Legal identity ─────────────────────────────────────────────────────────
+// Fill LEGAL_OPERATOR and the legal pages switch on: the footer links appear
+// and /legal/notice names a real person. Left empty, the pages stay unlinked
+// rather than going live half-written.
+//
+// LEGAL_ADDRESS is optional on purpose. A private seller is not obliged to
+// publish a home address, and publishing one is hard to undo.
+export const LEGAL_OPERATOR = '';
+export const LEGAL_ADDRESS = '';
+export const LEGAL_TAX_ID = '';
+export const LEGAL_EMAIL = '';
+
 // ─── Email capture ──────────────────────────────────────────────────────────
 // The site has no backend, so both forms post to Formspree (free tier: 50
 // submissions a month, no card needed). Set it up once:
@@ -58,6 +70,10 @@ export function driveThumb(id, size = 'w1000') {
 // Leave it empty and every signup form simply doesn't render — nothing breaks,
 // nothing half-working ships. One form handles both the newsletter and the
 // back-in-stock alerts; the payload carries a `list` field telling them apart.
+// Before switching this on: the privacy page (src/data/legal.js) lists every
+// third party a page load involves. Formspree is not in that list, because the
+// form renders nothing while this is empty. Set an ID and the page needs a line
+// about it — otherwise the policy stops being true the moment the form appears.
 export const FORMSPREE_FORM_ID = '';
 export const formspreeUrl = () =>
   FORMSPREE_FORM_ID ? `https://formspree.io/f/${FORMSPREE_FORM_ID}` : null;

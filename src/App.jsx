@@ -22,6 +22,7 @@ import RecentlyViewed from './components/RecentlyViewed.jsx';
 import CategoryIntro from './components/CategoryIntro.jsx';
 import Guides from './components/Guides.jsx';
 import GuideView from './components/GuideView.jsx';
+import LegalView from './components/LegalView.jsx';
 import GiftFinder from './components/GiftFinder.jsx';
 import Reviews from './components/Reviews.jsx';
 import SocialStrip from './components/SocialStrip.jsx';
@@ -35,6 +36,7 @@ import BagDrawer from './components/BagDrawer.jsx';
 
 import { COLLECTIONS, findCollection, collectionProducts } from './data/collections.js';
 import { findGuide } from './data/guides.js';
+import { findLegal } from './data/legal.js';
 
 /** Products and guides both come from the URL, so every piece and every list is
  *  linkable and crawlable: /p/<key> and /guide/<key>. */
@@ -44,6 +46,7 @@ function useRoute(products) {
 
   const product = route.name === 'product' ? products.find(p => p.key === route.key) || null : null;
   const guide = route.name === 'guide' ? findGuide(route.key) : null;
+  const legal = route.name === 'legal' ? findLegal(route.key) : null;
 
   const select = next => navigate(next ? { name: 'product', key: next.key } : { name: 'home' });
   const openGuide = key => {
@@ -51,7 +54,12 @@ function useRoute(products) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  return { product, guide, select, openGuide };
+  const openLegal = key => {
+    navigate(key ? { name: 'legal', key } : { name: 'home' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return { product, guide, legal, select, openGuide, openLegal };
 }
 
 export default function App() {
@@ -76,7 +84,7 @@ export default function App() {
   const saved = useSavedList();
   const bagItems = useBag();
   const recentKeys = useRecent();
-  const { product: selected, guide, select, openGuide } = useRoute(products);
+  const { product: selected, guide, legal, select, openGuide, openLegal } = useRoute(products);
 
   // Remember what was looked at, and keep the head in sync with the route.
   useEffect(() => {
@@ -84,8 +92,8 @@ export default function App() {
   }, [selected?.key]);
 
   useEffect(() => {
-    applySeo({ product: selected, guide, lang, dictMeta: meta, products });
-  }, [selected, guide, lang, meta, products]);
+    applySeo({ product: selected, guide, legal, lang, dictMeta: meta, products });
+  }, [selected, guide, legal, lang, meta, products]);
 
   const categories = useMemo(() => {
     const counts = new Map();
@@ -147,7 +155,9 @@ export default function App() {
       />
 
       <main>
-        {guide ? (
+        {legal ? (
+          <LegalView doc={legal} onBack={() => openLegal(null)} />
+        ) : guide ? (
           <GuideView
             guide={guide}
             products={products}
@@ -218,7 +228,7 @@ export default function App() {
         )}
       </main>
 
-      <Footer source={source} updatedAt={updatedAt} error={error} />
+      <Footer onLegal={openLegal} source={source} updatedAt={updatedAt} error={error} />
 
       <BagDrawer
         open={bagOpen}

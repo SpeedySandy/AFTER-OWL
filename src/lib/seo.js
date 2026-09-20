@@ -126,20 +126,25 @@ function breadcrumbs(product) {
  * @param {object}  opts.dictMeta locale meta block (title / description / productTitle)
  * @param {object[]} opts.products full list, for the homepage ItemList
  */
-export function applySeo({ product, guide, lang, dictMeta, products = [] }) {
+export function applySeo({ product, guide, legal, lang, dictMeta, products = [] }) {
   const guideTitle = guide ? pick(guide.title, lang) : null;
+  const legalTitle = legal ? pick(legal.title, lang) : null;
 
   const title = product
     ? (dictMeta.productTitle || '{name} · AFTER OWL').replace('{name}', product.name)
     : guide
       ? `${guideTitle} · AFTER OWL`
-      : dictMeta.title;
+      : legal
+        ? `${legalTitle} · AFTER OWL`
+        : dictMeta.title;
 
   const description = product
     ? (clamp(product.description, 155) || dictMeta.description)
     : guide
       ? clamp(pick(guide.intro, lang), 155)
-      : dictMeta.description;
+      : legal
+        ? clamp(pick(legal.intro, lang), 155)
+        : dictMeta.description;
 
   document.title = title;
   meta('description', description);

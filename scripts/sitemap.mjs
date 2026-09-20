@@ -13,6 +13,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildProducts } from '../src/lib/products.js';
 import { GUIDES, guideItems } from '../src/data/guides.js';
+import { LEGAL_DOCS, legalEnabled } from '../src/data/legal.js';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const SITE = 'https://afterowl.shop';
@@ -46,6 +47,9 @@ export async function writeSitemap(products) {
     ...GUIDES.filter(g => guideItems(g, products).length).map(g =>
       urlEntry(`${SITE}/guide/${g.key}`, { priority: '0.7', changefreq: 'monthly', lastmod })
     ),
+    ...(legalEnabled()
+      ? LEGAL_DOCS.map(d => urlEntry(`${SITE}/legal/${d.key}`, { priority: '0.3', changefreq: 'yearly', lastmod }))
+      : []),
     ...inStock.map(p => urlEntry(`${SITE}/p/${p.key}`, { priority: '0.8', changefreq: 'weekly', lastmod })),
     ...soldOut.map(p => urlEntry(`${SITE}/p/${p.key}`, { priority: '0.4', changefreq: 'monthly', lastmod })),
     '</urlset>',
@@ -54,7 +58,8 @@ export async function writeSitemap(products) {
 
   await fs.writeFile(path.join(root, 'public/sitemap.xml'), xml);
   const guides = GUIDES.filter(g => guideItems(g, products).length).length;
-  console.log(`sitemap: ${products.length + guides + 1} urls (${products.length} products, ${guides} guides)`);
+  const legal = legalEnabled() ? LEGAL_DOCS.length : 0;
+  console.log(`sitemap: ${products.length + guides + legal + 1} urls (${products.length} products, ${guides} guides, ${legal} legal)`);
   return xml;
 }
 

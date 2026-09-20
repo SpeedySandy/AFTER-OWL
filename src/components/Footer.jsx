@@ -1,10 +1,12 @@
 import { ETSY_SHOP_URL, INSTAGRAM_URL } from '../config.js';
+import { LEGAL_DOCS, legalEnabled } from '../data/legal.js';
+import { pick } from '../data/content.js';
 import { useI18n } from '../i18n/index.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 const BASE = import.meta.env.BASE_URL;
 
-export default function Footer({ source, updatedAt, error }) {
+export default function Footer({ source, updatedAt, error, onLegal }) {
   const { t, lang } = useI18n();
   const year = new Date().getFullYear();
   const time = updatedAt?.toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' });
@@ -29,6 +31,22 @@ export default function Footer({ source, updatedAt, error }) {
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
         </nav>
       </div>
+      {legalEnabled() && (
+        <div className="container footer-legal">
+          <nav className="footer-links" aria-label={t('legal.nav')}>
+            {LEGAL_DOCS.map(doc => (
+              <a
+                key={doc.key}
+                href={`${BASE}legal/${doc.key}`}
+                onClick={e => { e.preventDefault(); onLegal?.(doc.key); }}
+              >
+                {pick(doc.title, lang)}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
+
       <div className="container footer-bottom">
         <p>{t('footer.rights', { year })}</p>
         <div className="footer-meta">

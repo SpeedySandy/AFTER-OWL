@@ -995,3 +995,17 @@ a.find-card:hover { border-color: var(--pink); transform: translateY(-3px); }
   border: 1px solid var(--line-strong); color: var(--cyan); font-size: 1.05rem; line-height: 1;
 }
 .gift-add:hover { border-color: var(--cyan); background: rgba(0, 229, 255, 0.1); }
+
+/* ── Legal pages ─────────────────────────────────────────────────────────── */
+.legal-view { padding: clamp(32px, 6vw, 64px) 0 clamp(48px, 8vw, 88px); }
+.legal-view .container { max-width: 760px; }
+.legal-head { margin-bottom: clamp(24px, 4vw, 40px); }
+.legal-head h1 { margin: 6px 0 12px; text-wrap: balance; }
+.legal-lead { color: var(--muted); font-size: 1.02rem; max-width: 60ch; }
+.legal-updated { color: var(--muted); font-size: 0.82rem; margin-top: 10px; }
+.legal-section { margin-top: clamp(24px, 3.5vw, 36px); }
+.legal-section h2 { font-size: 1.08rem; margin-bottom: 10px; }
+.legal-section p { color: var(--muted); margin: 0 0 12px; max-width: 68ch; line-height: 1.62; }
+.legal-section p:last-child { margin-bottom: 0; }
+.footer-legal { padding-top: 8px; }
+.footer-legal .footer-links { justify-content: flex-start; font-size: 0.84rem; opacity: 0.85; }

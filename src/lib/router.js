@@ -9,6 +9,7 @@ const BASE = import.meta.env.BASE_URL || '/';
 
 export const PRODUCT_PREFIX = 'p';
 export const GUIDE_PREFIX = 'guide';
+export const LEGAL_PREFIX = 'legal';
 
 export function productPath(key) {
   return `${BASE}${PRODUCT_PREFIX}/${key}`;
@@ -16,6 +17,10 @@ export function productPath(key) {
 
 export function guidePath(key) {
   return `${BASE}${GUIDE_PREFIX}/${key}`;
+}
+
+export function legalPath(key) {
+  return `${BASE}${LEGAL_PREFIX}/${key}`;
 }
 
 export function productUrl(key, origin = window.location.origin) {
@@ -35,6 +40,9 @@ export function parseLocation(loc = window.location) {
   const guide = path.match(new RegExp(`^/${GUIDE_PREFIX}/([^/?#]+)/?$`));
   if (guide) return { name: 'guide', key: decodeURIComponent(guide[1]) };
 
+  const legal = path.match(new RegExp(`^/${LEGAL_PREFIX}/([^/?#]+)/?$`));
+  if (legal) return { name: 'legal', key: decodeURIComponent(legal[1]) };
+
   return { name: 'home' };
 }
 
@@ -48,6 +56,7 @@ export function navigate(route, { replace = false } = {}) {
   const path =
     route?.name === 'product' ? productPath(route.key)
     : route?.name === 'guide' ? guidePath(route.key)
+    : route?.name === 'legal' ? legalPath(route.key)
     : BASE;
   const url = withLang(path);
   if (url === window.location.pathname + window.location.search) return;

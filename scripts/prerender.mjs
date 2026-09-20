@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { buildProducts } from '../src/lib/products.js';
 import { clamp } from '../src/lib/text.js';
 import { GUIDES, guideItems } from '../src/data/guides.js';
+import { LEGAL_DOCS, legalEnabled } from '../src/data/legal.js';
 import { pick } from '../src/data/content.js';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
@@ -211,3 +212,51 @@ for (const guide of GUIDES) {
 }
 
 console.log(`prerender: ${written} product pages and ${guidesWritten} guides written to dist/`);
+
+// ── Legal pages ─────────────────────────────────────────────────────────────
+// Static, rarely read, but they have to exist as real URLs: a deep link to the
+// privacy policy should not bounce through the 404 shim. Written only once the
+// operator is named in config.js, so half-finished pages never ship.
+let legalWritten = 0;
+if (legalEnabled()) {
+  for (const doc of LEGAL_DOCS) {
+    const title = `${pick(doc.title, 'en')} · AFTER OWL`;
+    const description = clamp(pick(doc.intro, 'en'), 155);
+    const url = `${SITE}/legal/${doc.key}`;
+
+    const head = [
+      `<title>${esc(title)}</title>`,
+      `<meta name="description" content="${esc(description)}" />`,
+      `<link rel="canonical" href="${url}" />`,
+      ...LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${url}${l === 'en' ? '' : `?lang=${l}`}" />`),
+      `<meta property="og:type" content="article" />`,
+      `<meta property="og:url" content="${url}" />`,
+      `<meta property="og:title" content="${esc(title)}" />`,
+      `<meta property="og:description" content="${esc(description)}" />`,
+      `<meta name="robots" content="index,follow" />`,
+    ].join('\n    ');
+
+    const body = [
+      '<article>',
+      `<h1>${esc(pick(doc.title, 'en'))}</h1>`,
+      `<p>${esc(pick(doc.intro, 'en'))}</p>`,
+      ...doc.sections.map(sec => [
+        `<h2>${esc(pick(sec.h, 'en'))}</h2>`,
+        ...(pick(sec.body, 'en')() || []).map(line => `<p>${esc(line)}</p>`),
+      ].join('')),
+      '<p><a href="/">AFTER OWL — the full collection</a></p>',
+      '</article>',
+    ].join('');
+
+    const html = shell
+      .replace(STRIP, '')
+      .replace('</head>', `  ${head}\n  </head>`)
+      .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+
+    const dir = path.join(dist, 'legal', doc.key);
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, 'index.html'), html);
+    legalWritten += 1;
+  }
+}
+if (legalWritten) console.log(`prerender: ${legalWritten} legal pages written to dist/`);
