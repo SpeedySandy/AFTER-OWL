@@ -93,3 +93,15 @@ Push to `main`. The "Sync & deploy" workflow syncs data, builds, prerenders and
 publishes `dist` to the `gh-pages` branch. Pushing needs a GitHub token or the
 repo added to the session's sources — the session proxy blocks credentials
 otherwise.
+
+## Custom domain
+
+The site is served at **afterowl.shop** via a `CNAME` file in `public/` (Vite
+copies it into `dist/` on every build, so it survives each deploy — the
+`gh-pages` branch is force-published on every run by the "Sync & deploy"
+workflow and would otherwise lose it). DNS is proxied through Cloudflare in
+front of GitHub Pages; `www.afterowl.shop` redirects to the apex.
+
+`vite.config.js` sets `base: '/'` since the site now lives at the domain root
+rather than a `github.io/AFTER-OWL/` subpath — don't reintroduce a subpath
+base or asset URLs will 404 and the page will render blank.
