@@ -40,10 +40,10 @@
   "hidden": false
  },
  {
-  "name": "Silver Pillow Mirror",
+  "name": "Energy Recovery Pillow Mirror",
   "group": "Handmade",
-  "notes": "Silver Pillow Mirror",
-  "price": 30,
+  "notes": "Handmade Silver Pillow Mirror - Energy Recovery Pillow Mirror",
+  "price": 35,
   "stock": 1,
   "sold": 0,
   "etsy": false,
@@ -264,7 +264,7 @@
   "group": "Tubes",
   "notes": "Telescopic Aluminium Tube Straw Rose Golden",
   "price": 8,
-  "stock": 3,
+  "stock": 2,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -400,7 +400,7 @@
   "hidden": false
  },
  {
-  "name": "Weekend Dispenser - Silver",
+  "name": "The Weekender - Dispenser - Silver",
   "group": "Dispenser",
   "notes": "Big silver alu jar with screw lid and extendible spoon",
   "price": 10,
@@ -410,17 +410,17 @@
   "hidden": false
  },
  {
-  "name": "Weekend Dispenser - Black",
+  "name": "The Weekender - Dispenser - Black",
   "group": "Dispenser",
   "notes": "Big black alu jar with screw lid and extendible spoon",
   "price": 10,
-  "stock": 2,
+  "stock": 1,
   "sold": 0,
   "etsy": false,
   "hidden": false
  },
  {
-  "name": "Weekend Dispenser - Grey",
+  "name": "The Weekender - Dispenser - Grey",
   "group": "Dispenser",
   "notes": "Big grey alu jar with screw lid and extendible spoon",
   "price": 10,
@@ -430,7 +430,7 @@
   "hidden": false
  },
  {
-  "name": "Weekend Dispenser - Gold",
+  "name": "The Weekender - Dispenser - Gold",
   "group": "Dispenser",
   "notes": "Big gold alu jar with screw lid and extendible spoon",
   "price": 10,
@@ -520,19 +520,19 @@
   "hidden": false
  },
  {
-  "name": "AFTER OWL Foldable Mirror 👎",
+  "name": "AFTER OWL Foldable Mirror LQ",
   "group": "Tools",
-  "notes": "AFTER OWL Foldable Mirror 👎",
-  "price": 3,
-  "stock": 3,
+  "notes": "AFTER OWL Foldable Mirror LQ",
+  "price": 4,
+  "stock": 2,
   "sold": 0,
   "etsy": false,
   "hidden": false
  },
  {
-  "name": "AFTER OWL Foldable Mirror 👍",
+  "name": "AFTER OWL Foldable Mirror HQ",
   "group": "Tools",
-  "notes": "AFTER OWL Foldable Mirror 👍",
+  "notes": "AFTER OWL Foldable Mirror HQ",
   "price": 5,
   "stock": 4,
   "sold": 0,
@@ -784,7 +784,7 @@
   "group": "Accessories",
   "notes": "Tote bag - This bag contains a bomb... - leopard print with white letters print & small cosmetic bag",
   "price": 20,
-  "stock": 1,
+  "stock": 0,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -854,7 +854,7 @@
   "group": "Accessories",
   "notes": "Black EMBRACE Collective Trucker Cap",
   "price": 10,
-  "stock": 2,
+  "stock": 1,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -884,7 +884,7 @@
   "group": "Accessories",
   "notes": "Foldable sun hat olive AFTER OWL logo",
   "price": 15,
-  "stock": 3,
+  "stock": 2,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1083,8 +1083,8 @@
   "name": "Secret Stash Car Key",
   "group": "Secret Stash",
   "notes": "Black realistic VW car key with secret stash",
-  "price": 10,
-  "stock": 5,
+  "price": 12,
+  "stock": 1,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1110,7 +1110,7 @@
   "hidden": false
  },
  {
-  "name": "Secret Light Bulb",
+  "name": "Secret Stash Light Bulb",
   "group": "Secret Stash",
   "notes": "Secret Light Bulb White",
   "price": 7,
@@ -1144,7 +1144,7 @@
   "group": "Secret Stash",
   "notes": "A Travel Neck Pillow That Can Be Filled with Clothes, Featuring an Adjustable U-Shaped Design, Portable And Made of Short Plush Fabric, Suitable for Short Trips, Business Travel, Hiking, Planes, And Cars, Ideal for Storing Clothes for a 3-Day Trip",
   "price": 15,
-  "stock": 2,
+  "stock": 1,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1230,7 +1230,7 @@
   "hidden": false
  },
  {
-  "name": "Touch Bag Light",
+  "name": "Tap On Bag Lamp",
   "group": "Lights",
   "notes": "White touch bag light 16 sec",
   "price": 7,
@@ -1364,6 +1364,36 @@
   "group": "Other",
   "notes": "Keyring \"DON'T FOLLOW ME, I'M LOST TOO\"",
   "price": 3,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Breathing Necklace - 82mm",
+  "group": "Accessories",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain",
+  "price": 80,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Breathing Necklace - 88mm",
+  "group": "Accessories",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 88 mm pendant, 70 cm chain",
+  "price": 80,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Breathing Necklace - 2in1",
+  "group": "Accessories",
+  "notes": "Titanium steel 2-in-1 breathing pendant + scent diffuser, 56 mm pendant, 70 cm chain",
+  "price": 80,
   "stock": 1,
   "sold": 0,
   "etsy": false,
