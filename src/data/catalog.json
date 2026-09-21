@@ -187,7 +187,7 @@
  },
  {
   "key": "silver-pillow-mirror",
-  "name": "Silver Pillow Mirror",
+  "name": "Energy Recovery Pillow Mirror",
   "category": "Mirror",
   "handmade": false,
   "description": "Chrome dreams, pillow-soft silhouette.\n\nHandmade silver pillow mirror — a chrome-finish decor accent inspired by inflatable pillows, with a soft cushion silhouette that pops against any wall.\n\nDetails:\n- Chrome-plated finish; pillow-inspired silhouette\n- ~20-25cm wide; hanging notch on back\n- Reflective face — wipe clean with a dry cloth\n- Handmade; small variations are part of the charm\n\nTested by the OG AFTER OWL.",
@@ -215,13 +215,18 @@
   ],
   "gradient": "linear-gradient(145deg, #0F1520 0%, #4A5568 35%, #A0AEC0 65%, #E2E8F0 100%)",
   "images": [
+   "1f2gaf9Rx8OkgTKNHmCyOuNL_4Fa81Q7t",
    "1VCI3nPGdqOXEYQTpwQCWqHN3WLN28CM7",
    "1DvaF-jIzGBNGydhP8M4rAurjcJLPHh2a",
    "1t0PIiVYOjBS9jH74EbTfaDPNJItg6GzX",
    "1PNPmbjTGVa1KU8m_bdG-dKctjxFZBiT2",
-   "15j4UP9vvYwLXJmz5sIfvarkMQ_YfF08_"
+   "15j4UP9vvYwLXJmz5sIfvarkMQ_YfF08_",
+   "1UqgOKq9VraY4Af2QPUY_J-LlqNvLCA4_"
   ],
   "rows": [
+   {
+    "match": "Energy Recovery Pillow Mirror"
+   },
    {
     "match": "Silver Pillow Mirror"
    }
@@ -295,6 +300,9 @@
    "handmade"
   ],
   "gradient": "linear-gradient(145deg, #0A0E1A 0%, #1E2E5A 40%, #2E4A8A 70%, #4A6AB0 100%)",
+  "images": [
+   "1NQNQDuJ6XoDPrQAOzknYapDIbfHbMK8q"
+  ],
   "rows": [
    {
     "match": "FC Ballern München Plate"
@@ -559,6 +567,13 @@
    "themed tube"
   ],
   "gradient": "linear-gradient(145deg, #080808 0%, #1C1C1E 40%, #2C2C2E 70%, #3A3A3C 100%)",
+  "images": [
+   "13bZKDC9cBehZHSg70ja3p6oZr6Ls4MDN",
+   "1sqmNt38ioKs2OdnTK3dMbq2khdhF9Hx0",
+   "1lxx474paxW45QIrwTWd_RhM4WiDnzHBT",
+   "1Ra2tPMwTjIfuf14CuwQXokEiplM6KZcT",
+   "13_MRxWPZi3Uh37OfA-bPowH2TzXM9KHB"
+  ],
   "rows": [
    {
     "match": "The Gentlemen"
@@ -1700,6 +1715,9 @@
    "wave print"
   ],
   "gradient": "linear-gradient(145deg, #001225 0%, #0040A0 35%, #00C8FF 65%, #80FFFF 100%)",
+  "images": [
+   "1T-lTEPOkrfH8kbrbJJIRpT7q6XocReya"
+  ],
   "rows": [
    {
     "match": "Fan - Electric Waves"
@@ -2988,9 +3006,18 @@
    "unisex necklace"
   ],
   "gradient": "linear-gradient(145deg, #141414 0%, #5A6270 40%, #A0AEC0 70%, #D0D8E0 100%)",
+  "images": [
+   "1P66gXgbaq7h-ZfOvGPxKHdFAh1xc75n5",
+   "1bYW5xW0r6YDboGHRSI3EvMxZLIFR456s",
+   "1pMEZLMhFGrjbQK9Hi88gtMqR9YvtPZLz",
+   "1qnihy8lZhnDigxFYOK1GGggsL1uPZaZT"
+  ],
   "rows": [
    {
     "match": "Stainless Steel Cross Pendant Knecklace"
+   },
+   {
+    "match": "Stainless Steel Cross Pendant Necklace"
    }
   ]
  },
