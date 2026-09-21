@@ -51,6 +51,46 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://afterowl.shop/legal/notice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/legal/notice"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/legal/notice?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/legal/notice?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/legal/notice"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/legal/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/legal/privacy?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/legal/privacy?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/legal/privacy"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/legal/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/legal/cookies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/legal/cookies?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/legal/cookies?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/legal/cookies"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://afterowl.shop/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/legal/terms"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/legal/terms?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://afterowl.shop/legal/terms?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afterowl.shop/legal/terms"/>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://afterowl.shop/p/gold-leaf-box</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://afterowl.shop/p/gold-leaf-box"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://afterowl.shop/p/gold-leaf-box?lang=es"/>

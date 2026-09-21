@@ -54,7 +54,7 @@ export function driveThumb(id, size = 'w1000') {
 //
 // LEGAL_ADDRESS is optional on purpose. A private seller is not obliged to
 // publish a home address, and publishing one is hard to undo.
-export const LEGAL_OPERATOR = '';
+export const LEGAL_OPERATOR = 'AFTER OWL';
 export const LEGAL_ADDRESS = '';
 export const LEGAL_TAX_ID = '';
 export const LEGAL_EMAIL = '';

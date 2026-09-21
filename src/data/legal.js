@@ -35,19 +35,19 @@ export const LEGAL_DOCS = [
         h: { en: 'Who we are', es: 'Quiénes somos', de: 'Wer wir sind' },
         body: {
           en: () => [
-            'AFTER OWL is a small, privately run project based in Barcelona, Spain. It is operated by ' + operator() + '.',
+            'AFTER OWL is a small, privately run project based in Barcelona, Spain.' + (operator() && operator() !== 'AFTER OWL' && operator() !== '—' ? ' It is operated by ' + operator() + '.' : ''),
             LEGAL_ADDRESS ? 'Address: ' + LEGAL_ADDRESS : 'Postal address on request.',
             LEGAL_TAX_ID ? 'Tax ID: ' + LEGAL_TAX_ID : 'AFTER OWL is not a registered company. Sales are occasional and on a small scale.',
             contactLine.en(),
           ],
           es: () => [
-            'AFTER OWL es un proyecto pequeño y de carácter privado con base en Barcelona, España. Está gestionado por ' + operator() + '.',
+            'AFTER OWL es un proyecto pequeño y de carácter privado con base en Barcelona, España.' + (operator() && operator() !== 'AFTER OWL' && operator() !== '—' ? ' Está gestionado por ' + operator() + '.' : ''),
             LEGAL_ADDRESS ? 'Dirección: ' + LEGAL_ADDRESS : 'Dirección postal disponible a petición.',
             LEGAL_TAX_ID ? 'NIF: ' + LEGAL_TAX_ID : 'AFTER OWL no es una empresa registrada. Las ventas son ocasionales y a pequeña escala.',
             contactLine.es(),
           ],
           de: () => [
-            'AFTER OWL ist ein kleines, privat betriebenes Projekt mit Sitz in Barcelona, Spanien. Betrieben von ' + operator() + '.',
+            'AFTER OWL ist ein kleines, privat betriebenes Projekt mit Sitz in Barcelona, Spanien.' + (operator() && operator() !== 'AFTER OWL' && operator() !== '—' ? ' Betrieben von ' + operator() + '.' : ''),
             LEGAL_ADDRESS ? 'Anschrift: ' + LEGAL_ADDRESS : 'Postanschrift auf Anfrage.',
             LEGAL_TAX_ID ? 'Steuernummer: ' + LEGAL_TAX_ID : 'AFTER OWL ist kein eingetragenes Unternehmen. Verkäufe finden gelegentlich und in kleinem Umfang statt.',
             contactLine.de(),
