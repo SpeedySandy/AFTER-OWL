@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 /* ── AFTER OWL · brand tokens ─────────────────────────────────────────────── */
 :root {
   --bg: #0a0a0a;

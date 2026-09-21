@@ -129,19 +129,19 @@ export const LEGAL_DOCS = [
         body: {
           en: () => [
             'The site is hosted on GitHub Pages behind Cloudflare. Like any web server, they log requests — including your IP address — to serve pages and stop abuse. We do not see those logs.',
-            'The product list is fetched from a Google Sheets endpoint each time the page loads, so Google sees that request. The page also loads two typefaces from Google Fonts, which is a second request to Google.',
+            'The product list is fetched from a Google Sheets endpoint each time the page loads, so Google sees that request. Nothing else goes to Google: the typefaces are served from this domain rather than from Google Fonts, deliberately.',
             'Photos are served from this domain. The exception is the occasional image that has not been copied across yet and falls back to Google Drive.',
             'That is the complete list of third parties involved in simply looking at this site.',
           ],
           es: () => [
             'La web está alojada en GitHub Pages detrás de Cloudflare. Como cualquier servidor, registran las peticiones — incluida tu dirección IP — para servir páginas y frenar abusos. Nosotros no vemos esos registros.',
-            'La lista de productos se descarga de un endpoint de Google Sheets cada vez que se carga la página, así que Google ve esa petición. La página también carga dos tipografías de Google Fonts, lo que supone una segunda petición a Google.',
+            'La lista de productos se descarga de un endpoint de Google Sheets cada vez que se carga la página, así que Google ve esa petición. Nada más va a Google: las tipografías se sirven desde este dominio y no desde Google Fonts, a propósito.',
             'Las fotos se sirven desde este dominio. La excepción es alguna imagen que todavía no se ha copiado y que recurre a Google Drive.',
             'Esa es la lista completa de terceros implicados en el simple hecho de mirar esta web.',
           ],
           de: () => [
             'Die Seite liegt auf GitHub Pages hinter Cloudflare. Wie jeder Webserver protokollieren sie Anfragen — auch deine IP-Adresse —, um Seiten auszuliefern und Missbrauch zu verhindern. Wir sehen diese Protokolle nicht.',
-            'Die Produktliste wird bei jedem Seitenaufruf von einem Google-Sheets-Endpunkt geladen, Google sieht diese Anfrage. Die Seite lädt außerdem zwei Schriften von Google Fonts — eine zweite Anfrage an Google.',
+            'Die Produktliste wird bei jedem Seitenaufruf von einem Google-Sheets-Endpunkt geladen, Google sieht diese Anfrage. Sonst geht nichts an Google: Die Schriften werden bewusst von dieser Domain ausgeliefert und nicht von Google Fonts.',
             'Fotos kommen von dieser Domain. Die Ausnahme sind einzelne Bilder, die noch nicht kopiert wurden und auf Google Drive zurückfallen.',
             'Das ist die vollständige Liste der Dritten, die am bloßen Betrachten dieser Seite beteiligt sind.',
           ],
