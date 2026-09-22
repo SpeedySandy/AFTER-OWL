@@ -310,7 +310,7 @@ Slim silver-finish square case with a secure snap closure — carry crafts, jewe
 
 Details:
 - Brushed-steel look finish; snap-lock closure
-- ~8x8cm; slim profile, pocket-friendly
+- 8 × 8 cm; slim profile, pocket-friendly
 - Interior compartment for small accessories
 - Novelty organizer — contents not included
 
