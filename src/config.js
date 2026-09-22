@@ -54,10 +54,10 @@ export function driveThumb(id, size = 'w1000') {
 //
 // LEGAL_ADDRESS is optional on purpose. A private seller is not obliged to
 // publish a home address, and publishing one is hard to undo.
-export const LEGAL_OPERATOR = 'AFTER OWL';
+export const LEGAL_OPERATOR = 'Sandro Christofori (AFTER OWL)';
 export const LEGAL_ADDRESS = '';
 export const LEGAL_TAX_ID = '';
-export const LEGAL_EMAIL = '';
+export const LEGAL_EMAIL = 'info@afterowl.shop';
 
 // ─── Email capture ──────────────────────────────────────────────────────────
 // The site has no backend, so both forms post to Formspree (free tier: 50
