@@ -5,3 +5,6 @@ dist/
 # content report output
 content-report.txt
 content-gaps.json
+
+# scratch
+Claude outputs/
