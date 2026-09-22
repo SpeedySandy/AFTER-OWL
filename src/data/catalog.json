@@ -1362,10 +1362,19 @@
   ],
   "gradient": "linear-gradient(145deg, #0A0500 0%, #D97706 35%, #F59E0B 65%, #FCD34D 100%)",
   "images": [
-   "1HePZ5XNCf_SGC0atcRXPUryzLin0SYg8"
+   "1HePZ5XNCf_SGC0atcRXPUryzLin0SYg8",
+   "1Nt66KsDIiNtFj_8u7n9LHxKP861hsmEd"
   ],
   "variantLabel": "Edition",
   "rows": [
+   {
+    "match": "AFTER OWL Foldable Mirror HQ",
+    "variant": "The Good One"
+   },
+   {
+    "match": "AFTER OWL Foldable Mirror LQ",
+    "variant": "Budget Buddy"
+   },
    {
     "match": "AFTER OWL Foldable Mirror 👍",
     "variant": "The Good One"
@@ -1875,12 +1884,22 @@
   "rows": [
    {
     "match": "Black Pocket Wrist Band",
-    "variant": "Classic"
+    "variant": "Summer",
+    "image": "1AGsRjBQEtUUi03Re5ZinRCTXTPBKFn_m"
    },
    {
     "match": "Black Pocket Wrist Band Fleece",
-    "variant": "Fleece"
+    "variant": "Winter Fleece",
+    "image": "1ef-1ZBRlk0Er9UWAPPZzDnoTt_LdhVZI"
    }
+  ],
+  "images": [
+   "1ef-1ZBRlk0Er9UWAPPZzDnoTt_LdhVZI",
+   "1AGsRjBQEtUUi03Re5ZinRCTXTPBKFn_m",
+   "1Tg6cU_TPtnv-RBH9wWhkdkmODpsECSRW",
+   "132zKALoxfjecYXNPeDEukXkXs0Xtkvzm",
+   "1EbWZSoi7ybvrO6B_PUFeqvqLhycpqbC-",
+   "1sXQphxNPZZEi4JXb8nTP_X9jAq_AALrt"
   ]
  },
  {
@@ -2545,6 +2564,9 @@
    "wide brim hat"
   ],
   "gradient": "linear-gradient(145deg, #061209 0%, #1E4228 35%, #3A7D55 65%, #5AAB78 100%)",
+  "images": [
+   "1rUKgTG9_QXQhGU6EBx3gyHPXVYOLz3z8"
+  ],
   "rows": [
    {
     "match": "AFTER OWL Foldable Sun Hat"
@@ -2586,6 +2608,36 @@
   "rows": [
    {
     "match": "The Acid Face T-Shirt"
+   }
+  ]
+ },
+ {
+  "key": "after-owl-hoodie",
+  "name": "AFTER OWL Crew Hoodie",
+  "category": "Clothing",
+  "handmade": false,
+  "description": "For the crew that stays out longest.\n\nHeavyweight hoodie with AFTER OWL crew branding — the layer you pull on when the sun comes up and the set is still going.\n\nDetails:\n- Cotton-blend fleece-back hoodie\n- Lined hood with drawcord; kangaroo pocket\n- Unisex cut; check size chart\n- Machine wash cold inside out; do not iron print\n\nTested by the OG AFTER OWL.",
+  "materials": "Cotton blend",
+  "tags": [
+   "after owl",
+   "club hoodie",
+   "crew",
+   "crewneck",
+   "festival",
+   "festival hoodie",
+   "hoodie",
+   "logo hoodie",
+   "rave",
+   "rave hoodie",
+   "streetwear",
+   "sweatshirt",
+   "unisex hoodie",
+   "warm layer"
+  ],
+  "gradient": "linear-gradient(145deg, #060606 0%, #1A1A1A 50%, #2D2D2D 100%)",
+  "rows": [
+   {
+    "match": "AFTER OWL Crew Hoodie"
    }
   ]
  },
@@ -3471,6 +3523,9 @@
    "sticker"
   ],
   "gradient": "linear-gradient(145deg, #001a1a 0%, #00E5FF 35%, #A569F1 65%, #FF5DBA 100%)",
+  "images": [
+   "1yjTH6mUlxzbX3-5SwBmGFms7D90fosFR"
+  ],
   "variantLabel": "Size",
   "rows": [
    {
