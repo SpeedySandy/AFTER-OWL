@@ -168,6 +168,26 @@ export const LEGAL_DOCS = [
         },
       },
       {
+        h: { en: 'If you sign up for updates', es: 'Si te apuntas a avisos', de: 'Wenn du dich für Updates anmeldest' },
+        body: {
+          en: () => [
+            "The newsletter box and the \"notify me when it's back\" button are the one exception to \"nothing leaves your browser\": if you use them, your email address is sent to Formspree, the third party that runs the signup form for us, and stored there until we remove it.",
+            'We use it only to send the update you asked for — restock alerts for the item you flagged, or the newsletter if that is the box you used. We do not add you to the other one, and we do not use it for anything else.',
+            'Unsubscribing is one message away: write to us on any channel above and we will remove your address.',
+          ],
+          es: () => [
+            'La casilla del boletín y el botón de "avísame cuando vuelva" son la única excepción a que "nada sale de tu navegador": si los usas, tu correo se envía a Formspree, el tercero que gestiona el formulario por nosotros, y se guarda allí hasta que lo eliminemos.',
+            'Lo usamos solo para enviarte el aviso que pediste — la alerta de reposición del artículo que marcaste, o el boletín si esa fue la casilla que usaste. No te apuntamos al otro y no lo usamos para nada más.',
+            'Darte de baja es un mensaje: escríbenos por cualquiera de los canales de arriba y eliminaremos tu dirección.',
+          ],
+          de: () => [
+            'Das Newsletter-Feld und der Button "Bescheid sagen, wenn wieder da" sind die einzige Ausnahme von "nichts verlässt deinen Browser": Wenn du sie nutzt, wird deine E-Mail-Adresse an Formspree gesendet, den Drittanbieter, der das Anmeldeformular für uns betreibt, und dort gespeichert, bis wir sie entfernen.',
+            'Wir nutzen sie nur, um dir den gewünschten Hinweis zu schicken — die Wiederverfügbarkeits-Benachrichtigung für den markierten Artikel oder den Newsletter, je nachdem, welches Feld du benutzt hast. Wir tragen dich nicht zusätzlich in das andere ein und nutzen die Adresse für nichts sonst.',
+            'Abmelden ist eine Nachricht entfernt: Schreib uns auf einem der oben genannten Kanäle und wir entfernen deine Adresse.',
+          ],
+        },
+      },
+      {
         h: { en: 'Your rights', es: 'Tus derechos', de: 'Deine Rechte' },
         body: {
           en: () => [

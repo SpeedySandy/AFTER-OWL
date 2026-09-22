@@ -74,7 +74,7 @@ export const LEGAL_EMAIL = '';
 // third party a page load involves. Formspree is not in that list, because the
 // form renders nothing while this is empty. Set an ID and the page needs a line
 // about it — otherwise the policy stops being true the moment the form appears.
-export const FORMSPREE_FORM_ID = '';
+export const FORMSPREE_FORM_ID = 'xgavkydn';
 export const formspreeUrl = () =>
   FORMSPREE_FORM_ID ? `https://formspree.io/f/${FORMSPREE_FORM_ID}` : null;
 
