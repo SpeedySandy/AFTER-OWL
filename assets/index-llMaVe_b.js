@@ -314,7 +314,7 @@ Details:
 - Interior compartment for small accessories
 - Novelty organizer — contents not included
 
-Tested by the OG AFTER OWL.`,materials:"Metal + accessories",size:"10 × 5 × 3 cm",tags:["after owl","complete kit","craft case","festival kit","gift box","kit","metal case","mini case","mirror","organizer box","pocket kit","set","silver","silver box","square case","storage box","travel case","tube","unisex case"],gradient:"linear-gradient(145deg, #0F1520 0%, #4A5568 35%, #A0AEC0 65%, #E2E8F0 100%)",images:["1SHgRNoyRavKyY3vnl6bxs1ijVolv-FMN","1cV0dj-1fAnXeyDTKMzTClah9U3e8aTJh","1WjkVZbGk6UFhgG7O50eEy-37ELKrNFZU","1hn85k43uJjID7QtHaNsgzwr86HGLq7MM"],rows:[{match:"Silver Square Box"}],weight:"~80 g"},{key:"glass-tubes-set",name:"Glass Tubes Set",category:"Sets",handmade:!1,description:`Five little tubes, one neat case.
+Tested by the OG AFTER OWL.`,materials:"Metal + accessories",size:"8 × 8 cm",tags:["after owl","complete kit","craft case","festival kit","gift box","kit","metal case","mini case","mirror","organizer box","pocket kit","set","silver","silver box","square case","storage box","travel case","tube","unisex case"],gradient:"linear-gradient(145deg, #0F1520 0%, #4A5568 35%, #A0AEC0 65%, #E2E8F0 100%)",images:["1SHgRNoyRavKyY3vnl6bxs1ijVolv-FMN","1cV0dj-1fAnXeyDTKMzTClah9U3e8aTJh","1WjkVZbGk6UFhgG7O50eEy-37ELKrNFZU","1hn85k43uJjID7QtHaNsgzwr86HGLq7MM"],rows:[{match:"Silver Square Box"}],weight:"~80 g"},{key:"glass-tubes-set",name:"Glass Tubes Set",category:"Sets",handmade:!1,description:`Five little tubes, one neat case.
 
 Set of 5 colourful glass tubes in a black storage box, available in 7.6cm or 10.1cm.
 
