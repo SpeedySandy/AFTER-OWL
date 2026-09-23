@@ -112,7 +112,7 @@
  {
   "name": "HALO Mirror Side Table",
   "group": "Handmade",
-  "notes": "",
+  "notes": "HALO Mirror Side Table",
   "price": 90,
   "stock": 0,
   "sold": 0,
@@ -140,9 +140,9 @@
   "hidden": false
  },
  {
-  "name": "Black Tube",
+  "name": "Metal Tube - Black",
   "group": "Tubes",
-  "notes": "Aluminium Metal Tube Black",
+  "notes": "Metal Tube Black",
   "price": 5,
   "stock": 0,
   "sold": 0,
@@ -150,9 +150,9 @@
   "hidden": false
  },
  {
-  "name": "Blue Tube",
+  "name": "Metal Tube - Blue",
   "group": "Tubes",
-  "notes": "Aluminium Metal Tube Blue",
+  "notes": "Metal Tube Blue",
   "price": 5,
   "stock": 1,
   "sold": 0,
@@ -160,19 +160,19 @@
   "hidden": false
  },
  {
-  "name": "Golden Tube",
+  "name": "Metal Tube - Gold",
   "group": "Tubes",
-  "notes": "Aluminium Metal Tube Gold",
+  "notes": "Metal Tube Gold",
   "price": 5,
-  "stock": 1,
+  "stock": 0,
   "sold": 0,
   "etsy": false,
   "hidden": false
  },
  {
-  "name": "Silver Tube",
+  "name": "Metal Tube - Silver",
   "group": "Tubes",
-  "notes": "Aluminium Metal Tube Silver",
+  "notes": "Metal Tube Silver",
   "price": 5,
   "stock": 1,
   "sold": 0,
@@ -184,7 +184,7 @@
   "group": "Tubes",
   "notes": "EMBRACE Metal Tube Black",
   "price": 5,
-  "stock": 11,
+  "stock": 5,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -233,7 +233,7 @@
   "name": "AFTER OWL Shop Tube",
   "group": "Tubes",
   "notes": "AFTER OWL Shop Alu Tube Colorful",
-  "price": 5,
+  "price": 4,
   "stock": 7,
   "sold": 0,
   "etsy": false,
@@ -434,6 +434,66 @@
   "group": "Dispenser",
   "notes": "Big gold alu jar with screw lid and extendible spoon",
   "price": 10,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Bump Straw 82mm Flat Top - AFTER OWL - Silver",
+  "group": "Dispenser",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, flat top, silver color, AFTER OWL graving",
+  "price": 89,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Bump Straw 82mm Flat Top - AFTER OWL - Gold",
+  "group": "Dispenser",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, flat top, gold color, AFTER OWL graving",
+  "price": 89,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Bump Straw 82mm Round Top - AFTER OWL - Black",
+  "group": "Dispenser",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, round top, black color, AFTER OWL graving",
+  "price": 89,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Bump Straw 82mm Round Top - AFTER OWL - Rainbow",
+  "group": "Dispenser",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, round top, rainbow color, AFTER OWL graving",
+  "price": 89,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Bump Straw 82mm Round Top - AFTER OWL - Silver",
+  "group": "Dispenser",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, round top, rainbow color, AFTER OWL graving",
+  "price": 89,
+  "stock": 1,
+  "sold": 0,
+  "etsy": false,
+  "hidden": false
+ },
+ {
+  "name": "Bump Straw 56mm Flat Top - AFTER OWL - Gold",
+  "group": "Dispenser",
+  "notes": "Titanium steel breathing pendant + scent diffuser, 56 mm pendant, 70 cm chain, flat top, gold color, AFTER OWL graving",
+  "price": 79,
   "stock": 1,
   "sold": 0,
   "etsy": false,
@@ -952,7 +1012,7 @@
  {
   "name": "FC Ballern München Club Jersey",
   "group": "Clothing",
-  "notes": "",
+  "notes": "FC Ballern München Club Jersey",
   "price": 30,
   "stock": 0,
   "sold": 0,
@@ -1264,7 +1324,7 @@
   "group": "Other",
   "notes": "Small random sticker",
   "price": null,
-  "stock": null,
+  "stock": 100,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1274,7 +1334,7 @@
   "group": "Other",
   "notes": "Big random sticker",
   "price": 1,
-  "stock": null,
+  "stock": 20,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1304,7 +1364,7 @@
   "group": "Other",
   "notes": "Patches small size",
   "price": 5,
-  "stock": null,
+  "stock": 10,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1314,7 +1374,7 @@
   "group": "Other",
   "notes": "Patches medium size",
   "price": 7,
-  "stock": null,
+  "stock": 10,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1324,7 +1384,7 @@
   "group": "Other",
   "notes": "Patches large size",
   "price": 10,
-  "stock": null,
+  "stock": 10,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1334,7 +1394,7 @@
   "group": "Other",
   "notes": "Patches extra large size",
   "price": 15,
-  "stock": null,
+  "stock": 10,
   "sold": 0,
   "etsy": false,
   "hidden": false
@@ -1364,36 +1424,6 @@
   "group": "Other",
   "notes": "Keyring \"DON'T FOLLOW ME, I'M LOST TOO\"",
   "price": 3,
-  "stock": 1,
-  "sold": 0,
-  "etsy": false,
-  "hidden": false
- },
- {
-  "name": "Breathing Necklace - 82mm",
-  "group": "Accessories",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain",
-  "price": 80,
-  "stock": 1,
-  "sold": 0,
-  "etsy": false,
-  "hidden": false
- },
- {
-  "name": "Breathing Necklace - 88mm",
-  "group": "Accessories",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 88 mm pendant, 70 cm chain",
-  "price": 80,
-  "stock": 1,
-  "sold": 0,
-  "etsy": false,
-  "hidden": false
- },
- {
-  "name": "Breathing Necklace - 2in1",
-  "group": "Accessories",
-  "notes": "Titanium steel 2-in-1 breathing pendant + scent diffuser, 56 mm pendant, 70 cm chain",
-  "price": 80,
   "stock": 1,
   "sold": 0,
   "etsy": false,
