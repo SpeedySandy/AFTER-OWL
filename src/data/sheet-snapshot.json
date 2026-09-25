@@ -440,9 +440,9 @@
   "hidden": false
  },
  {
-  "name": "Bump Straw 82mm Flat Top - AFTER OWL - Silver",
-  "group": "Dispenser",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, flat top, silver color, AFTER OWL graving",
+  "name": "AFTER OWL Mindful Breathing Necklace - 82mm Flat Top - Silver",
+  "group": "Mindful Breathing Necklace",
+  "notes": "AFTER OWL engraved mindful breathing pendant with scent-diffuser function. 82 mm pendant with 70 cm chain, flat-top design and silver finish. A wearable breathwork and mindfulness accessory designed for slow, intentional exhalation. Includes AFTER OWL engraving.",
   "price": 89,
   "stock": 1,
   "sold": 0,
@@ -450,9 +450,9 @@
   "hidden": false
  },
  {
-  "name": "Bump Straw 82mm Flat Top - AFTER OWL - Gold",
-  "group": "Dispenser",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, flat top, gold color, AFTER OWL graving",
+  "name": "AFTER OWL Mindful Breathing Necklace - 82mm Flat Top - Gold",
+  "group": "Mindful Breathing Necklace",
+  "notes": "AFTER OWL engraved mindful breathing pendant with scent-diffuser function. 82 mm pendant with 70 cm chain, flat-top design and gold finish. A wearable breathwork and mindfulness accessory designed for slow, intentional exhalation. Includes AFTER OWL engraving.",
   "price": 89,
   "stock": 1,
   "sold": 0,
@@ -460,9 +460,9 @@
   "hidden": false
  },
  {
-  "name": "Bump Straw 82mm Round Top - AFTER OWL - Black",
-  "group": "Dispenser",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, round top, black color, AFTER OWL graving",
+  "name": "AFTER OWL Mindful Breathing Necklace - 82mm Round Top - Black",
+  "group": "Mindful Breathing Necklace",
+  "notes": "AFTER OWL engraved mindful breathing pendant with scent-diffuser function. 82 mm pendant with 70 cm chain, round-top design and black finish. A wearable breathwork and mindfulness accessory designed for slow, intentional exhalation. Includes AFTER OWL engraving.",
   "price": 89,
   "stock": 1,
   "sold": 0,
@@ -470,9 +470,9 @@
   "hidden": false
  },
  {
-  "name": "Bump Straw 82mm Round Top - AFTER OWL - Rainbow",
-  "group": "Dispenser",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, round top, rainbow color, AFTER OWL graving",
+  "name": "AFTER OWL Mindful Breathing Necklace - 82mm Round Top - Rainbow",
+  "group": "Mindful Breathing Necklace",
+  "notes": "AFTER OWL engraved mindful breathing pendant with scent-diffuser function. 82 mm pendant with 70 cm chain, round-top design and rainbow finish. A wearable breathwork and mindfulness accessory designed for slow, intentional exhalation. Includes AFTER OWL engraving.",
   "price": 89,
   "stock": 1,
   "sold": 0,
@@ -480,9 +480,9 @@
   "hidden": false
  },
  {
-  "name": "Bump Straw 82mm Round Top - AFTER OWL - Silver",
-  "group": "Dispenser",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 82 mm pendant, 70 cm chain, round top, rainbow color, AFTER OWL graving",
+  "name": "AFTER OWL Mindful Breathing Necklace - 82mm Round Top - Silver",
+  "group": "Mindful Breathing Necklace",
+  "notes": "AFTER OWL engraved mindful breathing pendant with scent-diffuser function. 82 mm pendant with 70 cm chain, round-top design and silver finish. A wearable breathwork and mindfulness accessory designed for slow, intentional exhalation. Includes AFTER OWL engraving.",
   "price": 89,
   "stock": 1,
   "sold": 0,
@@ -490,9 +490,9 @@
   "hidden": false
  },
  {
-  "name": "Bump Straw 56mm Flat Top - AFTER OWL - Gold",
-  "group": "Dispenser",
-  "notes": "Titanium steel breathing pendant + scent diffuser, 56 mm pendant, 70 cm chain, flat top, gold color, AFTER OWL graving",
+  "name": "AFTER OWL Mindful Breathing Necklace - 56mm Flat Top - Gold",
+  "group": "Mindful Breathing Necklace",
+  "notes": "AFTER OWL engraved mindful breathing pendant with scent-diffuser function. 56 mm pendant with 70 cm chain, flat-top design and gold finish. A compact wearable breathwork and mindfulness accessory designed for slow, intentional exhalation. Includes AFTER OWL engraving.",
   "price": 79,
   "stock": 1,
   "sold": 0,
@@ -1144,7 +1144,7 @@
   "group": "Secret Stash",
   "notes": "Black realistic VW car key with secret stash",
   "price": 12,
-  "stock": 1,
+  "stock": 11,
   "sold": 0,
   "etsy": false,
   "hidden": false
