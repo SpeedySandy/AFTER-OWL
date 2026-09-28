@@ -13,7 +13,7 @@ export default {
   announce: [
     '🦉 Hecho a mano en Barcelona. Casi todas las piezas son únicas',
     '🎪 Probado en festivales. Aprobado por el búho.',
-    '🛍️ Compra online en Etsy: AfterOwlShop',
+    '💬 Pide directo por WhatsApp o Instagram. Enviamos desde Barcelona',
     '🤫 Psst… ¿ya has visto la colección Secret Stash?',
   ],
   announceDismiss: 'Cerrar el aviso',
@@ -24,7 +24,7 @@ export default {
     faq: 'FAQ',
     contact: 'Contacto',
     instagram: 'Instagram',
-    etsy: 'Tienda Etsy',
+    order: 'Pide directo',
     home: 'Inicio de AFTER OWL',
     main: 'Principal',
     language: 'Idioma',
@@ -116,11 +116,9 @@ export default {
     saved: 'Guardado',
     addToBag: 'Añadir a la bolsa',
     inBag: 'En la bolsa ✓',
-    buyEtsy: 'Comprar en Etsy',
     ask: 'Pregunta por {channel}',
     askRestock: 'Pregunta por una reposición en {channel}',
     orderVia: 'Pide por {channel}',
-    notOnEtsy: 'Todavía no está en Etsy. Escríbenos o pásate por uno de nuestros pop-ups.',
     limitedNote: 'Hecho a mano en series muy cortas: cuando se vende, se acabó.',
     materials: 'Materiales',
     size: 'Medidas',
@@ -203,7 +201,6 @@ export default {
     eyebrow: 'Lo que dice la crew',
     title: 'Directo de quienes compran',
     source: 'vía Etsy',
-    cta: 'Leer todas las reseñas en Etsy',
   },
 
   about: {
@@ -230,14 +227,11 @@ export default {
     heroAlt: 'El búho disco de AFTER OWL brillando en verde frente a una cabina de DJ iluminada por láseres',
     popupAlt: 'Tienda pop-up de AFTER OWL, foto {n}',
     whereTitle: '🛍️ Dónde comprar',
-    etsyLabel: 'Compra online',
-    etsyTitle: 'Etsy · AfterOwlShop',
-    etsyText: 'Pago seguro, enviado directamente desde Barcelona.',
     igLabel: 'Saluda',
-    igText: 'Nuevos drops, fechas de pop-up y DMs para todo lo que no esté en Etsy.',
+    igText: 'Nuevos drops, fechas de pop-up y DMs para pedir o preguntar lo que quieras.',
     waLabel: 'Pide directo',
     waTitle: 'WhatsApp',
-    waText: 'Reserva una pieza, pregunta por stock o recoge en Barcelona.',
+    waText: 'Haz tu pedido, reserva una pieza, pregunta por stock o recoge en Barcelona.',
     homeLabel: 'Base',
     homeTitle: 'Barcelona, España',
     homeText: 'Donde el búho duerme (a veces).',
@@ -301,11 +295,10 @@ export default {
     subA: '¿Sigues con dudas?',
     subAsk: 'Pregúntanos por WhatsApp',
     subAskIg: 'Escríbenos por Instagram',
-    subB: 'o mira la tienda completa en',
     items: [
       {
         q: '¿Hacéis envíos fuera de Barcelona?',
-        a: 'Sí. Todo lo que está en Etsy se envía a todo el mundo desde Barcelona, con seguimiento, en 1–3 días laborables. Si estás por aquí, normalmente podemos quedar en un pop-up o una meet-up en lugar del envío: solo tienes que pedirlo.',
+        a: 'Sí. Todo se envía a todo el mundo desde Barcelona, con seguimiento, normalmente en 1–3 días laborables desde que confirmamos el pedido en el chat. Si estás por aquí, normalmente podemos quedar en un pop-up o una meet-up en lugar del envío: solo tienes que pedirlo.',
       },
       {
         q: '¿Puedo recoger en Barcelona en vez de pagar el envío?',
@@ -325,7 +318,11 @@ export default {
       },
       {
         q: '¿Vendéis en mercados y festivales o solo online?',
-        a: 'Las dos cosas. Además de la tienda de Etsy, montamos pop-ups en fiestas, retiros y campamentos de festival por Barcelona: mira Instagram para la próxima fecha o pregúntanos directamente.',
+        a: 'Las dos cosas. Online pides directamente desde esta web por WhatsApp o Instagram; además montamos pop-ups en fiestas, retiros y campamentos de festival por Barcelona: mira Instagram para la próxima fecha o pregúntanos directamente.',
+      },
+      {
+        q: '¿AFTER OWL sigue en Etsy?',
+        a: 'Nuestra tienda de Etsy está en pausa por ahora. Todo lo que ves aquí se puede pedir directamente: añádelo a la bolsa y envíalo por WhatsApp, o escríbenos por Instagram.',
       },
       {
         q: 'Si no hay checkout, ¿cómo funciona la bolsa?',

@@ -1,7 +1,7 @@
 import about from '../data/about.json';
 import manifest from '../data/image-manifest.json';
 import { COLLECTIONS } from '../data/collections.js';
-import { driveThumb, ETSY_SHOP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
+import { driveThumb, INSTAGRAM_URL, INSTAGRAM_HANDLE, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 import { useI18n } from '../i18n/index.jsx';
 
 const BASE = import.meta.env.BASE_URL;
@@ -93,29 +93,23 @@ export default function About({ collections = [], onCollection }) {
         <div className="where">
           <h3 className="about-h3">{t('about.whereTitle')}</h3>
           <div className="find-us">
-            <a className="find-card" href={ETSY_SHOP_URL} target="_blank" rel="noreferrer">
-              <span className="find-label">{t('about.etsyLabel')}</span>
-              <span className="find-title">{t('about.etsyTitle')} ↗</span>
-              <span className="find-text">{t('about.etsyText')}</span>
-            </a>
-            <a className="find-card" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-              <span className="find-label">{t('about.igLabel')}</span>
-              <span className="find-title">Instagram · @{INSTAGRAM_HANDLE} ↗</span>
-              <span className="find-text">{t('about.igText')}</span>
-            </a>
-            {WHATSAPP_NUMBER ? (
+            {WHATSAPP_NUMBER && (
               <a className="find-card" href={whatsappUrl('Hey AFTER OWL 🦉')} target="_blank" rel="noreferrer">
                 <span className="find-label">{t('about.waLabel')}</span>
                 <span className="find-title">{t('about.waTitle')} ↗</span>
                 <span className="find-text">{t('about.waText')}</span>
               </a>
-            ) : (
-              <div className="find-card">
-                <span className="find-label">{t('about.homeLabel')}</span>
-                <span className="find-title">{t('about.homeTitle')}</span>
-                <span className="find-text">{t('about.homeText')}</span>
-              </div>
             )}
+            <a className="find-card" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+              <span className="find-label">{t('about.igLabel')}</span>
+              <span className="find-title">Instagram · @{INSTAGRAM_HANDLE} ↗</span>
+              <span className="find-text">{t('about.igText')}</span>
+            </a>
+            <div className="find-card">
+              <span className="find-label">{t('about.homeLabel')}</span>
+              <span className="find-title">{t('about.homeTitle')}</span>
+              <span className="find-text">{t('about.homeText')}</span>
+            </div>
           </div>
         </div>
       </div>

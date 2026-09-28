@@ -6,7 +6,7 @@
 // The sheet must stay shared as "Anyone with the link can view".
 //
 // Only these columns are ever read: Product Group, Product Name, Notes / Description,
-// Selling Price, Stock Qty, Etsy Shop Online. Buying prices, margins and supplier
+// Selling Price, Stock Qty. Buying prices, margins and supplier
 // links are ignored and never shipped to the website.
 
 export const SHEET_ID = '1VYoB5rz-ICyDNLB8YIqZOPkhZPpUqHq0H9ffJxU_INc';
@@ -24,7 +24,6 @@ export const SHEET_TABS = [
 // the nightly photo sync for products that don't have curated photos yet.
 export const DRIVE_IMAGES_FOLDER = '1ye96SkK1aUvY_tp4uzCwBEbwZrCVM11G';
 
-export const ETSY_SHOP_URL = 'https://www.etsy.com/shop/AfterOwlShop';
 export const INSTAGRAM_HANDLE = 'after.owl.shop';
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const INSTAGRAM_DM_URL = `https://ig.me/m/${INSTAGRAM_HANDLE}`;

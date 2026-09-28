@@ -14,7 +14,7 @@ export default {
   announce: [
     '🦉 Handmade in Barcelona. Most pieces are one of a kind',
     '🎪 Festival-tested. Owl-approved.',
-    '🛍️ Shop online on Etsy: AfterOwlShop',
+    '💬 Order direct on WhatsApp or Instagram. Ships from Barcelona',
     '🤫 Psst… have you seen the Secret Stash collection?',
   ],
   announceDismiss: 'Dismiss announcement',
@@ -25,7 +25,7 @@ export default {
     faq: 'FAQ',
     contact: 'Contact',
     instagram: 'Instagram',
-    etsy: 'Etsy shop',
+    order: 'Order direct',
     home: 'AFTER OWL home',
     main: 'Main',
     language: 'Language',
@@ -117,11 +117,9 @@ export default {
     saved: 'Saved',
     addToBag: 'Add to bag',
     inBag: 'In the bag ✓',
-    buyEtsy: 'Buy on Etsy',
     ask: 'Ask on {channel}',
     askRestock: 'Ask about a restock on {channel}',
     orderVia: 'Order via {channel}',
-    notOnEtsy: 'Not on Etsy yet. Message us or grab it at one of our pop-ups.',
     limitedNote: 'Handmade in small batches — once it’s sold, it’s gone for good.',
     materials: 'Materials',
     size: 'Size',
@@ -204,7 +202,6 @@ export default {
     eyebrow: 'What the crew says',
     title: 'Straight from the buyers',
     source: 'via Etsy',
-    cta: 'Read all reviews on Etsy',
   },
 
   about: {
@@ -231,14 +228,11 @@ export default {
     heroAlt: 'The AFTER OWL disco owl glowing green in front of a laser-lit DJ booth',
     popupAlt: 'AFTER OWL pop-up store, photo {n}',
     whereTitle: '🛍️ Where to Buy',
-    etsyLabel: 'Shop online',
-    etsyTitle: 'Etsy · AfterOwlShop',
-    etsyText: 'Secure checkout, shipped straight from Barcelona.',
     igLabel: 'Say hi',
-    igText: 'New drops, pop-up dates and DMs for anything not listed on Etsy.',
+    igText: 'New drops, pop-up dates, and DMs to order or ask anything.',
     waLabel: 'Order direct',
     waTitle: 'WhatsApp',
-    waText: 'Reserve a piece, ask about stock or pick up in Barcelona.',
+    waText: 'Order, reserve a piece, ask about stock or pick up in Barcelona.',
     homeLabel: 'Home base',
     homeTitle: 'Barcelona, Spain',
     homeText: 'Where the owl sleeps (sometimes).',
@@ -302,11 +296,10 @@ export default {
     subA: 'Still stuck?',
     subAsk: 'Ask us on WhatsApp',
     subAskIg: 'DM us on Instagram',
-    subB: 'or browse the full shop on',
     items: [
       {
         q: 'Do you ship outside Barcelona?',
-        a: 'Yes. Everything listed on Etsy ships worldwide from Barcelona, tracked, in 1–3 business days. If you’re local, pickup at a pop-up or a meet-up can usually be arranged instead of shipping — just ask.',
+        a: 'Yes. Everything ships worldwide from Barcelona, tracked, usually within 1–3 business days of confirming your order in the chat. If you’re local, pickup at a pop-up or a meet-up can usually be arranged instead of shipping — just ask.',
       },
       {
         q: 'Can I pick up in Barcelona instead of paying for shipping?',
@@ -326,7 +319,11 @@ export default {
       },
       {
         q: 'Do you sell at markets or festivals, or just online?',
-        a: 'Both. Beyond the Etsy shop, we set up pop-ups at parties, retreats and festival camps around Barcelona — check Instagram for the next date, or ask us directly.',
+        a: 'Both. Online, you order straight from this site via WhatsApp or Instagram; offline, we set up pop-ups at parties, retreats and festival camps around Barcelona — check Instagram for the next date, or ask us directly.',
+      },
+      {
+        q: 'Is AFTER OWL still on Etsy?',
+        a: 'Our Etsy shop is paused for now. Everything you see here can still be ordered directly: add it to the bag and send it over on WhatsApp, or DM us on Instagram.',
       },
       {
         q: 'How does the bag work if there’s no checkout?',

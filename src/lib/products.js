@@ -11,7 +11,7 @@
 
 import { norm } from './sheet.js';
 import { synonymsFor } from '../data/synonyms.js';
-import { driveThumb, ETSY_SHOP_URL, LOW_STOCK_THRESHOLD, NEW_PRODUCT_KEYS } from '../config.js';
+import { driveThumb, LOW_STOCK_THRESHOLD, NEW_PRODUCT_KEYS } from '../config.js';
 
 export const CATEGORY_ORDER = [
   'Handmade Limited Edition',
@@ -67,10 +67,6 @@ export function sortCategories(cats) {
     return i === -1 ? CATEGORY_ORDER.length : i;
   };
   return [...cats].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
-}
-
-export function etsySearchUrl(name) {
-  return `${ETSY_SHOP_URL}?search_query=${encodeURIComponent(name)}`;
 }
 
 function makeImageUrl(manifest, base) {
@@ -158,7 +154,6 @@ export function buildProducts(rows, catalog, manifest, base = '/') {
       price: row.price,
       stock: row.stock,
       sold: row.sold || 0,
-      etsy: row.etsy,
       image: def?.image ? imageUrl(def.image) : null,
       gradient: def?.gradient || null,
     });
@@ -177,9 +172,7 @@ export function buildProducts(rows, catalog, manifest, base = '/') {
       priceMax: prices.length ? Math.max(...prices) : null,
       stock: stocks.length ? stocks.reduce((a, b) => a + b, 0) : null,
       sold: variants.reduce((a, v) => a + (v.sold || 0), 0),
-      onEtsy: variants.some(v => v.etsy),
       isNew: NEW_PRODUCT_KEYS.includes(p.key),
-      etsyUrl: etsySearchUrl(p.name),
       variants: hasVariants ? variants : [],
     };
     if (!product.images.length) {

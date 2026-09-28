@@ -9,9 +9,9 @@
 // empty the footer links stay hidden, the same way the Formspree forms and the
 // reviews section hide themselves until they have real content.
 
-import { LEGAL_OPERATOR, LEGAL_ADDRESS, LEGAL_EMAIL, LEGAL_TAX_ID, WHATSAPP_NUMBER, INSTAGRAM_HANDLE, ETSY_SHOP_URL } from '../config.js';
+import { LEGAL_OPERATOR, LEGAL_ADDRESS, LEGAL_EMAIL, LEGAL_TAX_ID, WHATSAPP_NUMBER, INSTAGRAM_HANDLE } from '../config.js';
 
-export const LEGAL_UPDATED = '2026-09-20';
+export const LEGAL_UPDATED = '2026-09-28';
 
 const operator = () => LEGAL_OPERATOR || '—';
 const contactLine = {
@@ -58,15 +58,15 @@ export const LEGAL_DOCS = [
         h: { en: 'What this site is', es: 'Qué es esta web', de: 'Was diese Seite ist' },
         body: {
           en: () => [
-            'This is a shop window, not a shop counter. Nothing is sold, charged or paid for on this site. The bag collects what you like and turns it into one message on WhatsApp; the sale itself happens in that conversation, or through the Etsy shop at ' + ETSY_SHOP_URL + '.',
+            'This is a shop window, not a shop counter. Nothing is sold, charged or paid for on this site. The bag collects what you like and turns it into one message on WhatsApp; the sale itself happens in that conversation, or in a direct message on Instagram.',
             'Stock and prices are read live from our own inventory, so they are as accurate as we can make them. Mistakes still happen — if a price or an availability is wrong, we will say so before anything is agreed.',
           ],
           es: () => [
-            'Esto es un escaparate, no un mostrador. En esta web no se vende, ni se cobra, ni se paga nada. La bolsa reúne lo que te gusta y lo convierte en un solo mensaje de WhatsApp; la venta ocurre en esa conversación o a través de la tienda de Etsy: ' + ETSY_SHOP_URL + '.',
+            'Esto es un escaparate, no un mostrador. En esta web no se vende, ni se cobra, ni se paga nada. La bolsa reúne lo que te gusta y lo convierte en un solo mensaje de WhatsApp; la venta ocurre en esa conversación o por mensaje directo en Instagram.',
             'El stock y los precios se leen en directo de nuestro inventario, así que son todo lo exactos que podemos. Aun así hay errores — si un precio o una disponibilidad es incorrecta, lo diremos antes de cerrar nada.',
           ],
           de: () => [
-            'Das hier ist ein Schaufenster, keine Ladentheke. Auf dieser Seite wird nichts verkauft, abgerechnet oder bezahlt. Die Tasche sammelt, was dir gefällt, und macht daraus eine einzige WhatsApp-Nachricht; der Verkauf passiert in diesem Gespräch oder über den Etsy-Shop: ' + ETSY_SHOP_URL + '.',
+            'Das hier ist ein Schaufenster, keine Ladentheke. Auf dieser Seite wird nichts verkauft, abgerechnet oder bezahlt. Die Tasche sammelt, was dir gefällt, und macht daraus eine einzige WhatsApp-Nachricht; der Verkauf passiert in diesem Gespräch oder per Direktnachricht auf Instagram.',
             'Bestand und Preise werden live aus unserem Inventar gelesen und sind so genau, wie wir sie halten können. Fehler passieren trotzdem — wenn ein Preis oder eine Verfügbarkeit falsch ist, sagen wir es, bevor etwas vereinbart wird.',
           ],
         },
@@ -91,9 +91,9 @@ export const LEGAL_DOCS = [
       {
         h: { en: 'Links out', es: 'Enlaces externos', de: 'Externe Links' },
         body: {
-          en: () => ['We link to Etsy, Instagram and WhatsApp. What happens on those platforms is governed by their terms and their privacy policies, not ours.'],
-          es: () => ['Enlazamos a Etsy, Instagram y WhatsApp. Lo que ocurre en esas plataformas se rige por sus condiciones y sus políticas de privacidad, no por las nuestras.'],
-          de: () => ['Wir verlinken zu Etsy, Instagram und WhatsApp. Was dort passiert, richtet sich nach deren Bedingungen und Datenschutzerklärungen, nicht nach unseren.'],
+          en: () => ['We link to Instagram and WhatsApp. What happens on those platforms is governed by their terms and their privacy policies, not ours.'],
+          es: () => ['Enlazamos a Instagram y WhatsApp. Lo que ocurre en esas plataformas se rige por sus condiciones y sus políticas de privacidad, no por las nuestras.'],
+          de: () => ['Wir verlinken zu Instagram und WhatsApp. Was dort passiert, richtet sich nach deren Bedingungen und Datenschutzerklärungen, nicht nach unseren.'],
         },
       },
     ],
@@ -152,17 +152,17 @@ export const LEGAL_DOCS = [
         body: {
           en: () => [
             'The bag and the contact form do not send anything anywhere. They open WhatsApp with a message already written; nothing leaves your browser until you press send yourself.',
-            'Once you do, you are in a conversation with us on WhatsApp, Instagram or Etsy, and those platforms handle that data under their own policies. From that conversation we keep what an order needs: your name, your contact handle, and a delivery address if something has to be shipped. We use it to get your order to you and to answer you afterwards, and we keep it only as long as that takes plus whatever a dispute might need.',
+            'Once you do, you are in a conversation with us on WhatsApp or Instagram, and those platforms handle that data under their own policies. From that conversation we keep what an order needs: your name, your contact handle, and a delivery address if something has to be shipped. We use it to get your order to you and to answer you afterwards, and we keep it only as long as that takes plus whatever a dispute might need.',
             'We never sell it, never share it for advertising, and never add you to a mailing list because you asked a question.',
           ],
           es: () => [
             'La bolsa y el formulario de contacto no envían nada a ningún sitio. Abren WhatsApp con el mensaje ya escrito; nada sale de tu navegador hasta que pulsas enviar tú.',
-            'A partir de ahí estás en una conversación con nosotros en WhatsApp, Instagram o Etsy, y esas plataformas tratan esos datos según sus propias políticas. De esa conversación guardamos lo que un pedido necesita: tu nombre, tu contacto y una dirección de envío si hay que mandar algo. Lo usamos para hacerte llegar el pedido y para responderte después, y lo conservamos solo el tiempo necesario más lo que pudiera requerir una reclamación.',
+            'A partir de ahí estás en una conversación con nosotros en WhatsApp o Instagram, y esas plataformas tratan esos datos según sus propias políticas. De esa conversación guardamos lo que un pedido necesita: tu nombre, tu contacto y una dirección de envío si hay que mandar algo. Lo usamos para hacerte llegar el pedido y para responderte después, y lo conservamos solo el tiempo necesario más lo que pudiera requerir una reclamación.',
             'Nunca lo vendemos, nunca lo compartimos con fines publicitarios y nunca te apuntamos a una lista de correo por haber preguntado algo.',
           ],
           de: () => [
             'Die Tasche und das Kontaktformular senden nichts irgendwohin. Sie öffnen WhatsApp mit einer fertig geschriebenen Nachricht; nichts verlässt deinen Browser, bis du selbst auf Senden drückst.',
-            'Danach bist du mit uns im Gespräch auf WhatsApp, Instagram oder Etsy, und diese Plattformen verarbeiten die Daten nach ihren eigenen Richtlinien. Aus dem Gespräch behalten wir, was eine Bestellung braucht: deinen Namen, deinen Kontakt und eine Lieferadresse, falls etwas verschickt wird. Wir nutzen das, um die Bestellung zuzustellen und dir danach zu antworten, und bewahren es nur so lange auf, wie das dauert, zuzüglich dessen, was ein Streitfall erfordern könnte.',
+            'Danach bist du mit uns im Gespräch auf WhatsApp oder Instagram, und diese Plattformen verarbeiten die Daten nach ihren eigenen Richtlinien. Aus dem Gespräch behalten wir, was eine Bestellung braucht: deinen Namen, deinen Kontakt und eine Lieferadresse, falls etwas verschickt wird. Wir nutzen das, um die Bestellung zuzustellen und dir danach zu antworten, und bewahren es nur so lange auf, wie das dauert, zuzüglich dessen, was ein Streitfall erfordern könnte.',
             'Wir verkaufen es nie, geben es nie für Werbung weiter und setzen dich nie auf einen Verteiler, weil du eine Frage gestellt hast.',
           ],
         },
@@ -260,9 +260,9 @@ export const LEGAL_DOCS = [
       {
         h: { en: 'When you click away', es: 'Cuando sales de aquí', de: 'Wenn du weiterklickst' },
         body: {
-          en: () => ['Etsy, Instagram and WhatsApp set their own cookies once you are on their side. That is theirs to explain, and we have no control over it.'],
-          es: () => ['Etsy, Instagram y WhatsApp usan sus propias cookies una vez estás en su terreno. Eso lo explican ellos y nosotros no tenemos ningún control.'],
-          de: () => ['Etsy, Instagram und WhatsApp setzen ihre eigenen Cookies, sobald du dort bist. Das erklären sie selbst, wir haben darauf keinen Einfluss.'],
+          en: () => ['Instagram and WhatsApp set their own cookies once you are on their side. That is theirs to explain, and we have no control over it.'],
+          es: () => ['Instagram y WhatsApp usan sus propias cookies una vez estás en su terreno. Eso lo explican ellos y nosotros no tenemos ningún control.'],
+          de: () => ['Instagram und WhatsApp setzen ihre eigenen Cookies, sobald du dort bist. Das erklären sie selbst, wir haben darauf keinen Einfluss.'],
         },
       },
     ],
@@ -280,15 +280,15 @@ export const LEGAL_DOCS = [
         h: { en: 'How an order happens', es: 'Cómo se hace un pedido', de: 'Wie eine Bestellung zustande kommt' },
         body: {
           en: () => [
-            'Nothing on this site is a binding offer. The bag writes a WhatsApp message for you; a sale exists only once we have confirmed the piece, the total and the delivery in that conversation, or once you have bought through Etsy.',
+            'Nothing on this site is a binding offer. The bag writes a WhatsApp message for you; a sale exists only once we have confirmed the piece, the total and the delivery in that conversation.',
             'Prices are in euros and include what you see. Shipping is agreed in the chat and depends on where it is going.',
           ],
           es: () => [
-            'Nada en esta web es una oferta vinculante. La bolsa te escribe un mensaje de WhatsApp; la venta existe solo cuando hemos confirmado la pieza, el total y el envío en esa conversación, o cuando compras por Etsy.',
+            'Nada en esta web es una oferta vinculante. La bolsa te escribe un mensaje de WhatsApp; la venta existe solo cuando hemos confirmado la pieza, el total y el envío en esa conversación.',
             'Los precios están en euros. El envío se acuerda en el chat y depende del destino.',
           ],
           de: () => [
-            'Nichts auf dieser Seite ist ein verbindliches Angebot. Die Tasche schreibt dir eine WhatsApp-Nachricht; ein Kauf besteht erst, wenn wir Stück, Summe und Lieferung in diesem Gespräch bestätigt haben — oder wenn du über Etsy kaufst.',
+            'Nichts auf dieser Seite ist ein verbindliches Angebot. Die Tasche schreibt dir eine WhatsApp-Nachricht; ein Kauf besteht erst, wenn wir Stück, Summe und Lieferung in diesem Gespräch bestätigt haben.',
             'Preise sind in Euro. Der Versand wird im Chat vereinbart und hängt vom Ziel ab.',
           ],
         },
@@ -297,15 +297,15 @@ export const LEGAL_DOCS = [
         h: { en: 'Shipping', es: 'Envíos', de: 'Versand' },
         body: {
           en: () => [
-            'Everything ships from Barcelona. Etsy orders go out tracked, usually within 1 to 3 business days. If you are local, pickup at a pop-up or a meet-up can be arranged instead — just ask.',
+            'Everything ships from Barcelona. Orders go out tracked, usually within 1 to 3 business days of being confirmed in the chat. If you are local, pickup at a pop-up or a meet-up can be arranged instead — just ask.',
             'Handmade pieces are made in a queue. We give you a real estimate before you commit, usually 1 to 3 weeks.',
           ],
           es: () => [
-            'Todo sale desde Barcelona. Los pedidos de Etsy se envían con seguimiento, normalmente en 1 a 3 días laborables. Si estás por aquí, se puede recoger en un pop-up o quedando — solo tienes que pedirlo.',
+            'Todo sale desde Barcelona. Los pedidos se envían con seguimiento, normalmente en 1 a 3 días laborables desde que se confirman en el chat. Si estás por aquí, se puede recoger en un pop-up o quedando — solo tienes que pedirlo.',
             'Las piezas hechas a mano se hacen por cola. Te damos una estimación real antes de que te comprometas, normalmente de 1 a 3 semanas.',
           ],
           de: () => [
-            'Alles wird aus Barcelona versendet. Etsy-Bestellungen gehen mit Sendungsverfolgung raus, meist innerhalb von 1 bis 3 Werktagen. Wer vor Ort ist, kann stattdessen bei einem Pop-up oder Treffen abholen — einfach fragen.',
+            'Alles wird aus Barcelona versendet. Bestellungen gehen mit Sendungsverfolgung raus, meist innerhalb von 1 bis 3 Werktagen, nachdem sie im Chat bestätigt wurden. Wer vor Ort ist, kann stattdessen bei einem Pop-up oder Treffen abholen — einfach fragen.',
             'Handgemachte Stücke entstehen der Reihe nach. Wir nennen dir vorher eine realistische Schätzung, meist 1 bis 3 Wochen.',
           ],
         },
@@ -316,17 +316,17 @@ export const LEGAL_DOCS = [
           en: () => [
             'If a piece arrives damaged or is not what was described, message us within 7 days and we will sort it out: replacement, exchange or refund, whichever you prefer.',
             'One-of-a-kind handmade pieces are sold as shown in their photographs, so look closely before ordering — no two resin pours are identical, and that is the point.',
-            'Orders placed through Etsy also follow Etsy own buyer protection and returns policy. Where consumer law gives you rights on a purchase, you have them regardless of anything written on this page.',
+            'Where consumer law gives you rights on a purchase, you have them regardless of anything written on this page.',
           ],
           es: () => [
             'Si una pieza llega dañada o no es lo descrito, escríbenos en un plazo de 7 días y lo resolvemos: reemplazo, cambio o reembolso, lo que prefieras.',
             'Las piezas únicas hechas a mano se venden tal y como se ven en sus fotos, así que míralas bien antes de pedir — no hay dos coladas de resina iguales, y de eso se trata.',
-            'Los pedidos hechos por Etsy siguen además la protección al comprador y la política de devoluciones de Etsy. Cuando la normativa de consumo te otorgue derechos sobre una compra, los tienes con independencia de lo que diga esta página.',
+            'Cuando la normativa de consumo te otorgue derechos sobre una compra, los tienes con independencia de lo que diga esta página.',
           ],
           de: () => [
             'Kommt ein Stück beschädigt an oder entspricht es nicht der Beschreibung, schreib uns innerhalb von 7 Tagen, und wir regeln es: Ersatz, Umtausch oder Erstattung, ganz wie du möchtest.',
             'Einzelstücke werden so verkauft, wie sie auf den Fotos zu sehen sind — schau sie dir vorher genau an. Kein Harzguss gleicht dem anderen, und genau das ist der Punkt.',
-            'Für Bestellungen über Etsy gelten zusätzlich Etsys Käuferschutz und Rückgaberegeln. Wo dir das Verbraucherrecht Rechte an einem Kauf gibt, hast du sie unabhängig von allem, was auf dieser Seite steht.',
+            'Wo dir das Verbraucherrecht Rechte an einem Kauf gibt, hast du sie unabhängig von allem, was auf dieser Seite steht.',
           ],
         },
       },

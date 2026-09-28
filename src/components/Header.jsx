@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ETSY_SHOP_URL, INSTAGRAM_URL } from '../config.js';
+import { INSTAGRAM_URL, INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 import { useT } from '../i18n/index.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 
@@ -48,8 +48,8 @@ export default function Header({ bagCount = 0, onOpenBag, onHome }) {
             {bagCount > 0 && <span className="bag-count">{bagCount}</span>}
           </button>
 
-          <a href={ETSY_SHOP_URL} target="_blank" rel="noreferrer" className="nav-cta nav-hide-xs">
-            {t('nav.etsy')} <span aria-hidden="true">↗</span>
+          <a href={WHATSAPP_NUMBER ? whatsappUrl('Hey AFTER OWL 🦉') : INSTAGRAM_DM_URL} target="_blank" rel="noreferrer" className="nav-cta nav-hide-xs">
+            {t('nav.order')} <span aria-hidden="true">↗</span>
           </a>
         </nav>
       </div>

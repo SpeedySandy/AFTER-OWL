@@ -1,5 +1,4 @@
 import reviewData from '../data/reviews.json';
-import { ETSY_SHOP_URL } from '../config.js';
 import { useI18n } from '../i18n/index.jsx';
 
 const stars = n => '★★★★★'.slice(0, Math.max(0, Math.min(5, Math.round(n))));
@@ -34,9 +33,6 @@ export default function Reviews() {
             </li>
           ))}
         </ul>
-        <p className="reviews-cta">
-          <a href={`${ETSY_SHOP_URL}#reviews`} target="_blank" rel="noreferrer">{t('reviews.cta')} ↗</a>
-        </p>
       </div>
     </section>
   );

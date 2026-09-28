@@ -13,7 +13,7 @@ export default {
   announce: [
     '🦉 Handgemacht in Barcelona. Die meisten Stücke gibt es nur einmal',
     '🎪 Festival-getestet. Eulen-approved.',
-    '🛍️ Online shoppen auf Etsy: AfterOwlShop',
+    '💬 Direkt per WhatsApp oder Instagram bestellen. Versand aus Barcelona',
     '🤫 Psst… schon die Secret-Stash-Kollektion gesehen?',
   ],
   announceDismiss: 'Hinweis schließen',
@@ -24,7 +24,7 @@ export default {
     faq: 'FAQ',
     contact: 'Kontakt',
     instagram: 'Instagram',
-    etsy: 'Etsy-Shop',
+    order: 'Direkt bestellen',
     home: 'AFTER OWL Startseite',
     main: 'Hauptnavigation',
     language: 'Sprache',
@@ -116,11 +116,9 @@ export default {
     saved: 'Gemerkt',
     addToBag: 'In die Tasche',
     inBag: 'In der Tasche ✓',
-    buyEtsy: 'Auf Etsy kaufen',
     ask: 'Über {channel} fragen',
     askRestock: 'Über {channel} nach Nachschub fragen',
     orderVia: 'Über {channel} bestellen',
-    notOnEtsy: 'Noch nicht auf Etsy. Schreib uns oder schnapp es dir bei einem Pop-up.',
     limitedNote: 'Handgemacht in Mini-Serien – einmal verkauft, für immer weg.',
     materials: 'Material',
     size: 'Maße',
@@ -203,7 +201,6 @@ export default {
     eyebrow: 'Was die Crew sagt',
     title: 'Direkt von den Käufern',
     source: 'via Etsy',
-    cta: 'Alle Bewertungen auf Etsy lesen',
   },
 
   about: {
@@ -230,14 +227,11 @@ export default {
     heroAlt: 'Die grün leuchtende AFTER-OWL-Discoeule vor einer lasererleuchteten DJ-Booth',
     popupAlt: 'AFTER OWL Pop-up-Store, Foto {n}',
     whereTitle: '🛍️ Wo du kaufst',
-    etsyLabel: 'Online shoppen',
-    etsyTitle: 'Etsy · AfterOwlShop',
-    etsyText: 'Sicher bezahlen, direkt aus Barcelona verschickt.',
     igLabel: 'Sag hallo',
-    igText: 'Neue Drops, Pop-up-Termine und DMs für alles, was nicht auf Etsy steht.',
+    igText: 'Neue Drops, Pop-up-Termine und DMs zum Bestellen oder für alle Fragen.',
     waLabel: 'Direkt bestellen',
     waTitle: 'WhatsApp',
-    waText: 'Ein Stück reservieren, nach Lagerbestand fragen oder in Barcelona abholen.',
+    waText: 'Bestellen, ein Stück reservieren, nach Lagerbestand fragen oder in Barcelona abholen.',
     homeLabel: 'Homebase',
     homeTitle: 'Barcelona, Spanien',
     homeText: 'Wo die Eule schläft (manchmal).',
@@ -301,11 +295,10 @@ export default {
     subA: 'Noch Fragen?',
     subAsk: 'Frag uns auf WhatsApp',
     subAskIg: 'Schreib uns auf Instagram',
-    subB: 'oder sieh dir den ganzen Shop an auf',
     items: [
       {
         q: 'Versendet ihr auch außerhalb von Barcelona?',
-        a: 'Ja. Alles, was auf Etsy steht, geht weltweit aus Barcelona raus, mit Sendungsverfolgung, in 1–3 Werktagen. Wenn du hier in der Nähe bist, lässt sich statt Versand meist eine Abholung bei einem Pop-up oder Treffen organisieren – frag einfach.',
+        a: 'Ja. Alles geht weltweit aus Barcelona raus, mit Sendungsverfolgung, meist innerhalb von 1–3 Werktagen, nachdem wir die Bestellung im Chat bestätigt haben. Wenn du hier in der Nähe bist, lässt sich statt Versand meist eine Abholung bei einem Pop-up oder Treffen organisieren – frag einfach.',
       },
       {
         q: 'Kann ich in Barcelona abholen statt Versand zu zahlen?',
@@ -325,7 +318,11 @@ export default {
       },
       {
         q: 'Verkauft ihr auf Märkten und Festivals oder nur online?',
-        a: 'Beides. Neben dem Etsy-Shop bauen wir Pop-ups auf Partys, Retreats und Festivalcamps rund um Barcelona auf – die nächsten Termine stehen auf Instagram, oder frag uns direkt.',
+        a: 'Beides. Online bestellst du direkt über diese Seite per WhatsApp oder Instagram; außerdem bauen wir Pop-ups auf Partys, Retreats und Festivalcamps rund um Barcelona auf – die nächsten Termine stehen auf Instagram, oder frag uns direkt.',
+      },
+      {
+        q: 'Ist AFTER OWL noch auf Etsy?',
+        a: 'Unser Etsy-Shop pausiert gerade. Alles, was du hier siehst, kannst du trotzdem direkt bestellen: Pack es in die Tasche und schick es per WhatsApp, oder schreib uns auf Instagram.',
       },
       {
         q: 'Wie funktioniert die Tasche, wenn es keinen Checkout gibt?',

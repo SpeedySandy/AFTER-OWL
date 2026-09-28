@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ETSY_SHOP_URL, WHATSAPP_NUMBER, whatsappUrl, INSTAGRAM_DM_URL } from '../config.js';
+import { WHATSAPP_NUMBER, whatsappUrl, INSTAGRAM_DM_URL } from '../config.js';
 import { useI18n } from '../i18n/index.jsx';
 
 function FAQItem({ q, a, open, onToggle }) {
@@ -46,9 +46,7 @@ export default function FAQ() {
             {t('faq.subA')}{' '}
             <a href={askUrl} target="_blank" rel="noreferrer">
               {WHATSAPP_NUMBER ? t('faq.subAsk') : t('faq.subAskIg')}
-            </a>{' '}
-            {t('faq.subB')}{' '}
-            <a href={ETSY_SHOP_URL} target="_blank" rel="noreferrer">Etsy</a>.
+            </a>.
           </p>
         </header>
 

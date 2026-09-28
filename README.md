@@ -33,7 +33,7 @@ the sheet directly.
 | --- | --- |
 | `src/data/events.json` | pop-ups and markets, on the site and in the hero banner. Past dates move themselves. |
 | `src/data/social.json` | the "Out in the wild" Instagram strip. Empty = section hidden. |
-| `src/data/reviews.json` | buyer reviews. **Copy real Etsy reviews verbatim** — empty = section hidden. |
+| `src/data/reviews.json` | buyer reviews. **Copy real buyer reviews verbatim** (the current three are from the former Etsy shop) — empty = section hidden. |
 | `src/config.js` → `NEW_PRODUCT_KEYS` | which products show a "New in" badge. Nothing expires on its own. |
 | `src/config.js` → `LOW_STOCK_THRESHOLD` | when "Only N left" appears. Reads real stock; never invents a number. |
 | `src/config.js` → `FORMSPREE_FORM_ID` | turns on the newsletter and back-in-stock forms. Empty = both hidden. |
@@ -66,7 +66,7 @@ customer. Marketing copy is generated; measurements are measured.
 There is no checkout and there isn't meant to be one. The **owl bag** collects
 pieces with variants and quantities, and turns them into a single ready-written
 WhatsApp message. Everything stays in the visitor's browser until they press
-send. Products also link to Etsy where a listing exists.
+send. The Etsy shop is paused (Sept 2026), so WhatsApp and Instagram DMs are the only ordering channels; the "Etsy Shop Online" sheet column is no longer read.
 
 ## URLs and SEO
 

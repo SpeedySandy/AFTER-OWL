@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import ProductVisual from './ProductVisual.jsx';
 import SignupForm from './SignupForm.jsx';
-import { availability, formatPrice, etsySearchUrl } from '../lib/products.js';
+import { availability, formatPrice } from '../lib/products.js';
 import { INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 import { useIsSaved } from '../hooks/useSaved.js';
 import { addToBag, inBag } from '../lib/bag.js';
@@ -15,7 +15,7 @@ export default function ProductModal({ product, products = [], bagItems = [], on
   const { t, lang } = useI18n();
   const {
     key, name, category, price, priceMax, stock, images, gradient, handmade, limited, isNew,
-    description, materials, size, weight, variants, variantLabel, onEtsy,
+    description, materials, size, weight, variants, variantLabel,
   } = product;
 
   const related = useMemo(() => {
@@ -76,7 +76,6 @@ export default function ProductModal({ product, products = [], bagItems = [], on
   const shownPrice = variant ? formatPrice(variant.price) : formatPrice(price, priceMax);
   const shownStock = variant ? variant.stock : stock;
   const status = availability(shownStock);
-  const buyOnEtsy = variant ? variant.etsy || onEtsy : onEtsy;
   const soldOut = shownStock === 0;
   const added = inBag(key, bagItems);
 
@@ -213,15 +212,10 @@ export default function ProductModal({ product, products = [], bagItems = [], on
                 {added ? t('product.inBag') : t('product.addToBag')}
               </button>
             )}
-            {buyOnEtsy && !soldOut ? (
-              <a className="btn btn-ghost" href={etsySearchUrl(name)} target="_blank" rel="noreferrer">{t('product.buyEtsy')} ↗</a>
-            ) : (
-              <a className="btn btn-ghost" href={askUrl} target="_blank" rel="noreferrer">
-                {soldOut ? t('product.askRestock', { channel }) : t('product.orderVia', { channel })}
-              </a>
-            )}
+            <a className="btn btn-ghost" href={askUrl} target="_blank" rel="noreferrer">
+              {soldOut ? t('product.askRestock', { channel }) : t('product.orderVia', { channel })}
+            </a>
           </div>
-          {!buyOnEtsy && !soldOut && <p className="modal-hint">{t('product.notOnEtsy')}</p>}
 
           {soldOut && emailEnabled() && (
             <div className="notify">

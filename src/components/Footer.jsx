@@ -1,4 +1,4 @@
-import { ETSY_SHOP_URL, INSTAGRAM_URL } from '../config.js';
+import { INSTAGRAM_URL } from '../config.js';
 import { LEGAL_DOCS, legalEnabled } from '../data/legal.js';
 import { pick } from '../data/content.js';
 import { useI18n } from '../i18n/index.jsx';
@@ -27,7 +27,6 @@ export default function Footer({ source, updatedAt, error, onLegal }) {
           <a href="#events">{t('events.eyebrow')}</a>
           <a href="#faq">{t('nav.faq')}</a>
           <a href="#contact">{t('nav.contact')}</a>
-          <a href={ETSY_SHOP_URL} target="_blank" rel="noreferrer">Etsy</a>
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
         </nav>
       </div>
