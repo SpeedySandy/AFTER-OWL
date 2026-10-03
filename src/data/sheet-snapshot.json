@@ -24,7 +24,7 @@
   "price": 10,
   "stock": 1,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "Fire Asher",
@@ -222,7 +222,7 @@
   "price": 5,
   "stock": 6,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "The Gentlemen",
@@ -483,7 +483,7 @@
   "price": 30,
   "stock": 0,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "Storage Container Grinder",
@@ -690,7 +690,7 @@
   "price": 5,
   "stock": 0,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "Black Pocket Wrist Band",
@@ -816,7 +816,7 @@
   "price": 1,
   "stock": 8,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "EMBRACE Cap",
@@ -861,7 +861,7 @@
   "price": 12,
   "stock": 1,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "The Acid Face T-Shirt",
@@ -1140,7 +1140,7 @@
   "price": 5,
   "stock": 4,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "LED Torch",
@@ -1149,7 +1149,7 @@
   "price": 3,
   "stock": 4,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "Round LED Light",
@@ -1158,7 +1158,7 @@
   "price": 3,
   "stock": 2,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "Tap On Bag Lamp",
@@ -1221,7 +1221,7 @@
   "price": 5,
   "stock": 1,
   "sold": 0,
-  "hidden": false
+  "hidden": true
  },
  {
   "name": "Patches S",
