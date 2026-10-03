@@ -366,23 +366,23 @@
   "variantLabel": "Color",
   "rows": [
    {
-    "match": "Black Tube",
+    "match": "Metal Tube - Black",
     "variant": "Black",
     "gradient": "linear-gradient(145deg, #080808 0%, #1C1C1C 50%, #333 100%)"
    },
    {
-    "match": "Blue Tube",
+    "match": "Metal Tube - Blue",
     "variant": "Blue",
     "image": "13DxwT9GX-yLTXBeVm0lAl28zoqo8F_V_",
     "gradient": "linear-gradient(145deg, #050A1A 0%, #0D3B8A 40%, #1565C0 70%, #42A5F5 100%)"
    },
    {
-    "match": "Golden Tube",
+    "match": "Metal Tube - Gold",
     "variant": "Gold",
     "gradient": "linear-gradient(145deg, #1a1000 0%, #8B6000 40%, #C49A1A 70%, #E8C84A 100%)"
    },
    {
-    "match": "Silver Tube",
+    "match": "Metal Tube - Silver",
     "variant": "Silver",
     "image": "1GjIETaZqMK8IchCevOQJDgmt4LR5VVZG",
     "gradient": "linear-gradient(145deg, #141414 0%, #5A6270 40%, #A0AEC0 70%, #D0D8E0 100%)"
