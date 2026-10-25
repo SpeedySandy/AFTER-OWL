@@ -64,6 +64,7 @@ export default {
   },
 
   toolbar: {
+    surprise: 'Sorpréndeme',
     search: 'Busca en la colección…',
     searchLabel: 'Buscar productos',
     sort: 'Ordenar',
@@ -140,6 +141,10 @@ export default {
   },
 
   bag: {
+    noteLabel: 'Nota para nosotros (opcional)',
+    notePlaceholder: 'País de envío, recogida en Barcelona, ¿regalo?…',
+    copy: 'Copiar el mensaje',
+    copied: 'Copiado ✓',
     open: 'Abrir la bolsa',
     title: 'Tu bolsa búho',
     count: '{count} en la bolsa',

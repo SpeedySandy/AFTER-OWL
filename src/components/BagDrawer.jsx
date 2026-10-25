@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import ProductVisual from './ProductVisual.jsx';
 import { formatPrice } from '../lib/products.js';
 import { bagLines, bagMessage, bagTotal, clearBag, removeFromBag, setQty, addToBag } from '../lib/bag.js';
@@ -14,6 +14,8 @@ import { lockScroll } from '../lib/scrollLock.js';
 export default function BagDrawer({ open, items, products, onClose, onSelect }) {
   const { t } = useI18n();
   const panelRef = useRef(null);
+  const [note, setNote] = useState('');
+  const [copied, setCopied] = useState(false);
 
   const lines = useMemo(() => bagLines(items, products), [items, products]);
   const { total, complete } = useMemo(() => bagTotal(lines), [lines]);
@@ -45,13 +47,21 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
   const channel = WHATSAPP_NUMBER ? 'WhatsApp' : 'Instagram';
   const message = bagMessage(lines, {
     intro: t('bag.intro'),
-    outro: t('bag.outro'),
+    outro: note.trim() ? `${note.trim()}\n\n${t('bag.outro')}` : t('bag.outro'),
     total,
     complete,
   });
   const sendUrl = WHATSAPP_NUMBER
     ? whatsappUrl(message)
     : `${INSTAGRAM_DM_URL}?text=${encodeURIComponent(message)}`;
+
+  const copyMessage = async () => {
+    try {
+      await navigator.clipboard.writeText(message);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    } catch { /* clipboard blocked: the send button still works */ }
+  };
 
   return (
     <div className="drawer-backdrop" onMouseDown={e => e.target === e.currentTarget && onClose()}>
@@ -141,9 +151,22 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
                 <strong>{complete ? formatPrice(total) : '—'}</strong>
               </div>
               <p className="drawer-note">{t('bag.totalNote')}</p>
+              <label className="drawer-notefield">
+                <span>{t('bag.noteLabel')}</span>
+                <textarea
+                  rows={2}
+                  maxLength={300}
+                  value={note}
+                  onChange={e => setNote(e.target.value)}
+                  placeholder={t('bag.notePlaceholder')}
+                />
+              </label>
               <a className="btn btn-primary drawer-send" href={sendUrl} target="_blank" rel="noreferrer">
                 {t('bag.send', { channel })}
               </a>
+              <button className="btn btn-ghost drawer-copy" onClick={copyMessage}>
+                {copied ? t('bag.copied') : t('bag.copy')}
+              </button>
               <p className="drawer-note">{t('bag.note', { channel })}</p>
               <button className="drawer-clear" onClick={clearBag}>{t('bag.clear')}</button>
             </footer>

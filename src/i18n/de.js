@@ -64,6 +64,7 @@ export default {
   },
 
   toolbar: {
+    surprise: 'Überrasch mich',
     search: 'Kollektion durchsuchen…',
     searchLabel: 'Produkte suchen',
     sort: 'Sortieren',
@@ -140,6 +141,10 @@ export default {
   },
 
   bag: {
+    noteLabel: 'Notiz an uns (optional)',
+    notePlaceholder: 'Lieferland, Abholung in Barcelona, ein Geschenk?…',
+    copy: 'Nachricht kopieren',
+    copied: 'Kopiert ✓',
     open: 'Tasche öffnen',
     title: 'Deine Owl-Tasche',
     count: '{count} in der Tasche',

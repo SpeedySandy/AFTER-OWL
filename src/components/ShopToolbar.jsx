@@ -5,7 +5,7 @@ export default function ShopToolbar({
   search, onSearch, categories, category, onCategory,
   collections, collectionKey, onCollection, sort, onSort,
   savedOnly, onToggleSavedOnly, savedCount = 0,
-  inStockOnly, onToggleInStock, resultCount, onClear, filtered,
+  inStockOnly, onToggleInStock, resultCount, onClear, filtered, onSurprise,
 }) {
   const { t } = useI18n();
 
@@ -38,6 +38,12 @@ export default function ShopToolbar({
           <span className="dot-in" aria-hidden="true" />
           {t('toolbar.inStock')}
         </button>
+
+        {onSurprise && (
+          <button className="chip" onClick={onSurprise}>
+            <span aria-hidden="true">🎲</span> {t('toolbar.surprise')}
+          </button>
+        )}
 
         {savedCount > 0 && (
           <button

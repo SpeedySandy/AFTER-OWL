@@ -198,6 +198,10 @@ export default function App() {
               resultCount={filtered.length}
               filtered={isFiltered}
               onClear={clearFilters}
+              onSurprise={() => {
+                const pool = products.filter(p => p.stock !== 0);
+                if (pool.length) select(pool[Math.floor(Math.random() * pool.length)]);
+              }}
             />
 
             <CategoryIntro

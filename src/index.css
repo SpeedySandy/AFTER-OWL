@@ -1011,3 +1011,9 @@ a.find-card:hover { border-color: var(--pink); transform: translateY(-3px); }
 .legal-section p:last-child { margin-bottom: 0; }
 .footer-legal { padding-top: 8px; }
 .footer-legal .footer-links { justify-content: flex-start; font-size: 0.84rem; opacity: 0.85; }
+
+/* Bag: optional note + copy button */
+.drawer-notefield { display: grid; gap: 6px; margin: 12px 0 4px; font-size: 13px; color: var(--muted, #9a9a9a); }
+.drawer-notefield textarea { width: 100%; resize: vertical; min-height: 56px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.04); color: inherit; font: inherit; font-size: 14px; }
+.drawer-notefield textarea:focus-visible { outline: 2px solid var(--cyan); outline-offset: 1px; }
+.drawer-copy { width: 100%; margin-top: 8px; }

@@ -65,6 +65,7 @@ export default {
   },
 
   toolbar: {
+    surprise: 'Surprise me',
     search: 'Search the collection…',
     searchLabel: 'Search products',
     sort: 'Sort',
@@ -141,6 +142,10 @@ export default {
   },
 
   bag: {
+    noteLabel: 'Note for us (optional)',
+    notePlaceholder: 'Shipping country, pickup in Barcelona, a gift?…',
+    copy: 'Copy the message',
+    copied: 'Copied ✓',
     open: 'Open the bag',
     title: 'Your owl bag',
     count: '{count} in the bag',
