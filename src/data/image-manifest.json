@@ -22,7 +22,6 @@
   "13h07jKwv3kGKQSRTfgFqFYd7stXGs7-Q",
   "13xtBdJ8ONqrjZVIO8VbXcd-TWM_aAuQ9",
   "13y1Oe2NSXYdonpNLc-eO33xKoVHTlEIX",
-  "14-zeJwYfC69BhqPw6za0du9qfbh1aBlP",
   "148F5evFCjJpoeK2xWLpOe3uSOOgWLfQe",
   "14P0O-FHnTOG7UbOL1P5UoL8tBo4kwWPc",
   "14TYoKF7P7Y36bGafU90LFOMkwrr4tJst",
@@ -61,7 +60,6 @@
   "1FFxjK8kffTo9mlo93y-YP8-jmB6KFA6O",
   "1GjIETaZqMK8IchCevOQJDgmt4LR5VVZG",
   "1GyyZOKYWiExyBpc660mveTZoKlDQnxHq",
-  "1H7eQWsG6jJQnxwbZJvFrM9PwDwdVNFIX",
   "1HCKAYU66Y-AWX2SoNK4ejbO930CQd0As",
   "1HFw1usFqSfY-w1xWCAHybe5I_ehM6MUI",
   "1HLnM1MOZoqwtZ_8-0xAvhF1x1netyVbH",
@@ -154,7 +152,6 @@
   "1a52DBT_gUNY1uxNYePPio3vE1RFZiT3j",
   "1a5U1DGxxjHrBFYHESLeQDR_pHlqFBA4N",
   "1aIV5p9Wa9imbM6iWFqd0LqUmBeUwuq8Y",
-  "1aKQc8Z7qnzkjQ_3k3GNuPWNlHBOBWC3L",
   "1alXP07OnqCGTUULXa0qz03SQ9TL-Ez1j",
   "1bU-vSCA0rIybd_bwaVcQWOtHjcRgKyLK",
   "1bYW5xW0r6YDboGHRSI3EvMxZLIFR456s",
@@ -247,7 +244,6 @@
   "1ulMvkcXC_LdmxWYphfeDT-PBaxdLWRta",
   "1vGS-dltwCSvnsxtCCfi3830S0PteX32b",
   "1vQuULuxG_g-4s5yiqymdIUQqvsRMN6WY",
-  "1vYBaUb1eaAXDMG0boARZFdhiJIlCu9yA",
   "1vhRoy2G3wBmteBnbJjRzHvl2eJ_BUyu1",
   "1vhX0KvUEM7J9VRoIYRw3SZr-OTYJUFVI",
   "1vreKpCtsHfxkE_sVRERRfaLjU7kY2TPJ",
@@ -288,14 +284,6 @@
    "1WhIVZ3glcOcD8vbbRuVODu1INbvUPRs2",
    "1-w8yo2XelGzhSUrYqO8Hw2StB46X32ku"
   ],
-  "auto-the-weekender": [
-   "1YAggdbIsDJS9cOc8eRnvzKoHANyH0Q2X",
-   "1vYBaUb1eaAXDMG0boARZFdhiJIlCu9yA",
-   "14-zeJwYfC69BhqPw6za0du9qfbh1aBlP",
-   "1H7eQWsG6jJQnxwbZJvFrM9PwDwdVNFIX",
-   "1oYm6JDtwYgIK3P7YD6KhQVT5mNBxY21o",
-   "1aKQc8Z7qnzkjQ_3k3GNuPWNlHBOBWC3L"
-  ],
   "mini-lab-spoon": [
    "1kjANU22KJg_hRM1N_J2oiqg7e2dXig17"
   ],
@@ -308,7 +296,7 @@
    "1YbScKqfSSXO-yCahGOG4ZDAbQyNf_5UD",
    "1hduDRqofttPJK9BUDHl2l-QB36dAiewC"
   ],
-  "auto-secret-stash-light-bulb": [
+  "secret-light-bulb": [
    "1Y01zilWQwUSdBUXUbnBs_xBoxteqDaas",
    "1fpVHnHgxh0J6MpqhdLIVIN3XTsrjJ0ID",
    "1HFw1usFqSfY-w1xWCAHybe5I_ehM6MUI",
@@ -337,7 +325,7 @@
    "1WApMm_8itRK6aqi2ruw0s1groueSEHd2",
    "1QVQ_-ZBrxrXFUU2GsRfBmwwl4qQrq_Mg"
   ],
-  "auto-tap-on-bag-lamp": [
+  "touch-bag-light": [
    "1nveHSg_RbEJUjEIfaeY9RPFpeOZdNTg1",
    "1jVLaqvS0J6akzn7QlTWRtS3B-lf1zoWB",
    "1ZZ0hMdk788LbmhUkzqzCH2SknLl2zOq4"
