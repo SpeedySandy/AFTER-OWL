@@ -142,6 +142,9 @@ export default {
   },
 
   bag: {
+    share: 'Tasche mit deiner Crew teilen',
+    shareDone: 'Link kopiert ✓',
+    shareText: 'Hier ist meine AFTER OWL Tasche 🦉 pack deins dazu und wir bestellen zusammen:',
     added: 'In die Tasche gelegt: {name}',
     view: 'Tasche ansehen',
     noteLabel: 'Notiz an uns (optional)',
@@ -165,6 +168,12 @@ export default {
     intro: 'Hey AFTER OWL 🦉 ich hätte gern:',
     outro: 'Könnt ihr Verfügbarkeit und Summe bestätigen?',
     note: 'Das öffnet {channel} mit deiner fertig geschriebenen Liste. Hier wird nichts abgebucht.',
+  },
+
+  crew: {
+    title: 'Deine Crew hat dir eine Tasche mit {count} Teilen geschickt',
+    add: 'In meine Tasche',
+    dismiss: 'Nein, danke',
   },
 
   recent: {

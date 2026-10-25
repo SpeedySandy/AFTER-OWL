@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import ProductVisual from './ProductVisual.jsx';
 import { formatPrice } from '../lib/products.js';
-import { bagLines, bagMessage, bagTotal, clearBag, removeFromBag, setQty, addToBag } from '../lib/bag.js';
+import { bagLines, bagMessage, bagTotal, clearBag, removeFromBag, setQty, addToBag, bagShareUrl } from '../lib/bag.js';
 import { INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 import { useI18n } from '../i18n/index.jsx';
 import { lockScroll } from '../lib/scrollLock.js';
@@ -16,6 +16,7 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
   const panelRef = useRef(null);
   const [note, setNote] = useState('');
   const [copied, setCopied] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   const lines = useMemo(() => bagLines(items, products), [items, products]);
   const { total, complete } = useMemo(() => bagTotal(lines), [lines]);
@@ -61,6 +62,18 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
     } catch { /* clipboard blocked: the send button still works */ }
+  };
+
+  const shareBag = async () => {
+    const url = bagShareUrl(items);
+    try {
+      if (navigator.share) await navigator.share({ title: t('bag.title'), text: t('bag.shareText'), url });
+      else {
+        await navigator.clipboard.writeText(url);
+        setLinkCopied(true);
+        setTimeout(() => setLinkCopied(false), 2200);
+      }
+    } catch { /* share sheet closed */ }
   };
 
   return (
@@ -168,6 +181,9 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
                 {copied ? t('bag.copied') : t('bag.copy')}
               </button>
               <p className="drawer-note">{t('bag.note', { channel })}</p>
+              <button className="drawer-share" onClick={shareBag}>
+                👯 {linkCopied ? t('bag.shareDone') : t('bag.share')}
+              </button>
               <button className="drawer-clear" onClick={clearBag}>{t('bag.clear')}</button>
             </footer>
           </>

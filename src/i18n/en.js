@@ -143,6 +143,9 @@ export default {
   },
 
   bag: {
+    share: 'Share the bag with your crew',
+    shareDone: 'Link copied ✓',
+    shareText: 'Here’s my AFTER OWL bag 🦉 add yours and we order together:',
     added: 'Added to the bag: {name}',
     view: 'View bag',
     noteLabel: 'Note for us (optional)',
@@ -166,6 +169,12 @@ export default {
     intro: 'Hey AFTER OWL 🦉 I’d like to order:',
     outro: 'Could you confirm availability and the total?',
     note: 'This opens {channel} with your list written out. Nothing is charged here.',
+  },
+
+  crew: {
+    title: 'Your crew shared a bag with {count} pieces',
+    add: 'Add to my bag',
+    dismiss: 'No thanks',
   },
 
   recent: {

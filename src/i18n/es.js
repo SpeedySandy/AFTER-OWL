@@ -142,6 +142,9 @@ export default {
   },
 
   bag: {
+    share: 'Comparte la bolsa con tu crew',
+    shareDone: 'Enlace copiado ✓',
+    shareText: 'Esta es mi bolsa AFTER OWL 🦉 añade lo tuyo y pedimos juntos:',
     added: 'Añadido a la bolsa: {name}',
     view: 'Ver bolsa',
     noteLabel: 'Nota para nosotros (opcional)',
@@ -165,6 +168,12 @@ export default {
     intro: 'Hola AFTER OWL 🦉 me gustaría pedir:',
     outro: '¿Me confirmáis disponibilidad y el total?',
     note: 'Esto abre {channel} con tu lista ya escrita. Aquí no se cobra nada.',
+  },
+
+  crew: {
+    title: 'Tu crew te ha pasado una bolsa con {count} piezas',
+    add: 'Añadir a mi bolsa',
+    dismiss: 'No, gracias',
   },
 
   recent: {

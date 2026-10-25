@@ -81,3 +81,37 @@ export function bagMessage(lines, { intro, outro, total, complete }) {
   const sum = complete && total > 0 ? [``, `${total.toFixed(2).replace(/\.00$/, '')} €`] : [];
   return [intro, '', ...body, ...sum, '', outro].join('\n');
 }
+
+// ---- Crew bags: a bag travels as a link (?bag=key,variant,qty;...) ----
+
+export function bagToParam(items = store.get()) {
+  return items
+    .map(i => [i.key, i.variant || '', i.qty].map(v => encodeURIComponent(v)).join(','))
+    .join(';');
+}
+
+export function bagFromParam(param) {
+  if (!param) return [];
+  return param.split(';').map(part => {
+    const [key, variant, qty] = part.split(',').map(v => decodeURIComponent(v || ''));
+    const n = Math.min(20, Math.max(1, parseInt(qty, 10) || 1));
+    return key ? { key, variant: variant || null, qty: n } : null;
+  }).filter(Boolean).slice(0, 40);
+}
+
+export function bagShareUrl(items = store.get(), origin = window.location.origin) {
+  return `${origin}${import.meta.env.BASE_URL || '/'}?bag=${bagToParam(items)}`;
+}
+
+export function mergeIntoBag(lines) {
+  return store.update(items => {
+    let next = [...items];
+    lines.forEach(line => {
+      const found = next.find(i => sameLine(i, line));
+      next = found
+        ? next.map(i => (sameLine(i, line) ? { ...i, qty: i.qty + line.qty } : i))
+        : [...next, line];
+    });
+    return next;
+  });
+}

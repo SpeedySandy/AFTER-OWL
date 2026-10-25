@@ -1024,3 +1024,12 @@ a.find-card:hover { border-color: var(--pink); transform: translateY(-3px); }
 .to-top { position: fixed; right: 16px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 60; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--surface-2); color: var(--text); display: grid; place-items: center; cursor: pointer; }
 .to-top svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* Crew bag: a friend's shared bag */
+.drawer-share { width: 100%; margin-top: 10px; padding: 10px; background: none; border: 1px dashed var(--line-strong); border-radius: 12px; color: var(--text-2); font: 500 0.9rem var(--font-display); cursor: pointer; }
+.drawer-share:hover { color: var(--text); border-color: var(--cyan); }
+.crew-bag { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 95; width: min(420px, calc(100vw - 32px)); padding: 18px; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line-strong); box-shadow: 0 16px 40px rgba(0,0,0,.5); animation: toast-in .3s ease; }
+.crew-bag-title { font: 600 1rem var(--font-display); margin-bottom: 8px; }
+.crew-bag-list { list-style: none; margin: 0 0 14px; padding: 0; font-size: 0.88rem; color: var(--text-2); display: grid; gap: 3px; }
+.crew-bag-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.crew-bag-actions .btn { flex: 1; min-height: 44px; }
