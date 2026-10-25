@@ -1068,7 +1068,7 @@
  },
  {
   "key": "weekend-dispenser",
-  "name": "Weekend Dispenser",
+  "name": "The Weekender Dispenser",
   "category": "Dispenser",
   "handmade": false,
   "description": "Your weekend, sorted.\n\nPalm-sized screw-top metal jar with an extendable spoon, perfect for bath salts, loose herbs or tiny supplies on the go.\n\nDetails:\n- Metal shell with screw-down lid\n- Refillable chamber, airtight seal\n- Pocket-sized, with keyring\n- Sold empty\n\nTested by the OG AFTER OWL.",
@@ -1103,24 +1103,24 @@
   "variantLabel": "Color",
   "rows": [
    {
-    "match": "Weekend Dispenser - Silver",
+    "match": "The Weekender - Dispenser - Silver",
     "variant": "Silver",
     "image": "1oYm6JDtwYgIK3P7YD6KhQVT5mNBxY21o",
     "gradient": "linear-gradient(145deg, #141414 0%, #5A6270 40%, #A0AEC0 70%, #D0D8E0 100%)"
    },
    {
-    "match": "Weekend Dispenser - Black",
+    "match": "The Weekender - Dispenser - Black",
     "variant": "Black",
     "image": "1YAggdbIsDJS9cOc8eRnvzKoHANyH0Q2X",
     "gradient": "linear-gradient(145deg, #070707 0%, #181818 50%, #2D2D2D 100%)"
    },
    {
-    "match": "Weekend Dispenser - Grey",
+    "match": "The Weekender - Dispenser - Grey",
     "variant": "Grey",
     "gradient": "linear-gradient(145deg, #141414 0%, #3A3A3A 50%, #5A5A5A 100%)"
    },
    {
-    "match": "Weekend Dispenser - Gold",
+    "match": "The Weekender - Dispenser - Gold",
     "variant": "Gold",
     "gradient": "linear-gradient(145deg, #1a1000 0%, #8B6000 40%, #C49A1A 70%, #E8C84A 100%)"
    }
@@ -3075,7 +3075,7 @@
  },
  {
   "key": "secret-light-bulb",
-  "name": "Secret Light Bulb",
+  "name": "Secret Stash Light Bulb",
   "category": "Secret Stash",
   "handmade": false,
   "description": "Looks like a light bulb. Hides like one too.\n\nNovelty light bulb with a screw-off base that reveals a hidden compartment — sits on a desk, toolbox or tent shelf unnoticed.\n\nDetails:\n- Realistic bulb exterior (non-functional bulb)\n- Unscrews to open an internal chamber\n- Great desk/toolbox prop and diversion\n- Novelty only; does not illuminate\n\nTested by the OG AFTER OWL.",
@@ -3102,7 +3102,7 @@
   "gradient": "linear-gradient(145deg, #141414 0%, #8A8A6A 50%, #E0E0C0 100%)",
   "rows": [
    {
-    "match": "Secret Light Bulb"
+    "match": "Secret Stash Light Bulb"
    }
   ]
  },
@@ -3410,7 +3410,7 @@
  },
  {
   "key": "touch-bag-light",
-  "name": "Touch Bag Light",
+  "name": "Tap On Bag Lamp",
   "category": "Lights",
   "handmade": false,
   "description": "Find your bag in the dark. Every time.\n\nTouch-activated LED bag light — clip it to the inside of your backpack, handbag or festival kit and tap for instant light.\n\nDetails:\n- Motion/touch-activated LED; auto-off to save batteries\n- Peel-and-stick pad plus removable clip\n- Slim profile — under 1.5cm thick\n- Uses included coin-cell batteries\n\nTested by the OG AFTER OWL.",
@@ -3437,7 +3437,7 @@
   "gradient": "linear-gradient(145deg, #141414 0%, #4A4A4A 50%, #D0D8E0 100%)",
   "rows": [
    {
-    "match": "Touch Bag Light"
+    "match": "Tap On Bag Lamp"
    }
   ]
  },
@@ -3715,29 +3715,44 @@
  },
  {
   "key": "breathing-necklace",
-  "name": "Breathing Necklace",
+  "name": "AFTER OWL Mindful Breathing Necklace",
   "category": "Accessories",
   "handmade": false,
   "materials": "Titanium steel",
-  "size": "Pendant 5.6 / 8.2 / 8.8 cm · 70 cm chain",
-  "weight": "~36–39 g",
-  "variantLabel": "Size",
-  "description": "Slow it down.\n\nA titanium steel pendant you breathe out through. The channel inside is narrow, so the exhale comes out long and even whether you meant it to or not — that is the whole trick. The usual pattern is in for four, hold, out for eight, and the pendant sets the pace for you.\n\nIt opens, too: a spring insert holds a drop of oil or perfume, so it carries a scent as well as a rhythm.\n\nDetails:\n- Titanium steel, hypoallergenic\n- 70 cm chain\n- Unscrews for a scented insert\n- Three lengths; quiet enough for a train, a queue or the smoking area\n\nTested by the OG AFTER OWL.",
+  "size": "Pendant 8.2 cm or 5.6 cm · 70 cm chain",
+  "weight": "~39 g (82 mm)",
+  "variantLabel": "Style",
+  "description": "Slow it down.\n\nA titanium steel pendant you breathe out through. The channel inside is narrow, so the exhale comes out long and even whether you meant it to or not — that is the whole trick. The usual pattern is in for four, hold, out for eight, and the pendant sets the pace for you.\n\nIt opens, too: a spring insert holds a drop of oil or perfume, so it carries a scent as well as a rhythm.\n\nDetails:\n- Titanium steel, hypoallergenic\n- 70 cm chain\n- Unscrews for a scented insert\n- Two pendant sizes (82 mm and 56 mm), flat or round top\n- Engraved with AFTER OWL\n- Quiet enough for a train, a queue or the smoking area\n\nTested by the OG AFTER OWL.",
   "gradient": "linear-gradient(145deg, #05080C 0%, #1B2A38 40%, #4E6E86 70%, #9FC3D6 100%)",
   "rows": [
    {
-    "match": "Breathing Necklace - 88mm",
-    "variant": "88 mm",
-    "gradient": "linear-gradient(145deg, #060606 0%, #1C1C1C 50%, #343434 100%)"
-   },
-   {
-    "match": "Breathing Necklace - 82mm",
-    "variant": "82 mm",
+    "match": "AFTER OWL Mindful Breathing Necklace - 82mm Flat Top - Silver",
+    "variant": "82 mm · Flat top · Silver",
     "gradient": "linear-gradient(145deg, #141414 0%, #6A7382 50%, #C2CBD4 100%)"
    },
    {
-    "match": "Breathing Necklace - 2in1",
-    "variant": "2-in-1 · 5.6 cm",
+    "match": "AFTER OWL Mindful Breathing Necklace - 82mm Flat Top - Gold",
+    "variant": "82 mm · Flat top · Gold",
+    "gradient": "linear-gradient(145deg, #1a1000 0%, #8B6000 40%, #C49A1A 70%, #E8C84A 100%)"
+   },
+   {
+    "match": "AFTER OWL Mindful Breathing Necklace - 82mm Round Top - Black",
+    "variant": "82 mm · Round top · Black",
+    "gradient": "linear-gradient(145deg, #060606 0%, #1C1C1C 50%, #343434 100%)"
+   },
+   {
+    "match": "AFTER OWL Mindful Breathing Necklace - 82mm Round Top - Rainbow",
+    "variant": "82 mm · Round top · Rainbow",
+    "gradient": "linear-gradient(145deg, #1a0a2a 0%, #E53935 25%, #FDD835 50%, #43A047 75%, #1E88E5 100%)"
+   },
+   {
+    "match": "AFTER OWL Mindful Breathing Necklace - 82mm Round Top - Silver",
+    "variant": "82 mm · Round top · Silver",
+    "gradient": "linear-gradient(145deg, #141414 0%, #6A7382 50%, #C2CBD4 100%)"
+   },
+   {
+    "match": "AFTER OWL Mindful Breathing Necklace - 56mm Flat Top - Gold",
+    "variant": "56 mm · Flat top · Gold",
     "gradient": "linear-gradient(145deg, #1a1000 0%, #8B6000 40%, #C49A1A 70%, #E8C84A 100%)"
    }
   ]
