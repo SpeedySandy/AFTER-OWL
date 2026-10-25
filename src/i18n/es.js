@@ -19,6 +19,7 @@ export default {
   announceDismiss: 'Cerrar el aviso',
 
   nav: {
+    top: 'Volver arriba',
     shop: 'Tienda',
     about: 'Nosotros',
     faq: 'FAQ',
@@ -141,6 +142,8 @@ export default {
   },
 
   bag: {
+    added: 'Añadido a la bolsa: {name}',
+    view: 'Ver bolsa',
     noteLabel: 'Nota para nosotros (opcional)',
     notePlaceholder: 'País de envío, recogida en Barcelona, ¿regalo?…',
     copy: 'Copiar el mensaje',

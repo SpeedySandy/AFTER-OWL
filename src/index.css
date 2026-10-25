@@ -1017,3 +1017,10 @@ a.find-card:hover { border-color: var(--pink); transform: translateY(-3px); }
 .drawer-notefield textarea { width: 100%; resize: vertical; min-height: 56px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.04); color: inherit; font: inherit; font-size: 14px; }
 .drawer-notefield textarea:focus-visible { outline: 2px solid var(--cyan); outline-offset: 1px; }
 .drawer-copy { width: 100%; margin-top: 8px; }
+
+/* Bag toast + back to top */
+.bag-toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 90; display: flex; align-items: center; gap: 14px; max-width: calc(100vw - 32px); padding: 12px 16px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line-strong); box-shadow: 0 10px 30px rgba(0,0,0,.45); font-size: 0.9rem; animation: toast-in .25s ease; }
+.bag-toast button { flex: none; background: none; border: 0; color: var(--cyan); font: 600 0.9rem var(--font-display); cursor: pointer; padding: 6px 4px; }
+.to-top { position: fixed; right: 16px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 60; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--surface-2); color: var(--text); display: grid; place-items: center; cursor: pointer; }
+.to-top svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }

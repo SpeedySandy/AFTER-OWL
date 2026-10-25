@@ -16,6 +16,7 @@ export const getBag = store.get;
 export const subscribeBag = store.subscribe;
 
 export function addToBag(key, variant = null, qty = 1) {
+  if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('ao:bag-added', { detail: { key } }));
   return store.update(items => {
     const line = { key, variant: variant || null, qty };
     const found = items.find(i => sameLine(i, line));

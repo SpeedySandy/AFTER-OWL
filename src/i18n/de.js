@@ -19,6 +19,7 @@ export default {
   announceDismiss: 'Hinweis schließen',
 
   nav: {
+    top: 'Nach oben',
     shop: 'Shop',
     about: 'Über uns',
     faq: 'FAQ',
@@ -141,6 +142,8 @@ export default {
   },
 
   bag: {
+    added: 'In die Tasche gelegt: {name}',
+    view: 'Tasche ansehen',
     noteLabel: 'Notiz an uns (optional)',
     notePlaceholder: 'Lieferland, Abholung in Barcelona, ein Geschenk?…',
     copy: 'Nachricht kopieren',

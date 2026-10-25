@@ -20,6 +20,7 @@ export default {
   announceDismiss: 'Dismiss announcement',
 
   nav: {
+    top: 'Back to top',
     shop: 'Shop',
     about: 'About',
     faq: 'FAQ',
@@ -142,6 +143,8 @@ export default {
   },
 
   bag: {
+    added: 'Added to the bag: {name}',
+    view: 'View bag',
     noteLabel: 'Note for us (optional)',
     notePlaceholder: 'Shipping country, pickup in Barcelona, a gift?…',
     copy: 'Copy the message',
