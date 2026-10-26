@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { SORT_OPTIONS } from '../lib/products.js';
 import { useI18n } from '../i18n/index.jsx';
 
@@ -8,6 +9,22 @@ export default function ShopToolbar({
   inStockOnly, onToggleInStock, resultCount, onClear, filtered, onSurprise,
 }) {
   const { t } = useI18n();
+  const searchRef = useRef(null);
+
+  // Press "/" anywhere (outside a text field) to jump into the search box.
+  useEffect(() => {
+    const onKey = e => {
+      if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+      const el = document.activeElement;
+      if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return;
+      if (document.querySelector('.modal, .drawer')) return;
+      e.preventDefault();
+      searchRef.current?.focus();
+      searchRef.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <div className="toolbar">
@@ -15,12 +32,15 @@ export default function ShopToolbar({
         <label className="search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
           <input
+            ref={searchRef}
             type="search"
             placeholder={t('toolbar.search')}
             value={search}
             onChange={e => onSearch(e.target.value)}
             aria-label={t('toolbar.searchLabel')}
+            aria-keyshortcuts="/"
           />
+          <kbd className="search-kbd" aria-hidden="true">/</kbd>
         </label>
 
         <label className="sort">

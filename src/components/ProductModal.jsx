@@ -11,7 +11,7 @@ import { lockScroll } from '../lib/scrollLock.js';
 import { useI18n } from '../i18n/index.jsx';
 import { careNote } from '../data/content.js';
 
-export default function ProductModal({ product, products = [], bagItems = [], onSelect, onClose, onOpenBag }) {
+export default function ProductModal({ product, products = [], sequence = [], bagItems = [], onSelect, onClose, onOpenBag }) {
   const { t, lang } = useI18n();
   const {
     key, name, category, price, priceMax, stock, images, gradient, handmade, limited, isNew,
@@ -29,6 +29,15 @@ export default function ProductModal({ product, products = [], bagItems = [], on
     }
     return picks;
   }, [products, key, category]);
+
+  const neighbours = useMemo(() => {
+    const i = sequence.findIndex(p => p.key === key);
+    if (i < 0 || sequence.length < 2) return null;
+    return {
+      prev: sequence[(i - 1 + sequence.length) % sequence.length],
+      next: sequence[(i + 1) % sequence.length],
+    };
+  }, [sequence, key]);
 
   const [variant, setVariant] = useState(() =>
     variants.length ? variants.find(v => v.stock !== 0) || variants[0] : null
@@ -258,6 +267,19 @@ export default function ProductModal({ product, products = [], bagItems = [], on
               {t('product.returns')}
             </li>
           </ul>
+
+          {neighbours && (
+            <nav className="modal-pager" aria-label={t('product.pager')}>
+              <button onClick={() => onSelect?.(neighbours.prev)}>
+                <span aria-hidden="true">←</span>
+                <span><small>{t('product.prevPiece')}</small>{neighbours.prev.name}</span>
+              </button>
+              <button onClick={() => onSelect?.(neighbours.next)}>
+                <span><small>{t('product.nextPiece')}</small>{neighbours.next.name}</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </nav>
+          )}
 
           {related.length > 0 && (
             <div className="related">

@@ -33,6 +33,7 @@ export default {
   },
 
   hero: {
+    mood: { night: 'Noch wach? Wir auch. 🦉', sunrise: 'Sonnenaufgangs-Crew, willkommen. 🌅' },
     eyebrow: 'Barcelona · Seit 2025',
     titleA: 'Draußen getestet.',
     titleB: 'Nachts vertraut.',
@@ -113,6 +114,9 @@ export default {
   },
 
   product: {
+    pager: 'Weitere Teile',
+    prevPiece: 'Vorheriges',
+    nextPiece: 'Nächstes',
     close: 'Schließen',
     save: 'Merken',
     saved: 'Gemerkt',
@@ -176,12 +180,21 @@ export default {
     dismiss: 'Nein, danke',
   },
 
+  grid: {
+    showing: '{shown} von {total}',
+    more: '{count} weitere zeigen',
+  },
+
   recent: {
     title: 'Zuletzt angesehen',
     clear: 'Leeren',
   },
 
   empty: {
+    textSearch: 'Gerade passt nichts zu „{q}“.',
+    askText: 'Hey AFTER OWL 🦉 habt ihr so etwas wie: {q}?',
+    ask: 'Frag die Eule auf {channel}',
+    picks: 'Solange liebt die Crew diese hier',
     title: 'Hier ist noch nichts 🦉',
     text: 'Probier eine andere Suche oder Kategorie.',
     cta: 'Alles anzeigen',

@@ -33,6 +33,7 @@ export default {
   },
 
   hero: {
+    mood: { night: '¿Aún despierto? Nosotros también. 🦉', sunrise: 'Crew del amanecer, bienvenidos. 🌅' },
     eyebrow: 'Barcelona · Desde 2025',
     titleA: 'Probado en la naturaleza.',
     titleB: 'De confianza en la noche.',
@@ -113,6 +114,9 @@ export default {
   },
 
   product: {
+    pager: 'Más piezas',
+    prevPiece: 'Anterior',
+    nextPiece: 'Siguiente',
     close: 'Cerrar',
     save: 'Guardar',
     saved: 'Guardado',
@@ -176,12 +180,21 @@ export default {
     dismiss: 'No, gracias',
   },
 
+  grid: {
+    showing: 'Mostrando {shown} de {total}',
+    more: 'Ver {count} más',
+  },
+
   recent: {
     title: 'Vistos hace poco',
     clear: 'Borrar',
   },
 
   empty: {
+    textSearch: 'Ahora mismo nada coincide con «{q}».',
+    askText: 'Hola AFTER OWL 🦉 ¿tenéis algo como: {q}?',
+    ask: 'Pregunta al búho por {channel}',
+    picks: 'Mientras tanto, a la crew le encantan estos',
     title: 'Aquí no hay nada… todavía 🦉',
     text: 'Prueba con otra búsqueda o categoría.',
     cta: 'Ver todo',

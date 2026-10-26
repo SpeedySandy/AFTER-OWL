@@ -216,6 +216,8 @@ export default function App() {
               bagItems={bagItems}
               onSelect={select}
               onReset={clearFilters}
+              search={search}
+              suggestions={filtered.length ? [] : sortProducts(products.filter(p => p.stock !== 0 && p.image), 'best').slice(0, 4)}
             />
           </div>
         </section>
@@ -251,6 +253,7 @@ export default function App() {
           key={selected.key}
           product={selected}
           products={products}
+          sequence={filtered.some(p => p.key === selected.key) ? filtered : products}
           bagItems={bagItems}
           onSelect={select}
           onOpenBag={() => setBagOpen(true)}

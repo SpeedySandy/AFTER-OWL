@@ -34,6 +34,7 @@ export default {
   },
 
   hero: {
+    mood: { night: 'Still up? So are we. 🦉', sunrise: 'Sunrise crew, welcome home. 🌅' },
     eyebrow: 'Barcelona · Since 2025',
     titleA: 'Tested in the wild.',
     titleB: 'Trusted in the night.',
@@ -114,6 +115,9 @@ export default {
   },
 
   product: {
+    pager: 'More pieces',
+    prevPiece: 'Previous',
+    nextPiece: 'Next',
     close: 'Close',
     save: 'Save',
     saved: 'Saved',
@@ -177,12 +181,21 @@ export default {
     dismiss: 'No thanks',
   },
 
+  grid: {
+    showing: 'Showing {shown} of {total}',
+    more: 'Show {count} more',
+  },
+
   recent: {
     title: 'Recently viewed',
     clear: 'Clear',
   },
 
   empty: {
+    textSearch: 'Nothing matches “{q}” right now.',
+    askText: 'Hey AFTER OWL 🦉 do you have something like: {q}?',
+    ask: 'Ask the owl on {channel}',
+    picks: 'Meanwhile, the crew loves these',
     title: 'Nothing here… yet 🦉',
     text: 'Try another search or category.',
     cta: 'Show everything',

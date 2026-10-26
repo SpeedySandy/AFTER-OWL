@@ -6,6 +6,8 @@ const BASE = import.meta.env.BASE_URL;
 export default function Hero({ productCount }) {
   const { t, lang } = useI18n();
   const next = splitEvents().upcoming[0];
+  const hour = new Date().getHours();
+  const mood = hour >= 22 || hour < 5 ? 'night' : hour < 9 ? 'sunrise' : null;
 
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -13,6 +15,7 @@ export default function Hero({ productCount }) {
       <div className="container hero-inner">
         <div className="hero-copy">
           <p className="eyebrow">{t('hero.eyebrow')}</p>
+          {mood && <p className="hero-mood">{t(`hero.mood.${mood}`)}</p>}
           <h1 id="hero-title">
             {t('hero.titleA')}<br />
             <span className="grad-text">{t('hero.titleB')}</span>
