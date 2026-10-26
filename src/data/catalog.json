@@ -3756,5 +3756,89 @@
     "gradient": "linear-gradient(145deg, #1a1000 0%, #8B6000 40%, #C49A1A 70%, #E8C84A 100%)"
    }
   ]
+ },
+ {
+  "key": "auto-broken-mirror",
+  "name": "\"NOT\" Broken Mirror Tray",
+  "category": "Handmade Limited Edition",
+  "handmade": true,
+  "description": "Looks smashed. Isn't.\n\nHandmade mirror tray with a cracked-glass look, set in a wavy black resin frame scattered with silver glitter. Seven years of bad luck not included.\n\nDetails:\n- Cast resin frame with silver glitter\n- Mirror with a shattered-look finish\n- One of a kind, made by hand in Barcelona\n\nTested by the OG AFTER OWL.",
+  "materials": "Resin, glitter, mirror",
+  "gradient": "linear-gradient(145deg, #050505 0%, #141414 50%, #242424 100%)",
+  "rows": [
+   {
+    "match": "Broken Mirror"
+   }
+  ]
+ },
+ {
+  "key": "auto-space-out",
+  "name": "Space Out Mirror Tray",
+  "category": "Handmade Limited Edition",
+  "handmade": true,
+  "description": "Houston, we have a tray.\n\nHandmade round mirror tray in a blue resin ring, watched over by a tiny astronaut lamp on a bendable arm. For the ones who drift off in the best way.\n\nDetails:\n- Cast resin ring with round mirror\n- Mini astronaut light on a flexible arm\n- One of a kind, made by hand in Barcelona\n\nTested by the OG AFTER OWL.",
+  "materials": "Resin, mirror, LED",
+  "gradient": "linear-gradient(145deg, #050a14 0%, #13284a 50%, #2a4f80 100%)",
+  "rows": [
+   {
+    "match": "Space Out"
+   }
+  ]
+ },
+ {
+  "key": "auto-floating-diamond",
+  "name": "Floating Diamond Side Table",
+  "category": "Handmade Limited Edition",
+  "handmade": true,
+  "description": "A side table that hides a secret.\n\nIridescent glass-effect bowl that throws rainbow light, floating on clear legs, with a hidden mirror tray under the lid. Light it up and it becomes the centre of the room.\n\nDetails:\n- Iridescent shell on transparent legs\n- Hidden mirror tray on top\n- Glows when lit from inside\n- One of a kind, made by hand in Barcelona\n\nTested by the OG AFTER OWL.",
+  "gradient": "linear-gradient(145deg, #0a1a1a 0%, #1E88E5 40%, #FDD835 75%, #E53935 100%)",
+  "rows": [
+   {
+    "match": "Floating Diamond"
+   }
+  ]
+ },
+ {
+  "key": "auto-keyring-don-t-follow-me-i-m-lost-too",
+  "name": "Keyring \"DON'T FOLLOW ME, I'M LOST TOO\"",
+  "category": "Other",
+  "handmade": false,
+  "description": "Honest navigation.\n\nA keyring for everyone who leads the crew and has no idea where they're going either. Matches the socks of the same name.\n\nTested by the OG AFTER OWL.",
+  "gradient": "linear-gradient(145deg, #050505 0%, #141414 50%, #242424 100%)",
+  "rows": [
+   {
+    "match": "Keyring \"DON'T FOLLOW ME, I'M LOST TOO\""
+   }
+  ]
+ },
+ {
+  "key": "auto-secret-stash-socks",
+  "name": "Secret Stash Socks",
+  "category": "Secret Stash",
+  "handmade": false,
+  "description": "Your ankle has a pocket now.\n\nBlack socks with a zipper pocket built in: room for a key, a card, cash or anything you'd rather keep close on the dancefloor.\n\nDetails:\n- Black socks with zipper pocket\n- Discreet under trousers or boots\n\nTested by the OG AFTER OWL.",
+  "materials": "Fabric, zipper",
+  "gradient": "linear-gradient(145deg, #050505 0%, #141414 50%, #242424 100%)",
+  "variantLabel": "Colour",
+  "rows": [
+   {
+    "match": "Secret Stash Socks - black",
+    "variant": "Black"
+   }
+  ]
+ },
+ {
+  "key": "auto-foldable-double-mirror",
+  "name": "Foldable Double Mirror",
+  "category": "Tools",
+  "handmade": false,
+  "description": "Two mirrors, one pocket.\n\nCompact foldable double mirror that closes flat to protect the glass. Handy for touch-ups at the campsite or a quick check before the next set.\n\nTested by the OG AFTER OWL.",
+  "materials": "Mirror",
+  "gradient": "linear-gradient(145deg, #050505 0%, #141414 50%, #242424 100%)",
+  "rows": [
+   {
+    "match": "Foldable Double Mirror"
+   }
+  ]
  }
 ]
