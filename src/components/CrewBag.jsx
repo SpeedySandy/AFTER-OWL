@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { bagFromParam, bagLines, mergeIntoBag } from '../lib/bag.js';
 import { useI18n } from '../i18n/index.jsx';
+import Icon from './Icon.jsx';
 
 /** Opened a friend's bag link? Offer to drop their picks into your own bag. */
 export default function CrewBag({ products, onOpenBag }) {
@@ -32,7 +33,7 @@ export default function CrewBag({ products, onOpenBag }) {
 
   return (
     <div className="crew-bag" role="dialog" aria-labelledby="crew-bag-title">
-      <p id="crew-bag-title" className="crew-bag-title">🦉 {t('crew.title', { count })}</p>
+      <p id="crew-bag-title" className="crew-bag-title"><Icon name="crew" /> {t('crew.title', { count })}</p>
       <ul className="crew-bag-list">
         {lines.slice(0, 4).map(l => (
           <li key={`${l.key}-${l.variant?.name || ''}`}>{l.qty}× {l.product.name}{l.variant ? ` (${l.variant.name})` : ''}</li>

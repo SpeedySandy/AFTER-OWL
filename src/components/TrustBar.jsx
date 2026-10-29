@@ -1,6 +1,7 @@
 import { useI18n } from '../i18n/index.jsx';
+import Icon from './Icon.jsx';
 
-const ICONS = ['🎨', '🎪', '✦', '🦉'];
+const ICONS = ['handmade', 'festival-tested', 'limited-editions', 'tested-by-the-og'];
 
 export default function TrustBar() {
   const { tl } = useI18n();
@@ -11,7 +12,7 @@ export default function TrustBar() {
       <ul className="container trust-inner">
         {items.map((label, i) => (
           <li key={label} className="trust-item">
-            <span className="trust-icon" aria-hidden="true">{ICONS[i] || '✦'}</span>
+            <span className="trust-icon" aria-hidden="true"><Icon name={ICONS[i] || 'first-light'} /></span>
             {label}
           </li>
         ))}

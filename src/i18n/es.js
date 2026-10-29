@@ -11,10 +11,10 @@ export default {
   },
 
   announce: [
-    '🦉 Hecho a mano en Barcelona. Casi todas las piezas son únicas',
-    '🎪 Probado en festivales. Aprobado por el búho.',
-    '💬 Pide directo por WhatsApp o Instagram. Enviamos desde Barcelona',
-    '🤫 Psst… ¿ya has visto la colección Secret Stash?',
+    'Hecho a mano en Barcelona. Casi todas las piezas son únicas',
+    'Probado en festivales. Aprobado por el búho.',
+    'Pide directo por WhatsApp o Instagram. Enviamos desde Barcelona',
+    'Psst… ¿ya has visto la colección Secret Stash?',
   ],
   announceDismiss: 'Cerrar el aviso',
 
@@ -33,7 +33,9 @@ export default {
   },
 
   hero: {
-    mood: { night: '¿Aún despierto? Nosotros también. 🦉', sunrise: 'Crew del amanecer, bienvenidos. 🌅' },
+    crewCta: 'Únete a la crew',
+    photoAlt: 'Láseres sobre el público de un festival que se funden con un amanecer en la montaña, con un kit de AFTER OWL sobre una roca',
+    mood: { night: '¿Aún despierto? Nosotros también.', sunrise: 'Crew del amanecer, bienvenidos.' },
     eyebrow: 'Barcelona · Desde 2025',
     titleA: 'Probado en la naturaleza.',
     titleB: 'De confianza en la noche.',
@@ -247,16 +249,16 @@ export default {
     titleA: 'TIENDA ONLINE AFTER OWL',
     titleB: 'EQUÍPATE. ESTILO BÚHO.',
     lead: 'De las raves underground a los amaneceres en la montaña: equípate, estilo búho.',
-    missionLabel: '🎯 Nuestra misión',
+    missionLabel: 'Nuestra misión',
     mission:
       '«Dar a las almas aventureras y a los búhos nocturnos material fiable y con carácter para cada viaje: de las raves underground a los amaneceres en la montaña.»',
-    findTitle: '⚡ Lo que vas a encontrar',
+    findTitle: 'Lo que vas a encontrar',
     shopPieces: 'Ver {count} {noun}',
-    promiseTitle: '✨ Nuestra promesa',
+    promiseTitle: 'Nuestra promesa',
     promise1: 'Cada pieza se prueba sobre el terreno antes de entrar en la tienda: sin humo, solo material honesto que funciona.',
     promise2:
       'Pensado para soñadores nocturnos, cazadores de amaneceres y exploradores curiosos, AFTER OWL representa sabiduría, autenticidad y movimiento: un símbolo de libertad que nunca duerme.',
-    storyTitle: '🌌 Nuestra historia',
+    storyTitle: 'Nuestra historia',
     story1:
       'AFTER OWL es más que una tienda: es un estilo de vida para quien explora 24/7. Nace de la mezcla entre cultura rave, aventura al aire libre e ingenio, y selecciona material de calidad y asequible para quienes bailan toda la noche y persiguen horizontes al amanecer.',
     story2:
@@ -265,7 +267,7 @@ export default {
       'El nombre lo dice todo. El búho nocturno vive en las pistas underground y en los campos de festival de madrugada. El after es todo lo que viene después: las afterhours, la caminata al amanecer, la siguiente aventura. Por eso cada pieza está probada en la naturaleza y es de confianza en la noche: funcional, resistente y con personalidad.',
     heroAlt: 'El búho disco de AFTER OWL brillando en verde frente a una cabina de DJ iluminada por láseres',
     popupAlt: 'Tienda pop-up de AFTER OWL, foto {n}',
-    whereTitle: '🛍️ Dónde comprar',
+    whereTitle: 'Dónde comprar',
     igLabel: 'Saluda',
     igText: 'Nuevos drops, fechas de pop-up y DMs para pedir o preguntar lo que quieras.',
     waLabel: 'Pide directo',

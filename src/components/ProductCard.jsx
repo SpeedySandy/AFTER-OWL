@@ -26,12 +26,12 @@ export default function ProductCard({ product, onClick, bagItems = [] }) {
   return (
     <article className={`card ${stock === 0 ? 'is-soldout' : ''}`}>
       <div className="card-media">
-        <ProductVisual src={image} alt={alt || name} gradient={gradient} />
+        <ProductVisual src={image} alt={alt || `${name}, ${category}`} gradient={gradient} />
 
         <div className="card-badges">
-          {isNew && <span className="badge badge-new">✦ {t('card.new')}</span>}
+          {isNew && <span className="badge badge-new">{t('card.new')}</span>}
           {limited ? (
-            <span className="badge badge-limited">💎 {t('card.limited')}</span>
+            <span className="badge badge-limited">{t('card.limited')}</span>
           ) : (
             handmade && <span className="badge badge-handmade">{t('card.handmade')}</span>
           )}

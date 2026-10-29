@@ -11,10 +11,10 @@ export default {
   },
 
   announce: [
-    '🦉 Handgemacht in Barcelona. Die meisten Stücke gibt es nur einmal',
-    '🎪 Festival-getestet. Eulen-approved.',
-    '💬 Direkt per WhatsApp oder Instagram bestellen. Versand aus Barcelona',
-    '🤫 Psst… schon die Secret-Stash-Kollektion gesehen?',
+    'Handgemacht in Barcelona. Die meisten Stücke gibt es nur einmal',
+    'Festival-getestet. Eulen-approved.',
+    'Direkt per WhatsApp oder Instagram bestellen. Versand aus Barcelona',
+    'Psst… schon die Secret-Stash-Kollektion gesehen?',
   ],
   announceDismiss: 'Hinweis schließen',
 
@@ -33,7 +33,9 @@ export default {
   },
 
   hero: {
-    mood: { night: 'Noch wach? Wir auch. 🦉', sunrise: 'Sonnenaufgangs-Crew, willkommen. 🌅' },
+    crewCta: 'Werde Teil der Crew',
+    photoAlt: 'Laser über einer Festival-Crowd, die in einen Sonnenaufgang in den Bergen übergehen, mit AFTER OWL Ausrüstung auf einem Felsvorsprung',
+    mood: { night: 'Noch wach? Wir auch.', sunrise: 'Sonnenaufgangs-Crew, willkommen.' },
     eyebrow: 'Barcelona · Seit 2025',
     titleA: 'Draußen getestet.',
     titleB: 'Nachts vertraut.',
@@ -203,7 +205,7 @@ export default {
     askText: 'Hey AFTER OWL 🦉 habt ihr so etwas wie: {q}?',
     ask: 'Frag die Eule auf {channel}',
     picks: 'Solange liebt die Crew diese hier',
-    title: 'Hier ist noch nichts 🦉',
+    title: 'Hier ist noch nichts',
     text: 'Probier eine andere Suche oder Kategorie.',
     cta: 'Alles anzeigen',
   },
@@ -247,16 +249,16 @@ export default {
     titleA: 'AFTER OWL ONLINE SHOP',
     titleB: 'GEAR UP. OWL STYLE.',
     lead: 'Von Underground-Raves bis zum Sonnenaufgang auf dem Gipfel – Gear Up, Owl Style.',
-    missionLabel: '🎯 Unsere Mission',
+    missionLabel: 'Unsere Mission',
     mission:
       '„Abenteuerlustige Seelen und Nachteulen mit verlässlichem, aufregendem Gear für jede Reise auszustatten – von Underground-Raves bis zum Sonnenaufgang auf dem Gipfel."',
-    findTitle: '⚡ Was dich erwartet',
+    findTitle: 'Was dich erwartet',
     shopPieces: '{count} {noun} ansehen',
-    promiseTitle: '✨ Unser Versprechen',
+    promiseTitle: 'Unser Versprechen',
     promise1: 'Jedes Teil wird im Einsatz getestet, bevor es in den Shop kommt – kein Hype, nur ehrliches Gear, das funktioniert.',
     promise2:
       'Gemacht für Nachtschwärmer, Sonnenaufgangsjäger und neugierige Entdecker steht AFTER OWL für Weisheit, Echtheit und Bewegung – ein Symbol für eine Freiheit, die nie schläft.',
-    storyTitle: '🌌 Unsere Story',
+    storyTitle: 'Unsere Story',
     story1:
       'AFTER OWL ist mehr als ein Shop – es ist ein Lebensgefühl für alle, die rund um die Uhr unterwegs sind. Entstanden aus Ravekultur, Outdoor-Abenteuer und cleveren Ideen, kuratieren wir hochwertiges, bezahlbares Gear für alle, die nachts tanzen und im Morgengrauen den Horizont jagen.',
     story2:
@@ -265,7 +267,7 @@ export default {
       'Der Name sagt alles. Die Nachteule lebt auf Underground-Dancefloors und nächtlichen Festivalwiesen. Das After ist alles, was danach kommt: die Afterhour, die Wanderung im Sonnenaufgang, das nächste Abenteuer. Deshalb ist jedes Stück draußen getestet und nachts vertraut: funktional, robust und mit Charakter.',
     heroAlt: 'Die grün leuchtende AFTER-OWL-Discoeule vor einer lasererleuchteten DJ-Booth',
     popupAlt: 'AFTER OWL Pop-up-Store, Foto {n}',
-    whereTitle: '🛍️ Wo du kaufst',
+    whereTitle: 'Wo du kaufst',
     igLabel: 'Sag hallo',
     igText: 'Neue Drops, Pop-up-Termine und DMs zum Bestellen oder für alle Fragen.',
     waLabel: 'Direkt bestellen',

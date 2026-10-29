@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { SORT_OPTIONS } from '../lib/products.js';
 import { useI18n } from '../i18n/index.jsx';
+import Icon from './Icon.jsx';
 
 export default function ShopToolbar({
   search, onSearch, categories, category, onCategory,
@@ -61,7 +62,7 @@ export default function ShopToolbar({
 
         {onSurprise && (
           <button className="chip" onClick={onSurprise}>
-            <span aria-hidden="true">🎲</span> {t('toolbar.surprise')}
+            <svg className="dice" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" /><circle cx="9" cy="9" r="1.2" /><circle cx="15" cy="15" r="1.2" /><circle cx="15" cy="9" r="1.2" /><circle cx="9" cy="15" r="1.2" /></svg> {t('toolbar.surprise')}
           </button>
         )}
 
@@ -101,7 +102,7 @@ export default function ShopToolbar({
             aria-pressed={collectionKey === c.key}
             onClick={() => (collectionKey === c.key ? onCategory('All') : onCollection(c.key))}
           >
-            <span aria-hidden="true">{c.icon}</span> {t(`collections.${c.key}.title`)}
+            <Icon name={c.key} /> {t(`collections.${c.key}.title`)}
           </button>
         ))}
 

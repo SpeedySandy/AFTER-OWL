@@ -5,6 +5,7 @@ import { addToBag } from '../lib/bag.js';
 import { formatPrice } from '../lib/products.js';
 import { useI18n } from '../i18n/index.jsx';
 import ProductCard from './ProductCard.jsx';
+import Icon from './Icon.jsx';
 
 /** One guide, as its own page at /guide/<key>. */
 export default function GuideView({ guide, products, bagItems, onSelect, onBack }) {
@@ -26,7 +27,7 @@ export default function GuideView({ guide, products, bagItems, onSelect, onBack 
         <button className="guide-back" onClick={onBack}>← {t('guides.back')}</button>
 
         <header className="guide-head">
-          <p className="eyebrow"><span aria-hidden="true">{guide.icon}</span> {t('guides.eyebrow')}</p>
+          <p className="eyebrow"><Icon emoji={guide.icon} /> {t('guides.eyebrow')}</p>
           <h1>{pick(guide.title, lang)}</h1>
           <p className="guide-lead">{pick(guide.intro, lang)}</p>
 

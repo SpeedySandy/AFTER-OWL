@@ -12,10 +12,10 @@ export default {
   },
 
   announce: [
-    '🦉 Handmade in Barcelona. Most pieces are one of a kind',
-    '🎪 Festival-tested. Owl-approved.',
-    '💬 Order direct on WhatsApp or Instagram. Ships from Barcelona',
-    '🤫 Psst… have you seen the Secret Stash collection?',
+    'Handmade in Barcelona. Most pieces are one of a kind',
+    'Festival-tested. Owl-approved.',
+    'Order direct on WhatsApp or Instagram. Ships from Barcelona',
+    'Psst… have you seen the Secret Stash collection?',
   ],
   announceDismiss: 'Dismiss announcement',
 
@@ -34,7 +34,9 @@ export default {
   },
 
   hero: {
-    mood: { night: 'Still up? So are we. 🦉', sunrise: 'Sunrise crew, welcome home. 🌅' },
+    crewCta: 'Join the crew',
+    photoAlt: 'Lasers over a festival crowd fading into a mountain sunrise, with a field kit of AFTER OWL gear on a rock ledge',
+    mood: { night: 'Still up? So are we.', sunrise: 'Sunrise crew, welcome home.' },
     eyebrow: 'Barcelona · Since 2025',
     titleA: 'Tested in the wild.',
     titleB: 'Trusted in the night.',
@@ -204,7 +206,7 @@ export default {
     askText: 'Hey AFTER OWL 🦉 do you have something like: {q}?',
     ask: 'Ask the owl on {channel}',
     picks: 'Meanwhile, the crew loves these',
-    title: 'Nothing here… yet 🦉',
+    title: 'Nothing here… yet',
     text: 'Try another search or category.',
     cta: 'Show everything',
   },
@@ -248,16 +250,16 @@ export default {
     titleA: 'AFTER OWL ONLINE SHOP',
     titleB: 'GEAR UP. OWL STYLE.',
     lead: 'From underground raves to mountaintop sunrises — Gear Up, Owl Style.',
-    missionLabel: '🎯 Our Mission',
+    missionLabel: 'Our Mission',
     mission:
       '“To empower adventurous souls and night owls with reliable, exciting gear for every journey — from underground raves to mountaintop sunrises.”',
-    findTitle: '⚡ What You’ll Find',
+    findTitle: 'What You’ll Find',
     shopPieces: 'Shop {count} {noun}',
-    promiseTitle: '✨ Our Promise',
+    promiseTitle: 'Our Promise',
     promise1: 'Every item is field-tested before it makes the cut — no hype, just honest gear that works.',
     promise2:
       'Built for nightlife dreamers, sunrise seekers, and curious explorers, AFTER OWL stands for wisdom, authenticity, and movement — a symbol of freedom that never sleeps.',
-    storyTitle: '🌌 Our Story',
+    storyTitle: 'Our Story',
     story1:
       'AFTER OWL is more than a shop — it’s a lifestyle for the 24/7 explorer. Born from the fusion of rave culture, outdoor adventure, and smart innovation, we curate high-quality, affordable gear for those who dance all night and chase horizons by dawn.',
     story2:
@@ -266,7 +268,7 @@ export default {
       'The name says it all. The night owl thrives on underground dancefloors and late-night festival fields. The after is everything that follows: the afterhours, the sunrise hike, the next adventure. That’s why every piece in our collection is tested in the wild and trusted in the night: functional, durable, and full of personality.',
     heroAlt: 'The AFTER OWL disco owl glowing green in front of a laser-lit DJ booth',
     popupAlt: 'AFTER OWL pop-up store, photo {n}',
-    whereTitle: '🛍️ Where to Buy',
+    whereTitle: 'Where to Buy',
     igLabel: 'Say hi',
     igText: 'New drops, pop-up dates, and DMs to order or ask anything.',
     waLabel: 'Order direct',

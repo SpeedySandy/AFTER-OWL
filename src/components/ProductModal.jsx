@@ -162,9 +162,9 @@ export default function ProductModal({ product, products = [], sequence = [], ba
         <div className="modal-body">
           <p className="modal-eyebrow">
             {category}
-            {isNew && <span className="badge badge-new">✦ {t('card.new')}</span>}
+            {isNew && <span className="badge badge-new">{t('card.new')}</span>}
             {limited ? (
-              <span className="badge badge-limited">💎 {t('card.limited')}</span>
+              <span className="badge badge-limited">{t('card.limited')}</span>
             ) : (
               handmade && !/handmade/i.test(category) && <span className="badge badge-handmade">{t('card.handmade')}</span>
             )}

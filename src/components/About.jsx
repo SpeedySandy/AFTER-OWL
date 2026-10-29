@@ -4,12 +4,13 @@ import manifest from '../data/image-manifest.json';
 import { COLLECTIONS } from '../data/collections.js';
 import { driveThumb, INSTAGRAM_URL, INSTAGRAM_HANDLE, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 import { useI18n } from '../i18n/index.jsx';
+import Icon from './Icon.jsx';
 
 const BASE = import.meta.env.BASE_URL;
 const local = new Set(manifest.files);
 const img = id => (local.has(id) ? `${BASE}img/${id}.webp` : driveThumb(id));
 
-const PILLAR_ICONS = ['🦉', '✦', '🪩'];
+const PILLAR_ICONS = ['tested-by-the-og', 'handmade', 'crew'];
 
 export default function About({ collections = [], onCollection }) {
   const [storyOpen, setStoryOpen] = useState(false);
@@ -41,7 +42,7 @@ export default function About({ collections = [], onCollection }) {
           <div className="collections">
             {COLLECTIONS.map(c => (
               <article key={c.key} className="collection">
-                <span className="collection-icon" aria-hidden="true">{c.icon}</span>
+                <span className="collection-icon" aria-hidden="true"><Icon name={c.key} size="lg" /></span>
                 <h4 className="collection-title">{t(`collections.${c.key}.title`)}</h4>
                 <p className="collection-text">{t(`collections.${c.key}.text`)}</p>
                 {c.tags && (
@@ -71,7 +72,7 @@ export default function About({ collections = [], onCollection }) {
         <div className="pillars">
           {pillars.map((p, i) => (
             <article key={p.title} className="pillar">
-              <span className="pillar-icon" aria-hidden="true">{PILLAR_ICONS[i] || '✦'}</span>
+              <span className="pillar-icon" aria-hidden="true"><Icon name={PILLAR_ICONS[i] || 'first-light'} size="lg" /></span>
               <h4>{p.title}</h4>
               <p>{p.text}</p>
             </article>

@@ -2,6 +2,7 @@ import { GUIDES, guideItems } from '../data/guides.js';
 import { pick } from '../data/content.js';
 import { useI18n } from '../i18n/index.jsx';
 import ProductVisual from './ProductVisual.jsx';
+import Icon from './Icon.jsx';
 
 /** The four guide cards. Each cover photo comes from a real piece in that guide. */
 export default function Guides({ products, onOpen }) {
@@ -36,7 +37,7 @@ export default function Guides({ products, onOpen }) {
                 <span className="guide-card-media">
                   {cover && <ProductVisual src={cover.image} alt="" gradient={cover.gradient} />}
                   <span className="guide-card-shade" aria-hidden="true" />
-                  <span className="guide-card-icon" aria-hidden="true">{guide.icon}</span>
+                  <span className="guide-card-icon" aria-hidden="true"><Icon emoji={guide.icon} size="lg" /></span>
                 </span>
                 <span className="guide-card-body">
                   <span className="guide-card-title">{pick(guide.title, lang)}</span>

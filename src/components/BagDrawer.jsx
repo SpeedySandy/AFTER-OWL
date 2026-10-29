@@ -5,6 +5,7 @@ import { bagLines, bagMessage, bagTotal, clearBag, removeFromBag, setQty, addToB
 import { INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 import { useI18n } from '../i18n/index.jsx';
 import { lockScroll } from '../lib/scrollLock.js';
+import Icon from './Icon.jsx';
 
 /**
  * The bag turns "I like these five things" into one message the owl can answer.
@@ -182,7 +183,7 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
               </button>
               <p className="drawer-note">{t('bag.note', { channel })}</p>
               <button className="drawer-share" onClick={shareBag}>
-                👯 {linkCopied ? t('bag.shareDone') : t('bag.share')}
+                <Icon name="crew" /> {linkCopied ? t('bag.shareDone') : t('bag.share')}
               </button>
               <button className="drawer-clear" onClick={clearBag}>{t('bag.clear')}</button>
             </footer>

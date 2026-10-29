@@ -1,4 +1,9 @@
 import { useI18n } from '../i18n/index.jsx';
+import Icon from './Icon.jsx';
+
+const BASE = import.meta.env.BASE_URL;
+// Art-directed tiles from the Web Kit; collections without one fall back to a product photo.
+const TILE_ART = new Set(['rave-ready', 'outdoor-mode', 'unique-gadgets', 'hide-and-stash', 'limited-editions', 'sets-and-gifts']);
 
 export default function CollectionTiles({ collections, onSelect }) {
   const { t } = useI18n();
@@ -18,14 +23,22 @@ export default function CollectionTiles({ collections, onSelect }) {
             const cover = c.items.find(p => p.image && p.stock !== 0 && !used.has(p.image))
               || c.items.find(p => p.image && !used.has(p.image))
               || c.items.find(p => p.image);
-            if (cover) used.add(cover.image);
+            if (cover && !TILE_ART.has(c.key)) used.add(cover.image);
             const title = t(`collections.${c.key}.title`);
             return (
               <button key={c.key} className="tile" onClick={() => onSelect(c.key)}>
-                {cover && <img src={cover.image} alt="" loading="lazy" />}
+                {TILE_ART.has(c.key) ? (
+                  <img
+                    src={`${BASE}brand/tile-${c.key}-480.webp`}
+                    srcSet={`${BASE}brand/tile-${c.key}-480.webp 480w, ${BASE}brand/tile-${c.key}-800.webp 800w`}
+                    sizes="(max-width: 720px) 50vw, 33vw"
+                    alt=""
+                    loading="lazy"
+                  />
+                ) : cover && <img src={cover.image} alt="" loading="lazy" />}
                 <span className="tile-shade" aria-hidden="true" />
                 <span className="tile-label">
-                  <span className="tile-icon" aria-hidden="true">{c.icon}</span>
+                  <span className="tile-icon" aria-hidden="true"><Icon name={c.key} /></span>
                   <span className="tile-name">{title}</span>
                   <span className="tile-count">
                     {c.items.length} {t(c.items.length === 1 ? 'tiles.piece' : 'tiles.pieces')}
