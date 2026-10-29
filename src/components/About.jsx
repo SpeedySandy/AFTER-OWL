@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import about from '../data/about.json';
 import manifest from '../data/image-manifest.json';
 import { COLLECTIONS } from '../data/collections.js';
@@ -11,6 +12,7 @@ const img = id => (local.has(id) ? `${BASE}img/${id}.webp` : driveThumb(id));
 const PILLAR_ICONS = ['🦉', '✦', '🪩'];
 
 export default function About({ collections = [], onCollection }) {
+  const [storyOpen, setStoryOpen] = useState(false);
   const { t, tl } = useI18n();
   const counts = Object.fromEntries(collections.map(c => [c.key, c.items.length]));
   const pillars = tl('about.pillars');
@@ -78,11 +80,14 @@ export default function About({ collections = [], onCollection }) {
 
         {/* 4 · Our story */}
         <div className="about-intro">
-          <div className="about-copy">
+          <div className={`about-copy ${storyOpen ? 'is-open' : ''}`}>
             <h3 className="about-h3">{t('about.storyTitle')}</h3>
             <p>{t('about.story1')}</p>
             <p>{t('about.story2')}</p>
             <p>{t('about.story3')}</p>
+            <button className="story-more" onClick={() => setStoryOpen(true)} aria-expanded={storyOpen}>
+              {t('about.readMore')}
+            </button>
           </div>
           <figure className="about-hero">
             <img src={img(about.hero)} alt={t('about.heroAlt')} loading="lazy" />

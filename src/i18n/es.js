@@ -185,6 +185,14 @@ export default {
     more: 'Ver {count} más',
   },
 
+  dock: {
+    label: 'Accesos rápidos',
+    search: 'Buscar',
+    gifts: 'Regalos',
+    bag: 'Bolsa',
+    chat: 'Chat',
+  },
+
   recent: {
     title: 'Vistos hace poco',
     clear: 'Borrar',
@@ -234,6 +242,7 @@ export default {
   },
 
   about: {
+    readMore: 'Leer toda la historia',
     eyebrow: 'Nosotros',
     titleA: 'TIENDA ONLINE AFTER OWL',
     titleB: 'EQUÍPATE. ESTILO BÚHO.',

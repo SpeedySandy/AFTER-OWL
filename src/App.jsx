@@ -15,6 +15,7 @@ import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import TrustBar from './components/TrustBar.jsx';
 import CollectionTiles from './components/CollectionTiles.jsx';
+import MobileDock from './components/MobileDock.jsx';
 import CrewBag from './components/CrewBag.jsx';
 import BagToast from './components/BagToast.jsx';
 import ShopToolbar from './components/ShopToolbar.jsx';
@@ -236,6 +237,7 @@ export default function App() {
         )}
       </main>
 
+      <MobileDock bagCount={bagItems.reduce((n, i) => n + i.qty, 0)} onOpenBag={() => setBagOpen(true)} />
       <CrewBag products={products} onOpenBag={() => setBagOpen(true)} />
       <BagToast products={products} onOpenBag={() => setBagOpen(true)} bagOpen={bagOpen} />
       <Footer onLegal={openLegal} source={source} updatedAt={updatedAt} error={error} />

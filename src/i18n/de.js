@@ -185,6 +185,14 @@ export default {
     more: '{count} weitere zeigen',
   },
 
+  dock: {
+    label: 'Schnellzugriff',
+    search: 'Suche',
+    gifts: 'Geschenke',
+    bag: 'Tasche',
+    chat: 'Chat',
+  },
+
   recent: {
     title: 'Zuletzt angesehen',
     clear: 'Leeren',
@@ -234,6 +242,7 @@ export default {
   },
 
   about: {
+    readMore: 'Die ganze Geschichte lesen',
     eyebrow: 'Über uns',
     titleA: 'AFTER OWL ONLINE SHOP',
     titleB: 'GEAR UP. OWL STYLE.',
