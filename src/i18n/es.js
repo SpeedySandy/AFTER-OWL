@@ -19,6 +19,17 @@ export default {
   announceDismiss: 'Cerrar el aviso',
 
   nav: {
+    collections: 'Por vibe',
+    categories: 'Categorías',
+    quick: 'Atajos',
+    inStock: 'En stock ahora',
+    limited: 'Ediciones limitadas',
+    gifts: 'Buscador de regalos',
+    guides: 'Guías',
+    story: 'Nuestra historia',
+    irl: 'Encuéntranos IRL',
+    menu: 'Menú',
+    allProducts: 'Todos los productos',
     top: 'Volver arriba',
     shop: 'Tienda',
     about: 'Nosotros',

@@ -20,6 +20,17 @@ export default {
   announceDismiss: 'Dismiss announcement',
 
   nav: {
+    collections: 'Shop by vibe',
+    categories: 'Categories',
+    quick: 'Quick picks',
+    inStock: 'In stock now',
+    limited: 'Limited drops',
+    gifts: 'Gift finder',
+    guides: 'Guides',
+    story: 'Our story',
+    irl: 'Catch us IRL',
+    menu: 'Menu',
+    allProducts: 'All products',
     top: 'Back to top',
     shop: 'Shop',
     about: 'About',

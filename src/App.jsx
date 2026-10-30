@@ -155,6 +155,17 @@ export default function App() {
         bagCount={bagCount(bagItems)}
         onOpenBag={() => setBagOpen(true)}
         onHome={() => select(null)}
+        categories={categories}
+        collections={collections}
+        onShop={action => {
+          select(null);
+          setSearch('');
+          setSavedOnly(false);
+          if (action.collection) pickCollection(action.collection);
+          else if (action.category) pickCategory(action.category);
+          setInStockOnly(Boolean(action.inStock));
+          setTimeout(() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+        }}
       />
 
       <main>

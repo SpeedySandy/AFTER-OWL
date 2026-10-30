@@ -19,6 +19,17 @@ export default {
   announceDismiss: 'Hinweis schließen',
 
   nav: {
+    collections: 'Nach Vibe',
+    categories: 'Kategorien',
+    quick: 'Schnellauswahl',
+    inStock: 'Jetzt auf Lager',
+    limited: 'Limitierte Drops',
+    gifts: 'Geschenkfinder',
+    guides: 'Guides',
+    story: 'Unsere Story',
+    irl: 'Triff uns IRL',
+    menu: 'Menü',
+    allProducts: 'Alle Produkte',
     top: 'Nach oben',
     shop: 'Shop',
     about: 'Über uns',
