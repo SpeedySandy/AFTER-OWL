@@ -409,6 +409,19 @@ export default {
     ],
   },
 
+  bundles: {
+    eyebrow: 'Kits',
+    title: 'Für dich gepackt, zu einem Preis',
+    sub: 'Drei Kits aus den Guides. Günstiger als die Teile einzeln — und nur sichtbar, solange alles auf Lager ist.',
+    pieces: '{count} Teile',
+    add: 'Kit in die Tasche',
+    added: 'Kit in der Tasche ✓',
+    was: 'Einzeln {price}',
+    save: 'Du sparst {amount}',
+    guide: 'Zum Guide',
+    note: 'Teile mit Farben: sag uns im Chat, welche du willst.',
+  },
+
   guides: {
     eyebrow: 'Guides',
     title: 'Sortiert nach Situation, nicht nach Kategorie',

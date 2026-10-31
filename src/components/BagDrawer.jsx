@@ -6,6 +6,7 @@ import { INSTAGRAM_DM_URL, WHATSAPP_NUMBER, whatsappUrl } from '../config.js';
 import { useI18n } from '../i18n/index.jsx';
 import { lockScroll } from '../lib/scrollLock.js';
 import Icon from './Icon.jsx';
+import { pick } from '../data/content.js';
 
 /**
  * The bag turns "I like these five things" into one message the owl can answer.
@@ -13,7 +14,7 @@ import Icon from './Icon.jsx';
  * device until the visitor presses send.
  */
 export default function BagDrawer({ open, items, products, onClose, onSelect }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const panelRef = useRef(null);
   const [note, setNote] = useState('');
   const [copied, setCopied] = useState(false);
@@ -105,6 +106,12 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
             <ul className="drawer-list">
               {lines.map(line => (
                 <li key={`${line.key}-${line.variant?.name || ''}`} className="drawer-line">
+                  {line.bundle ? (
+                    <span className="drawer-thumb drawer-thumb-kit" aria-hidden="true">
+                      <ProductVisual src={line.product.image} alt="" gradient={line.product.gradient} />
+                      <span className="drawer-kit-badge">{line.bundle.icon}</span>
+                    </span>
+                  ) : (
                   <button
                     className="drawer-thumb"
                     onClick={() => onSelect(line.product)}
@@ -112,9 +119,13 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
                   >
                     <ProductVisual src={line.variant?.image || line.product.image} alt="" gradient={line.product.gradient} />
                   </button>
+                  )}
                   <div className="drawer-line-body">
-                    <p className="drawer-line-name">{line.product.name}</p>
+                    <p className="drawer-line-name">{line.bundle ? pick(line.bundle.title, lang) : line.product.name}</p>
                     {line.variant && <p className="drawer-line-variant">{line.variant.name}</p>}
+                    {line.bundle && (
+                      <p className="drawer-line-variant">{line.bundle.items.map(p => p.name).join(' · ')}</p>
+                    )}
                     <p className="drawer-line-price">{formatPrice(line.price)}</p>
                   </div>
                   <div className="drawer-line-side">
@@ -126,7 +137,7 @@ export default function BagDrawer({ open, items, products, onClose, onSelect }) 
                     <button
                       className="drawer-remove"
                       onClick={() => removeFromBag(line.key, line.variant?.name || null)}
-                      aria-label={t('bag.remove', { name: line.product.name })}
+                      aria-label={t('bag.remove', { name: line.bundle ? pick(line.bundle.title, lang) : line.product.name })}
                     >
                       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
                     </button>

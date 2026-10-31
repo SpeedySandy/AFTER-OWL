@@ -6,6 +6,7 @@ import { formatPrice } from '../lib/products.js';
 import { useI18n } from '../i18n/index.jsx';
 import ProductCard from './ProductCard.jsx';
 import Icon from './Icon.jsx';
+import { GuideBundle } from './Bundles.jsx';
 
 /** One guide, as its own page at /guide/<key>. */
 export default function GuideView({ guide, products, bagItems, onSelect, onBack }) {
@@ -40,6 +41,8 @@ export default function GuideView({ guide, products, bagItems, onSelect, onBack 
             </div>
           )}
         </header>
+
+        <GuideBundle guideKey={guide.key} products={products} onSelect={onSelect} />
 
         {sections.length === 0 && <p className="guide-empty">{t('guides.empty')}</p>}
 

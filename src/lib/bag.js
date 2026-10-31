@@ -7,6 +7,7 @@
 // single, ready-written message.
 
 import { createStore } from './store.js';
+import { isBundleKey, bundleByBagKey } from '../data/bundles.js';
 
 const store = createStore('ao_bag', []);
 
@@ -54,6 +55,20 @@ export function bagLines(items, products) {
   const byKey = new Map(products.map(p => [p.key, p]));
   return items
     .map(item => {
+      if (isBundleKey(item.key)) {
+        // A kit: one line, one price. Gone from the bag if any piece sold out.
+        const bundle = bundleByBagKey(item.key, products);
+        if (!bundle) return null;
+        const product = {
+          key: item.key,
+          name: bundle.title.en,
+          image: bundle.image,
+          gradient: bundle.items[0]?.gradient,
+          category: 'Bundles',
+          variants: [],
+        };
+        return { ...item, variant: null, product, bundle, price: bundle.price, lineTotal: bundle.price * item.qty };
+      }
       const product = byKey.get(item.key);
       if (!product) return null;
       const variant = item.variant ? product.variants.find(v => v.name === item.variant) : null;
@@ -76,6 +91,10 @@ export function bagMessage(lines, { intro, outro, total, complete }) {
   const body = lines.map(line => {
     const name = line.variant ? `${line.product.name} (${line.variant.name})` : line.product.name;
     const price = line.price != null ? ` — ${line.price.toFixed(2).replace(/\.00$/, '')} €` : '';
+    if (line.bundle) {
+      const pieces = line.bundle.items.map(p => `   – ${p.name}`).join('\n');
+      return `• ${line.qty}× ${name} (kit)${price}\n${pieces}`;
+    }
     return `• ${line.qty}× ${name}${price}`;
   });
   const sum = complete && total > 0 ? [``, `${total.toFixed(2).replace(/\.00$/, '')} €`] : [];

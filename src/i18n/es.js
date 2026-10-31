@@ -409,6 +409,19 @@ export default {
     ],
   },
 
+  bundles: {
+    eyebrow: 'Kits',
+    title: 'Preparado para ti, a un solo precio',
+    sub: 'Tres kits sacados de las guías. Más baratos que las piezas por separado, y solo aparecen mientras todo está en stock.',
+    pieces: '{count} piezas',
+    add: 'Añadir el kit a la bolsa',
+    added: 'Kit en la bolsa ✓',
+    was: 'Normalmente {price}',
+    save: 'Ahorras {amount}',
+    guide: 'Ver la guía',
+    note: 'Las piezas que vienen en colores: dinos cuáles en el chat.',
+  },
+
   guides: {
     eyebrow: 'Guías',
     title: 'Ordenado por situación, no por categoría',

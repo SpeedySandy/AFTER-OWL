@@ -1,18 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
 import { useI18n } from '../i18n/index.jsx';
+import { pick } from '../data/content.js';
+import { bundleByBagKey } from '../data/bundles.js';
 
 /** Small confirmation when something lands in the bag, plus a back-to-top button. */
 export default function BagToast({ products, onOpenBag, bagOpen }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [name, setName] = useState(null);
   const [showTop, setShowTop] = useState(false);
   const timer = useRef(null);
 
   useEffect(() => {
     const onAdded = e => {
-      const product = products.find(p => p.key === e.detail?.key);
-      if (!product) return;
-      setName(product.name);
+      const key = e.detail?.key;
+      const bundle = bundleByBagKey(key, products);
+      const product = bundle ? null : products.find(p => p.key === key);
+      if (!bundle && !product) return;
+      setName(bundle ? pick(bundle.title, lang) : product.name);
       clearTimeout(timer.current);
       timer.current = setTimeout(() => setName(null), 3200);
     };
@@ -21,7 +25,7 @@ export default function BagToast({ products, onOpenBag, bagOpen }) {
       window.removeEventListener('ao:bag-added', onAdded);
       clearTimeout(timer.current);
     };
-  }, [products]);
+  }, [products, lang]);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 1400);

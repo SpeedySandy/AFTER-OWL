@@ -25,6 +25,7 @@ import RecentlyViewed from './components/RecentlyViewed.jsx';
 import CategoryIntro from './components/CategoryIntro.jsx';
 import Guides from './components/Guides.jsx';
 import GuideView from './components/GuideView.jsx';
+import Bundles from './components/Bundles.jsx';
 import LegalView from './components/LegalView.jsx';
 import GiftFinder from './components/GiftFinder.jsx';
 import Reviews from './components/Reviews.jsx';
@@ -234,6 +235,7 @@ export default function App() {
           </div>
         </section>
 
+        <Bundles products={products} onSelect={select} onOpenGuide={openGuide} />
         <Guides products={products} onOpen={openGuide} />
         <GiftFinder products={products} bagItems={bagItems} onSelect={select} />
         <RecentlyViewed keys={recentKeys} products={products} onSelect={select} />

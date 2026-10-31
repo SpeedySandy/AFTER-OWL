@@ -410,6 +410,19 @@ export default {
     ],
   },
 
+  bundles: {
+    eyebrow: 'Kits',
+    title: 'Packed for you, priced as one',
+    sub: 'Three kits put together from the guides. Cheaper than the pieces one by one, and only shown while every piece is in stock.',
+    pieces: '{count} pieces',
+    add: 'Add the kit to the bag',
+    added: 'Kit in the bag ✓',
+    was: 'Normally {price}',
+    save: 'You save {amount}',
+    guide: 'See the guide',
+    note: 'Pieces that come in colours: tell us which ones in the chat.',
+  },
+
   guides: {
     eyebrow: 'Guides',
     title: 'Packed by situation, not by category',
