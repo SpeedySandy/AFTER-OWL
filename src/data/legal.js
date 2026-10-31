@@ -1,6 +1,6 @@
 // Legal pages: /legal/<key>, in the three site languages.
 //
-// Everything here describes what this site actually does — no analytics, no
+// Everything here describes what this site actually does — cookieless Cloudflare Web Analytics only, no
 // cookies of its own, no checkout — so the texts stay true as long as that
 // stays true. If a tracker, a payment step or a login is ever added, these
 // pages have to change with it.
@@ -111,15 +111,15 @@ export const LEGAL_DOCS = [
         h: { en: 'The short version', es: 'La versión corta', de: 'Die kurze Fassung' },
         body: {
           en: () => [
-            'There is no analytics on this site, no advertising trackers, no social pixels, no accounts and no cookies set by us. We do not build a profile of you and we have nothing to sell to anyone about you.',
+            'The only analytics on this site is Cloudflare Web Analytics, which counts visits without cookies and without identifying you. There are no advertising trackers, no social pixels, no accounts and no cookies set by us. We do not build a profile of you and we have nothing to sell to anyone about you.',
             'You can browse the entire shop without giving us a single piece of personal data. We only learn who you are when you choose to write to us.',
           ],
           es: () => [
-            'Esta web no tiene analítica, ni rastreadores publicitarios, ni píxeles de redes sociales, ni cuentas, ni cookies propias. No creamos ningún perfil tuyo y no tenemos nada que vender sobre ti.',
+            'La única analítica de esta web es Cloudflare Web Analytics, que cuenta visitas sin cookies y sin identificarte. No hay rastreadores publicitarios, ni píxeles de redes sociales, ni cuentas, ni cookies propias. No creamos ningún perfil tuyo y no tenemos nada que vender sobre ti.',
             'Puedes ver toda la tienda sin darnos un solo dato personal. Solo sabemos quién eres cuando decides escribirnos.',
           ],
           de: () => [
-            'Diese Seite hat keine Analyse-Tools, keine Werbetracker, keine Social-Pixel, keine Konten und setzt keine eigenen Cookies. Wir erstellen kein Profil von dir und haben nichts über dich zu verkaufen.',
+            'Das einzige Analyse-Tool auf dieser Seite ist Cloudflare Web Analytics, das Besuche ohne Cookies und ohne dich zu identifizieren zählt. Es gibt keine Werbetracker, keine Social-Pixel, keine Konten und keine eigenen Cookies. Wir erstellen kein Profil von dir und haben nichts über dich zu verkaufen.',
             'Du kannst den ganzen Shop ansehen, ohne uns ein einziges personenbezogenes Datum zu geben. Wer du bist, erfahren wir erst, wenn du uns schreibst.',
           ],
         },
@@ -131,18 +131,21 @@ export const LEGAL_DOCS = [
             'The site is hosted on GitHub Pages behind Cloudflare. Like any web server, they log requests — including your IP address — to serve pages and stop abuse. We do not see those logs.',
             'The product list is fetched from a Google Sheets endpoint each time the page loads, so Google sees that request. Nothing else goes to Google: the typefaces are served from this domain rather than from Google Fonts, deliberately.',
             'Photos are served from this domain. The exception is the occasional image that has not been copied across yet and falls back to Google Drive.',
+            'To count visits, a small Cloudflare Web Analytics script reports which page was opened, the referring site, browser and device type, country and loading speed. It sets no cookies, stores no IP address and does not follow you across sites; we only ever see totals.',
             'That is the complete list of third parties involved in simply looking at this site.',
           ],
           es: () => [
             'La web está alojada en GitHub Pages detrás de Cloudflare. Como cualquier servidor, registran las peticiones — incluida tu dirección IP — para servir páginas y frenar abusos. Nosotros no vemos esos registros.',
             'La lista de productos se descarga de un endpoint de Google Sheets cada vez que se carga la página, así que Google ve esa petición. Nada más va a Google: las tipografías se sirven desde este dominio y no desde Google Fonts, a propósito.',
             'Las fotos se sirven desde este dominio. La excepción es alguna imagen que todavía no se ha copiado y que recurre a Google Drive.',
+            'Para contar visitas, un pequeño script de Cloudflare Web Analytics informa de qué página se abrió, la web de origen, el tipo de navegador y dispositivo, el país y la velocidad de carga. No usa cookies, no guarda tu dirección IP y no te sigue por otras webs; nosotros solo vemos totales.',
             'Esa es la lista completa de terceros implicados en el simple hecho de mirar esta web.',
           ],
           de: () => [
             'Die Seite liegt auf GitHub Pages hinter Cloudflare. Wie jeder Webserver protokollieren sie Anfragen — auch deine IP-Adresse —, um Seiten auszuliefern und Missbrauch zu verhindern. Wir sehen diese Protokolle nicht.',
             'Die Produktliste wird bei jedem Seitenaufruf von einem Google-Sheets-Endpunkt geladen, Google sieht diese Anfrage. Sonst geht nichts an Google: Die Schriften werden bewusst von dieser Domain ausgeliefert und nicht von Google Fonts.',
             'Fotos kommen von dieser Domain. Die Ausnahme sind einzelne Bilder, die noch nicht kopiert wurden und auf Google Drive zurückfallen.',
+            'Um Besuche zu zählen, meldet ein kleines Skript von Cloudflare Web Analytics, welche Seite geöffnet wurde, die verweisende Seite, Browser- und Gerätetyp, Land und Ladezeit. Es setzt keine Cookies, speichert keine IP-Adresse und verfolgt dich nicht über andere Seiten; wir sehen nur Gesamtzahlen.',
             'Das ist die vollständige Liste der Dritten, die am bloßen Betrachten dieser Seite beteiligt sind.',
           ],
         },
