@@ -206,6 +206,16 @@ export default {
     chat: 'Chat',
   },
 
+  welcome: {
+    badge: 'Baustelle',
+    title: 'Wer flattert da? Willkommen, Nachteule!',
+    build: 'Frische Farbe, lose Kabel, ein paar Eulen noch auf dem Gerüst: Dieser Shop ist im Aufbau. Trotzdem funktioniert schon alles, also stöbern, Tasche füllen und bestellen. Etwas komisch? Sag uns Bescheid, wir lieben Fehlermeldungen fast so sehr wie Afterpartys.',
+    cookieLead: 'Cookies?',
+    cookie: 'Nur die essbaren. Keine Tracker, keine Werbung, kein Datenverkauf. Deine Tasche und Favoriten bleiben auf deinem eigenen Gerät.',
+    more: 'Cookie-Hinweis',
+    ok: 'Alles klar, rein da',
+  },
+
   recent: {
     title: 'Zuletzt angesehen',
     clear: 'Leeren',

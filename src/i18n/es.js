@@ -206,6 +206,16 @@ export default {
     chat: 'Chat',
   },
 
+  welcome: {
+    badge: 'En obras',
+    title: '¿Quién anda ahí? ¡Bienvenido, búho nocturno!',
+    build: 'Pintura fresca, cables sueltos y algún búho todavía en el andamio: esta tienda está en construcción. Pero ya funciona todo, así que mira, llena tu bolsa y pide sin miedo. ¿Ves algo raro? Cuéntanoslo, nos encantan los avisos de fallos casi tanto como los afters.',
+    cookieLead: '¿Cookies?',
+    cookie: 'Solo de las que se comen. Sin rastreadores, sin anuncios, sin vender datos. Tu bolsa y tus favoritos se quedan en tu propio dispositivo.',
+    more: 'Aviso de cookies',
+    ok: 'Entendido, déjame pasar',
+  },
+
   recent: {
     title: 'Vistos hace poco',
     clear: 'Borrar',

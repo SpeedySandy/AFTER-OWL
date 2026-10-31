@@ -207,6 +207,16 @@ export default {
     chat: 'Chat',
   },
 
+  welcome: {
+    badge: 'Work in progress',
+    title: 'Hoo goes there? Welcome, night owl!',
+    build: 'Fresh paint, loose cables, a few owls still on the scaffolding: this shop is under construction. Everything already works, so browse, fill your bag and order away. Spot something odd? Tell us, we love bug reports almost as much as afterparties.',
+    cookieLead: 'Cookies?',
+    cookie: 'Only the edible kind. No trackers, no ads, no data sold. Your bag and saved pieces stay on your own device.',
+    more: 'Cookie notice',
+    ok: 'Got it, let me in',
+  },
+
   recent: {
     title: 'Recently viewed',
     clear: 'Clear',
